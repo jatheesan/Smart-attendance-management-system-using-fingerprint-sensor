@@ -1,4 +1,4 @@
-# Students-attendance-with-fingerprint-scanner
+# Smart-attendance-management-system-using-fingerprint-sensor
 This is our Team software project
 
 
