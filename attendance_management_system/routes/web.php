@@ -12,11 +12,11 @@
 */
 
 Route::get('/', function () {
-//return view('Registerforms/lecturerregister');
+return view('Registerforms/lecturerregister');
 //return view('Registerforms/studentregister');
 //return view('Registerforms/adminregister');
-//sreturn view('Registerforms/login');
-return view('Registerforms/courseregister');
+//return view('Registerforms/login');
+//return view('Registerforms/courseregister');
   //  return view('welcome');
 });
 
