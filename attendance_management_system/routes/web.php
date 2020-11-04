@@ -12,5 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+//return view('Registerforms/lecturerregister');
+//return view('Registerforms/studentregister');
+//return view('Registerforms/adminregister');
+//sreturn view('Registerforms/login');
+return view('Registerforms/courseregister');
+  //  return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
