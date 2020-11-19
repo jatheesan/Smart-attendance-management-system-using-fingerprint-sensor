@@ -1,5 +1,5 @@
 
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 
 <style>
@@ -59,7 +59,7 @@
                             
 
                                 <div class="col-md-6">
-                                <img src="{{url('/image/uoj.png')}}" alt="image" height="200px" width="200px">
+                                <img src="{{url('/image/uojlogo.png')}}" alt="image" height="200px" width="200px">
                             </div>
                                 
                                 

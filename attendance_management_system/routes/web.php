@@ -11,15 +11,22 @@
 |
 */
 
+// Route::get('/', function () {
+// return view('Registerforms/lecturerregister');
+// //return view('Registerforms/studentregister');
+// //return view('Registerforms/adminregister');
+// //return view('Registerforms/login');
+// //return view('Registerforms/courseregister');
+//   //  return view('welcome');
+// });
+
+
 Route::get('/', function () {
-return view('Registerforms/lecturerregister');
-//return view('Registerforms/studentregister');
-//return view('Registerforms/adminregister');
-//return view('Registerforms/login');
-//return view('Registerforms/courseregister');
-  //  return view('welcome');
-});
+  return view('welcome');
+
+  });
 
 Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
