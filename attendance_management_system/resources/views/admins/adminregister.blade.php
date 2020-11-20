@@ -14,9 +14,9 @@
     }
     .vl{
     border-left: 3px solid black;
-    height: 350px;
+    height: 270px;
     position: absolute ;
-    left:35%;
+    left:33%;
     margin-left:-1px;
     top:-1;
     }
@@ -37,6 +37,7 @@
     }
     .card{
         border-color:rgb(203, 212, 229); 
+      
     }
   
 }
@@ -46,7 +47,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Smart Attendance Management System') }}</div>
+                <div class="card-header text-center">{{ __('ADMIN REGISTER') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -70,10 +71,10 @@
                         <div ><hr class="vl"> </div>
 
                         <div class="col col-sm">
-                            <div>
+                            {{--<div>
                                 <h3 class="a">ADMIN REGISTER</h3><br>
-                            </div>
-                            <div class="form-group row">
+                            </div> --}}
+                            <div class="form-group row d-none">
                                 <label for="id" class="col-md-4 col-form-label text-md-right">{{ __('ID') }}</label>
     
                                 <div class="col-md-6">
@@ -88,7 +89,7 @@
                             </div>
     
                             <div class="form-group row">
-                                <label for="fname" class="col-md-4 col-form-label text-md-right">{{ __('Full Name') }}</label>
+                                <label for="fname" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
     
                                 <div class="col-md-6">
                                     <input id="fname" type="fname" class="form-control @error('fname') is-invalid @enderror" name="fname" value="{{ old('fname') }}" required autocomplete="fname">

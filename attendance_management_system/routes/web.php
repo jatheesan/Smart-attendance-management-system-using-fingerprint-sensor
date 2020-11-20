@@ -26,7 +26,23 @@ Route::get('/', function () {
 
   });
 
+
+Route::get('/student', function () {
+  return view('students.studentregister');
+});
+
+Route::get('/course', function () {
+  return view('courses.courseregister');
+});
+
+Route::get('/lecturer', function () {
+  return view('lecturers.lecturerregister');
+});
+
+Route::get('/admin', function () {
+  return view('admins.adminregister');
+});
+
 Auth::routes();
-
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('admindashboard');

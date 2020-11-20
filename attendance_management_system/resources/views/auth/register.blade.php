@@ -3,50 +3,22 @@
 @section('content')
 
 <style>
-    .a{
-        float: center;
-        padding-top: 2px;
-         padding-left: 30%;
-         font-weight: bold;
-         font-family: 'Times New Roman', Times, serif
-         
-      
-    }
+ 
     .vl{
     border-left: 3px solid black;
-    height: 280px;
+    height: 290px;
     position: absolute ;
     left:35%;
     margin-left:-1px;
     top:-1;
     }
-    .card-header{
-        font-size:40px;
-        background-color:lightgray;
-        float: center;
-        padding-left: 5%;
-        font-family: 'Times New Roman', Times, serif
-        
-    }
-    .card-body{
-        padding-top: 30px;
-    }
-    .row-content{
-        padding-top:40px; 
-        float: center;
-    }
-    .card{
-        border-color:rgb(203, 212, 229); 
-    }
-  
-}
 
 </style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Smart Attendance Management System') }}</div>
+                <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -69,12 +41,9 @@
                         </div>
                         <div ><hr class="vl"> </div>
 
-                        <div class="col col-sm">
-                            <div>
-                                <h3 class="a">ADMIN REGISTER</h3><br>
-                            </div>
-
-                            <div class="form-group row">
+                        <div class="col col-sm" >
+                        
+                            <div class="form-group row row-content ">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
     
                                 <div class="col-md-6">

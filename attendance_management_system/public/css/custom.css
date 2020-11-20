@@ -1,20 +1,13 @@
 .a{
     float: center;
     padding-top: 2px;
-     padding-left: 40%;
+     padding-left: 30%;
      font-weight: bold;
      font-family: 'Times New Roman', Times, serif
      
   
 }
-.vl{
-border-left: 3px solid black;
-height: 300px;
-position: absolute ;
-left:35%;
-margin-left:-1px;
-top:-1;
-}
+
 .card-header{
     font-size:40px;
     background-color:lightgray;
@@ -26,7 +19,7 @@ top:-1;
     padding-top: 30px;
 }
 .row-content{
-    padding-top:40px; 
+    padding-top:30px; 
     float: center;
 }
 .card{
