@@ -11,21 +11,10 @@
 |
 */
 
-// Route::get('/', function () {
-// return view('Registerforms/lecturerregister');
-// //return view('Registerforms/studentregister');
-// //return view('Registerforms/adminregister');
-// //return view('Registerforms/login');
-// //return view('Registerforms/courseregister');
-//   //  return view('welcome');
-// });
-
 
 Route::get('/', function () {
   return view('welcome');
-
-  });
-
+});
 
 Route::get('/student', function () {
   return view('students.studentregister');
