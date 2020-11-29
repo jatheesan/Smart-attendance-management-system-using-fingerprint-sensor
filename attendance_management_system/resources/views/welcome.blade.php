@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Smart_Attendance_Management_System</title>
+        <title>Laravel</title>
         
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/third.css') }}" rel="stylesheet">
@@ -42,10 +42,6 @@
                 right: 10px;
                 top: 18px;
             }
-            
-            .content {
-                text-align: center;
-            }
 
          
 
@@ -56,7 +52,7 @@
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
-                font-size: 18px;
+                font-size: 13px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -66,8 +62,6 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
-
-            
           
           
         </style>
