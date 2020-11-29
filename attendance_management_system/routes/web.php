@@ -32,6 +32,10 @@ Route::get('/admin', function () {
   return view('admins.adminregister');
 });
 
+Route::get('/dashboard', function () {
+  return view('dashboard');
+});
+
 Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('admindashboard');
