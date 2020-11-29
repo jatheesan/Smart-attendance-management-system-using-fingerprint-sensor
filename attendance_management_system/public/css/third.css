@@ -225,6 +225,14 @@ a.navbar-brand {
     border-style: solid;
     border-width: medium;
 }
+
+.formalign {
+    left: 15%;
+    /* top: 50%; */
+    /* margin-left: -25%; */
+    /* position: absolute; */
+    /* margin-top: -25%; */
+}
 /*!
  * Bootstrap v4.0.0-alpha.6 (https://getbootstrap.com)
  * Copyright 2011-2017 The Bootstrap Authors

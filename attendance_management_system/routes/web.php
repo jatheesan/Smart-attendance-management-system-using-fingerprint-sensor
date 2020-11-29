@@ -11,22 +11,31 @@
 |
 */
 
-// Route::get('/', function () {
-// return view('Registerforms/lecturerregister');
-// //return view('Registerforms/studentregister');
-// //return view('Registerforms/adminregister');
-// //return view('Registerforms/login');
-// //return view('Registerforms/courseregister');
-//   //  return view('welcome');
-// });
-
 
 Route::get('/', function () {
   return view('welcome');
+});
 
-  });
+Route::get('/student', function () {
+  return view('students.studentregister');
+});
+
+Route::get('/course', function () {
+  return view('courses.courseregister');
+});
+
+Route::get('/lecturer', function () {
+  return view('lecturers.lecturerregister');
+});
+
+Route::get('/admin', function () {
+  return view('admins.adminregister');
+});
+
+Route::get('/dashboard', function () {
+  return view('dashboard');
+});
 
 Auth::routes();
-
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('admindashboard');

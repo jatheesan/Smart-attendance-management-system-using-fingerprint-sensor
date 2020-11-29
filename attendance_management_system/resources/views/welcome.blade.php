@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Smart_Attendance_Management_System</title>
         
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/third.css') }}" rel="stylesheet">
@@ -42,6 +42,10 @@
                 right: 10px;
                 top: 18px;
             }
+            
+            .content {
+                text-align: center;
+            }
 
          
 
@@ -52,7 +56,7 @@
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
-                font-size: 13px;
+                font-size: 18px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -62,12 +66,14 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            
           
           
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="flex-center position-ref">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -84,15 +90,15 @@
 
 
 
-            <div class="content">
-                <div class="container-fluid pad float-left">
+            <div class="content py-5">
+                <div class="container-fluid float-left">
                     <!-- </div> -->
                     <!-- Counts Section -->
                     <section class="dashboard-counts section-padding">
                         <div class="container-fluid">
                             <div class="row">
                                 <!-- HEADING-->
-                                <div class="col-xl-6 col-md-6 col-6">
+                                <div class="col-md-6 col-sm-12">
     
                                     <div class="ml-1 py-5 text-center">
                                         <h1>SMART</h1>
@@ -103,11 +109,11 @@
     
                                     <div class="row ml-1 py-5">
                                         <!-- Count item widget-->
-                                        <div class="col-xl-3 col-md-3 col-6">
+                                        {{--<div class="col-xl-3 col-md-3 col-6">
                                             <div class="wrapper count-title d-flex"></div>
-                                        </div>
+                                        </div>--}}
                                         <!-- Count item widget-->
-                                        <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="col-md-4 col-4 flex-center">
                                             <div class="wrapper count-title d-flex">
                                                 <div class="count-number">
                                                     <h2>400+</h2>
@@ -116,7 +122,7 @@
                                             </div>
                                         </div>
                                         <!-- Count item widget-->
-                                        <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="col-md-4 col-4 flex-center">
                                             <div class="wrapper count-title d-flex">
                                                 <div class="count-number">
                                                     <h2>50+</h2>
@@ -125,7 +131,7 @@
                                             </div>
                                         </div>
                                         <!-- Count item widget-->
-                                        <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="col-md-4 col-4 flex-center">
                                             <div class="wrapper count-title d-flex">
                                                 <div class="count-number">
                                                     <h2>100+</h2>
@@ -137,7 +143,7 @@
     
                                 </div>
                                 <!-- IMAGE-->
-                                <div class="col-xl-6 col-md-6 col-6">
+                                <div class="col-md-6 col-sm-12">
                                     <div class="m-5">
                                         <img
                                             src="{{url('/image/phone.png')}}"

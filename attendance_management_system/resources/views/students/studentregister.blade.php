@@ -14,9 +14,9 @@
     }
     .vl{
     border-left: 3px solid black;
-    height: 330px;
+    height: 270px;
     position: absolute ;
-    left:35%;
+    left:33%;
     margin-left:-1px;
     top:-1;
     }
@@ -37,6 +37,7 @@
     }
     .card{
         border-color:rgb(203, 212, 229); 
+       
     }
   
 }
@@ -46,112 +47,129 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-lg-8">
             <div class="card">
-                <div class="card-header">{{ __('Smart Attendance Management System') }}</div>
-
+                <div class="card-header text-center">
+                    {{ __('STUDENT REGISTER') }}
+                </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-                    <div class="row">
-                        <div class="col-12 col-sm-4 ">
-                            <div class="form-group row">
-                                <div class="col-md-6">
-                                <img src="{{url('/image/uojlogo.png')}}" alt="image" height="200px" width="200px">
-                            </div>  
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="row d-lg-none">
+                                    <div class="col text-center">
+                                        <img src="{{url('/image/uojlogo.png')}}" alt="image" height="200px" width="200px">
+                                    </div>
+                                    {{--<div class="col">
+                                        <h1>UOJ</h1>
+                                    </div>--}}
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group row">
+                                    <div class="col-lg-12 d-none d-lg-block text-center">
+                                        <img src="{{url('/image/uojlogo.png')}}" alt="image" height="200px" width="200px">
+                                    </div>
+                                    <div class="w-100"></div>
+                                    <div class="col-lg-12 d-none d-lg-block">
+                                        <h1 class="text-center">UOJ</h1>
+                                    </div>
+                                    <div class="w-100"></div>
+                                    <div class="col-lg-12 d-none d-lg-block">
+                                        <h4 class="text-center">JAFFNA</h4>
+                                    </div>                       
+                                </div>
+                            </div>
+                            <div class="col-lg-1 d-none d-lg-block">
+                                <hr class="vl">
                             </div>
 
-                            <div class ="col" >
-                                <h1 class="a" > UOJ</h1></div>
-                                <h4 class="a">JAFFNA</h4>
-                        </div>
-                        <div ><hr class="vl"> </div>
-
-                        <div class="col col-sm">
-                            <div>
+                            <div class="col-lg-7">
+                            {{--<div>
                                 <h3 class="a">STUDENT REGISTER</h3><br>
-                            </div>
-                            <div class="form-group row">
-                                <label for="id" class="col-md-4 col-form-label text-md-right">{{ __('ID') }}</label>
-    
-                                <div class="col-md-6">
-                                    <input id="id" type="text" class="form-control @error('id') is-invalid @enderror" name="id" value="{{ old('id') }}" required autocomplete="id" autofocus>
-    
-                                    @error('id')
+                            </div>--}}
+                                <div class="form-group row d-none">
+                                    <label for="id" class="col-lg-4 col-form-label text-lg-right">{{ __('ID') }}</label>
+                                    <div class="col-lg-6">
+                                        <input id="id" type="text" class="form-control @error('id') is-invalid @enderror" name="id" value="{{ old('id') }}" required autocomplete="id" autofocus>
+                                        @error('id')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
-                                    @enderror
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
     
-                            <div class="form-group row">
-                                <label for="fname" class="col-md-4 col-form-label text-md-right">{{ __('Full Name') }}</label>
-    
-                                <div class="col-md-6">
-                                    <input id="fname" type="text" class="form-control @error('fname') is-invalid @enderror" name="fname" value="{{ old('fname') }}" required autocomplete="fname">
-    
-                                    @error('fname')
+                                <div class="form-group row">
+                                    <label for="fname" class="col-lg-4 col-form-label text-lg-right">{{ __('Full Name') }}</label>
+                                    <div class="col-lg-6">
+                                        <input id="fname" type="text" class="form-control @error('fname') is-invalid @enderror" name="fname" value="{{ old('fname') }}" required autocomplete="fname">
+                                        @error('fname')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
-                                    @enderror
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group row">
-                                <label for="stregno" class="col-md-4 col-form-label text-md-right">{{ __('Registration No') }}</label>
-    
-                                <div class="col-md-6">
-                                    <input id="stregno" type="text" class="form-control @error('stregno') is-invalid @enderror" name="stregno" value="{{ old('stregno') }}" required autocomplete="stregno">
-    
-                                    @error('Stregno')
+                                <div class="form-group row">
+                                    <label for="stregno" class="col-lg-4 col-form-label text-lg-right">{{ __('Registration No') }}</label>
+                                    <div class="col-lg-6">
+                                        <input id="stregno" type="text" class="form-control @error('stregno') is-invalid @enderror" name="stregno" value="{{ old('stregno') }}" required autocomplete="stregno">
+                                        @error('Stregno')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
-                                    @enderror
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group row">
-                                <label for="level" class="col-md-4 col-form-label text-md-right">{{ __('Level') }}</label>
-    
-                                <div class="col-md-6">
-                                    <input id="level" type="text" class="form-control @error('level') is-invalid @enderror" name="level" value="{{ old('level') }}" required autocomplete="level">
-    
-                                    @error('level')
+                                <div class="form-group row">
+                                    <label for="level" class="col-lg-4 col-form-label text-lg-right">{{ __('Level') }}</label>
+                                    <div class="col-lg-6">
+                                    <select id="level" class="form-control @error('position') is-invalid @enderror" name="level">
+                                        <option>1S</option>
+                                        <option>1G</option>
+                                        <option>2S</option>
+                                        <option>2G</option>
+                                        <option>3S</option>
+                                        <option>3G</option>
+                                        <option>3M</option>
+                                        <option>4S</option>
+                                        <option>4M</option>
+                                    </select>
+                                        @error('level')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
-                                    @enderror
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="acyear" class="col-md-4 col-form-label text-md-right">{{ __('Academic Year') }}</label>
-    
-                                <div class="col-md-6">
-                                    <input id="acyear" type="text" class="form-control @error('acyear') is-invalid @enderror" name="acyear" value="{{ old('acyear') }}" required autocomplete="acyear">
-    
-                                    @error('acyear')
+
+                                <div class="form-group row">
+                                    <label for="acyear" class="col-lg-4 col-form-label text-lg-right">{{ __('Academic Year') }}</label>
+                                    <div class="col-lg-6">
+                                        <input id="acyear" type="text" class="form-control @error('acyear') is-invalid @enderror" name="acyear" value="{{ old('acyear') }}" required autocomplete="acyear">
+                                        @error('acyear')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
-                                    @enderror
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Register') }}
-                                    </button>
+                                <div class="form-group row mb-0">
+                                    <div class="col-lg-6 offset-lg-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            {{ __('Register') }}
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        </div>
-                        </form>
-                    </div>
-        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
