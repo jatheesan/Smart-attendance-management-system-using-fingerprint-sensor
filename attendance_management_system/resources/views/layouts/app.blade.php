@@ -21,13 +21,19 @@
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+<div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand d-none d-lg-inline-block" href="{{ url('/') }}">
                 {{ 'SMART ATTENDANCE MANAGEMENT SYSTEM' }}
                 </a>
+                <a class="navbar-brand d-none d-inline-block d-lg-none" href="{{ url('/') }}">
+                {{ 'SAMS' }}
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    {{--<a class="navbar-brand d-none d-inline-block d-lg-none" href="{{ url('/') }}">
+                    {{ 'SAMS' }}
+                    </a>--}}
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
