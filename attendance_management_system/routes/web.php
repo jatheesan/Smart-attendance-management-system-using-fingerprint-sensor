@@ -36,6 +36,8 @@ Route::get('/dashboard', function () {
   return view('dashboard');
 });
 
+Route::get('admin/home', 'HomeController@adminHome')->name('admindashboard')->middleware('role');
+
 Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home', 'HomeController@index')->name('admindashboard');
+Route::get('/home', 'HomeController@index')->name('home');
