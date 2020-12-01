@@ -123,7 +123,7 @@
         <nav class="side-navbar">
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img src="image/1.png" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="avatar"><img src="{{ URL::asset('/image/1.png') }}" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4">{{ Auth::user()->name }}</h1>
               <i class="fa fa-circle text-success">Online</i>
