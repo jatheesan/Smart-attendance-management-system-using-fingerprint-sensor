@@ -38,6 +38,12 @@ Route::get('/dashboard', function () {
 
 Route::get('admin/home', 'HomeController@adminHome')->name('admindashboard')->middleware('role');
 
+Route::get('/tables/users', 'Auth\UserController@index');
+Route::get('/tables/users/edit/{id}', 'Auth\UserController@edit')->name('edit');
+Route::patch('/tables/users/update/{id}', 'Auth\UserController@update')->name('update');
+Route::delete('/tables/users/delete/{id}', 'Auth\UserController@destroy')->name('delete');
+
+
 Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');

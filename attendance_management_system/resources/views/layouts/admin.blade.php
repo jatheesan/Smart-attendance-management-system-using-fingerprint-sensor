@@ -140,7 +140,7 @@
               </ul>
             </li>
             <li><a href="{{ url('/course') }}"> <i class="fa fa-book"></i>Courses</a></li>
-            <li><a href="tables.html"> <i class="fa fa-table"></i>Tables </a></li>
+            <li><a href="{{ url('/tables/users') }}"> <i class="fa fa-table"></i>Tables </a></li>
             <li><a href="#example1dropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-address-book-o"></i>Attendances</a>
               <ul id="example1dropdownDropdown" class="collapse list-unstyled ">
                 <li><a href="#">1S/1G</a></li>
