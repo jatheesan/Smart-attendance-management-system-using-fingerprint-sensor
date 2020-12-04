@@ -43,6 +43,8 @@ Route::get('/tables/users/edit/{id}', 'Auth\UserController@edit')->name('edit');
 Route::patch('/tables/users/update/{id}', 'Auth\UserController@update')->name('update');
 Route::delete('/tables/users/delete/{id}', 'Auth\UserController@destroy')->name('delete');
 
+Route::get('change-password', 'User\ChangePasswordController@index');
+Route::post('change-password', 'User\ChangePasswordController@store')->name('change.password');
 
 Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
