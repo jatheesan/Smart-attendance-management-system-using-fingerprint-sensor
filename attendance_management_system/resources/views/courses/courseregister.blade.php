@@ -1,5 +1,5 @@
-
 @extends('layouts.admin')
+@section('pagetitle','Course')
 @section('content')
 
 <style>
@@ -8,25 +8,22 @@
         padding-top: 2px;
          padding-left: 30%;
          font-weight: bold;
-         font-family: 'Times New Roman', Times, serif
-         
-      
+         font-family: 'Times New Roman', Times, serif      
     }
     .vl{
-    border-left: 3px solid black;
-    height: 290px;
-    position: absolute ;
-    left:34%;
-    margin-left:-1px;
-    top:-1;
+        border-left: 3px solid black;
+        height: 290px;
+        position: absolute ;
+        left:34%;
+        margin-left:-1px;
+        top:-1;
     }
     .card-header{
         font-size:40px;
         background-color:lightgray;
         float: center;
         padding-left: 5%;
-        font-family: 'Times New Roman', Times, serif
-        
+        font-family: 'Times New Roman', Times, serif    
     }
     .card-body{
         padding-top: 30px;
@@ -38,13 +35,8 @@
     .card{
         border-color:rgb(203, 212, 229);     
     }
-    
-   
-  
-}
 
 </style>
-
 
 <div class="container">
     <div class="row justify-content-center">

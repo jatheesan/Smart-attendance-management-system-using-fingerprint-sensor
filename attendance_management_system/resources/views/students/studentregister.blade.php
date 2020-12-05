@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('pagetitle','student')
+@section('pagetitle','Student')
 @section('content')
 
 <style>

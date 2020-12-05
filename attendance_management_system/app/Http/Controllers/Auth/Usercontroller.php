@@ -90,7 +90,7 @@ class Usercontroller extends Controller
         //Hash::make($data['password'])
         $user ->save();
 
-        return redirect('/tables/users')->with('success', 'user updated!');
+        return redirect('/tables/users')->with('success', 'User updated!');
     }
 
     /**
@@ -104,6 +104,6 @@ class Usercontroller extends Controller
         $user = User::find($id);
         $user->delete();
 
-        return redirect('/tables/users')->with('success', 'Contact deleted!');
+        return redirect('/tables/users')->with('success', 'User deleted!');
     }
 }

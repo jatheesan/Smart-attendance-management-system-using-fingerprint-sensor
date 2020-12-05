@@ -15,7 +15,7 @@
                 </div>
                 @endif
             </div>
-            <table class="table table-striped">
+            <table class="table table-striped table-hover">
                 <thead>
                     <tr>
                         <td>Lecturer ID</td>

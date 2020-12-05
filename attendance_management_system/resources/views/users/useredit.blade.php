@@ -1,5 +1,5 @@
-
 @extends('layouts.admin')
+@section('pagetitle','User')
 @section('content')
 
 <style>
