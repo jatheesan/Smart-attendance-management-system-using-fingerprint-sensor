@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('pagetitle','dashboard')
 @section('content')
         <!-- Dashboard Counts Section-->
         <section class="dashboard-counts no-padding-bottom">

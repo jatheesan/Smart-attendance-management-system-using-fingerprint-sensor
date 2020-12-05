@@ -132,17 +132,24 @@
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
           <ul class="list-unstyled">
             <li class="active"><a href="/dashboard"> <i class="fa fa-home"></i>Dashboard</a></li>
-            <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-user-plus"></i>Register</a>
-              <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+            <li><a href="#registerdropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-user-plus"></i>Register</a>
+              <ul id="registerdropdownDropdown" class="collapse list-unstyled ">
                 <li><a href="{{ url('/student') }}">Student</a></li>
                 <li><a href="{{ url('/lecturer') }}">Lecturer</a></li>
                 <li><a href="{{ url('/admin') }}">Admin</a></li>
               </ul>
             </li>
             <li><a href="{{ url('/course') }}"> <i class="fa fa-book"></i>Courses</a></li>
-            <li><a href="{{ url('/tables/users') }}"> <i class="fa fa-table"></i>Tables </a></li>
-            <li><a href="#example1dropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-address-book-o"></i>Attendances</a>
-              <ul id="example1dropdownDropdown" class="collapse list-unstyled ">
+            <li><a href="#tablesdropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-table"></i>Tables </a>
+              <ul id="tablesdropdownDropdown" class="collapse list-unstyled ">
+                <li><a href="{{ url('/tables/users') }}">User</a></li>
+                <li><a href="{{ url('/tables/students') }}">Student</a></li>
+                <li><a href="{{ url('/tables/lecturers') }}">Lecturer</a></li>
+                <li><a href="{{ url('/tables/courses') }}">Courses</a></li>
+              </ul>
+            </li>
+            <li><a href="#AttendancesdropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-address-book-o"></i>Attendances</a>
+              <ul id="AttendancesdropdownDropdown" class="collapse list-unstyled ">
                 <li><a href="#">1S/1G</a></li>
                 <li><a href="#">2S/2G</a></li>
                 <li><a href="#">3S/3G/3M</a></li>
@@ -164,7 +171,7 @@
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">Dashboard</h2>
+              <h1 class="no-margin-bottom">@yield('pagetitle')</h1>
             </div>
           </header>
           <div class="row d-none">
