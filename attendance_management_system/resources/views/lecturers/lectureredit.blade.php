@@ -1,5 +1,6 @@
+
 @extends('layouts.admin')
-@section('pagetitle','Admin')
+@section('pagetitle','Lecturer')
 @section('content')
 
 <style>
@@ -14,7 +15,7 @@
     }
     .vl{
     border-left: 3px solid black;
-    height: 270px;
+    height: 240px;
     position: absolute ;
     left:33%;
     margin-left:-1px;
@@ -37,22 +38,23 @@
     }
     .card{
         border-color:rgb(203, 212, 229); 
-      
+        
     }
   
 }
 
 </style>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card">
                 <div class="card-header text-center">
-                    {{ __('ADMIN REGISTER') }}
+                    {{ __('LECTURER REGISTER') }}
                 </div>
-
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('lecturer_update', ['id' => $lecturer->lect_id]) }}">
+                        @method('PATCH') 
                         @csrf
                         <div class="row">
                             <div class="col-lg-12">
@@ -83,70 +85,54 @@
                             <div class="col-lg-1 d-none d-lg-block">
                                 <hr class="vl">
                             </div>
-
                             <div class="col-lg-7">
-                            {{--<div>
-                                <h3 class="a">ADMIN REGISTER</h3><br>
-                            </div> --}}
-                                <div class="form-group row d-none">
-                                    <label for="id" class="col-lg-4 col-form-label text-lg-right">{{ __('ID') }}</label>
+    
+                                <div class="form-group row">
+                                    <label for="lect_name" class="col-lg-4 col-form-label text-lg-right">{{ __('lecturer Name') }}</label>
                                     <div class="col-lg-6">
-                                        <input id="id" type="text" class="form-control @error('id') is-invalid @enderror" name="id" value="{{ old('id') }}" required autocomplete="id" autofocus>
-                                        @error('id')
+                                        <input id="lect_name" type="text" class="form-control @error('lect_name') is-invalid @enderror" name="lect_name" value="{{ $lecturer->lect_name }}" required autocomplete="lect_name">
+                                        @error('lect_name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
                                     </div>
                                 </div>
-        
+
                                 <div class="form-group row">
-                                    <label for="fname" class="col-lg-4 col-form-label text-lg-right">{{ __('Name') }}</label>
+                                    <label for="lect_email" class="col-lg-4 col-form-label text-lg-right">{{ __('Email Address') }}</label>
                                     <div class="col-lg-6">
-                                        <input id="fname" type="fname" class="form-control @error('fname') is-invalid @enderror" name="fname" value="{{ old('fname') }}" required autocomplete="fname">
-                                        @error('fname')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
+                                        <input id="lect_email" type="text" class="form-control @error('lect_email') is-invalid @enderror" name="lect_email" value="{{ $lecturer->lect_email }}" required autocomplete="lect_email">
+                                        @error('lect_email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>
+
                                 <div class="form-group row">
-                                    <label for="email" class="col-lg-4 col-form-label text-lg-right">{{ __('E-Mail Address') }}</label>
+                                    <label for="position" class="col-lg-4 col-form-label text-lg-right">{{ __('Position') }}</label>
                                     <div class="col-lg-6">
-                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                        @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
+                                        <select id="position" class="form-control @error('position') is-invalid @enderror" name="position">
+                                            <option value="HOD" {{$lecturer ->position == 'HOD' ? 'selected' : ''}} > {{ __('HOD') }} </option>
+                                            <option value="lecturer" {{$lecturer ->position == 'lecturer' ? 'selected' : ''}} > {{ __('lecturer') }} </option>
+                                            <option value="assistentlecturer" {{$lecturer ->position == 'assistentlecturer' ? 'selected' : ''}} > {{ __('assistentlecturer') }} </option>
+                                        </select>
+                                        @error('position')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label for="password" class="col-lg-4 col-form-label text-lg-right">{{ __('Password') }}</label>
-                                    <div class="col-lg-6">
-                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                                        @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="password-confirm" class="col-lg-4 col-form-label text-lg-right">{{ __('Confirm Password') }}</label>
-                                    <div class="col-lg-6">
-                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                                    </div>
-                                </div>
-        
                                 <div class="form-group row mb-0">
                                     <div class="col-lg-6 offset-lg-4">
                                         <button type="submit" class="btn btn-primary">
-                                            {{ __('Register') }}
+                                            {{ __('Update') }}
                                         </button>
                                     </div>
-                                </div>       
+                                </div>
                             </div>
                         </div>
                     </form>
