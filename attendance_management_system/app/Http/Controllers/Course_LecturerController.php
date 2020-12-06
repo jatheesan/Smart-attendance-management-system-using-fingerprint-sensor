@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use App\Lecturer;
 use App\Http\Middleware\IsLecturers;
-
 use Illuminate\Http\Request;
 
 class Course_LecturerController extends Controller
@@ -18,6 +17,6 @@ class Course_LecturerController extends Controller
     {
         $lecturers = Lecturer::where('position', 'lecturer')->get();
         $alecturers = Lecturer::where('position', 'assistentlecturer')->get();
-        return view('courses.courseregister', compact('lecturers', 'alecturers'));
+        return view('courses.courseregister', compact('lecturers','alecturers'));
     }
 }
