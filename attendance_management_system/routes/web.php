@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LecturerController;
+//use App\Http\Middleware\IsLecturers;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,6 +53,17 @@ Route::post('/lecturer/store',[LecturerController::class,'store']);
 Route::get('/lecturer/edit/{id}', [LecturerController::class, 'edit']) ->name('lecturer_edit');
 Route::patch('/lecturer/update/{id}', [LecturerController::class, 'update']) ->name('lecturer_update');
 Route::delete('/lecturer/delete/{id}', [LecturerController::class, 'destroy']) ->name('lecturer_delete');
+
+//Route::get('/course', 'Course_LecturerController@lecturer_show')->name('lecturer_show');
+//Route::get('/coursea', 'Course_Assistant_LecturerController@assistant_lecturer_show');
+
+Route::group(['middleware' => 'islecturers'], function () {
+  Route::get('/course', 'Course_LecturerController@lecturer_show');
+});
+Route::group(['middleware' => 'isassistantlecturers'], function () {
+  Route::get('/course', 'Course_Assistant_LecturerController@assistant_lecturer_show');
+});
+
 Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
