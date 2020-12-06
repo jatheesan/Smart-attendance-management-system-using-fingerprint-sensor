@@ -1,5 +1,5 @@
-
 @extends('layouts.admin')
+@section('pagetitle','Lecturer')
 @section('content')
 
 <style>
@@ -14,7 +14,7 @@
     }
     .vl{
     border-left: 3px solid black;
-    height: 290px;
+    height: 240px;
     position: absolute ;
     left:33%;
     margin-left:-1px;
@@ -52,7 +52,7 @@
                     {{ __('LECTURER REGISTER') }}
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ url('/lecturer/store') }}">
                         @csrf
                         <div class="row">
                             <div class="col-lg-12">
@@ -84,27 +84,12 @@
                                 <hr class="vl">
                             </div>
                             <div class="col-lg-7">
-                            {{--<div>
-                                <h3 class="a">LECTURER REGISTER</h3><br>
-                            </div>
-                            --}}
-                                <div class="form-group row d-none">
-                                    <label for="id" class="col-lg-4 col-form-label text-lg-right">{{ __('ID') }}</label>
-                                    <div class="col-lg-6">
-                                        <input id="id" type="text" class="form-control @error('id') is-invalid @enderror" name="id" value="{{ old('id') }}" required autocomplete="id" autofocus>
-                                        @error('id')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </div>
     
                                 <div class="form-group row">
-                                    <label for="lname" class="col-lg-4 col-form-label text-lg-right">{{ __('Full Name') }}</label>
+                                    <label for="lect_name" class="col-lg-4 col-form-label text-lg-right">{{ __('lecturer Name') }}</label>
                                     <div class="col-lg-6">
-                                        <input id="lname" type="text" class="form-control @error('lname') is-invalid @enderror" name="lname" value="{{ old('lname') }}" required autocomplete="lname">
-                                        @error('lname')
+                                        <input id="lect_name" type="text" class="form-control @error('lect_name') is-invalid @enderror" name="lect_name" value="{{ old('lect_name') }}" required autocomplete="lect_name">
+                                        @error('lect_name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -113,10 +98,10 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="lregno" class="col-lg-4 col-form-label text-lg-right">{{ __('Registration No') }}</label>
+                                    <label for="lect_email" class="col-lg-4 col-form-label text-lg-right">{{ __('Email Address') }}</label>
                                     <div class="col-lg-6">
-                                        <input id="lregno" type="text" class="form-control @error('lregno') is-invalid @enderror" name="lregno" value="{{ old('lregno') }}" required autocomplete="lregno">
-                                        @error('lregno')
+                                        <input id="lect_email" type="text" class="form-control @error('lect_email') is-invalid @enderror" name="lect_email" value="{{ old('lect_email') }}" required autocomplete="lect_email">
+                                        @error('lect_email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -128,9 +113,9 @@
                                     <label for="position" class="col-lg-4 col-form-label text-lg-right">{{ __('Position') }}</label>
                                     <div class="col-lg-6">
                                         <select id="position" class="form-control @error('position') is-invalid @enderror" name="position">
-                                            <option>HOD</option>
-                                            <option selected>lecturer</option>
-                                            <option>assistentlecturer</option>
+                                            <option value="HOD">HOD</option>
+                                            <option value="lecturer" selected>lecturer</option>
+                                            <option value="assistentlecturer">assistentlecturer</option>
                                         </select>
                                         @error('position')
                                         <span class="invalid-feedback" role="alert">
@@ -139,26 +124,6 @@
                                         @enderror
                                     </div>
                                 </div>
-
-                                <div class="form-group row">
-                                    <label for="password" class="col-lg-4 col-form-label text-lg-right">{{ __('Password') }}</label>     
-                                    <div class="col-lg-6">
-                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                                        @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-    
-                                <div class="form-group row">
-                                    <label for="password-confirm" class="col-lg-4 col-form-label text-lg-right">{{ __('Confirm Password') }}</label>
-                                    <div class="col-lg-6">
-                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                                    </div>
-                                </div>
-        
                                 <div class="form-group row mb-0">
                                     <div class="col-lg-6 offset-lg-4">
                                         <button type="submit" class="btn btn-primary">

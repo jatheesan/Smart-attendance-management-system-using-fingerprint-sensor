@@ -8,7 +8,6 @@
         
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/third.css') }}" rel="stylesheet">
-
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
@@ -46,9 +45,6 @@
             .content {
                 text-align: center;
             }
-
-         
-
             .title {
                 font-size: 84px;
             }
@@ -62,14 +58,9 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
-
             .m-b-md {
                 margin-bottom: 30px;
-            }
-
-            
-          
-          
+            } 
         </style>
     </head>
     <body>
@@ -87,9 +78,7 @@
                     @endauth
                 </div>
             @endif
-
-
-
+            
             <div class="content py-5">
                 <div class="container-fluid float-left">
                     <!-- </div> -->
@@ -160,19 +149,7 @@
                     <!-- <hr style="width: 100%; color: black; height: 1px; background-color:black;"
                     /> -->
                 </div>
-             
-                
-
-
-
-
-            </div>
-
-      
-
-
-            
-    </div>  
-    
+            </div> 
+          </div>
     </body>
 </html>
