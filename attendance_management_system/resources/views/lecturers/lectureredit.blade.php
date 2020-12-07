@@ -112,12 +112,27 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="position" class="col-lg-4 col-form-label text-lg-right">{{ __('Position') }}</label>
+                                    <label for="position[]" class="col-lg-4 col-form-label text-lg-right">{{ __('Position') }}</label>
                                     <div class="col-lg-6">
-                                        <select id="position" class="form-control @error('position') is-invalid @enderror" name="position">
-                                            <option value="HOD" {{$lecturer ->position == 'HOD' ? 'selected' : ''}} > {{ __('HOD') }} </option>
-                                            <option value="lecturer" {{$lecturer ->position == 'lecturer' ? 'selected' : ''}} > {{ __('lecturer') }} </option>
-                                            <option value="assistentlecturer" {{$lecturer ->position == 'assistentlecturer' ? 'selected' : ''}} > {{ __('assistentlecturer') }} </option>
+                                        @php
+                                            $positions = explode("," , ($lecturer ->position))
+                                        @endphp
+                                        <select id="position" class="form-control @error('position') is-invalid @enderror" name="position[]" multiple="multiple">
+                                            <option value="HOD" 
+                                                @if(in_array('HOD', $positions))
+                                                    selected="selected"
+                                                @endif
+                                            > {{ __('HOD') }}</option>
+                                            <option value="lecturer"
+                                                @if(in_array('lecturer', $positions))
+                                                    selected="selected"
+                                                @endif
+                                            > {{ __('lecturer') }} </option>
+                                            <option value="assistentlecturer"
+                                                @if(in_array('assistentlecturer', $positions))
+                                                    selected="selected"
+                                                @endif
+                                            > {{ __('assistentlecturer') }} </option>
                                         </select>
                                         @error('position')
                                         <span class="invalid-feedback" role="alert">

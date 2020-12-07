@@ -110,9 +110,9 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="position" class="col-lg-4 col-form-label text-lg-right">{{ __('Position') }}</label>
+                                    <label for="position[]" class="col-lg-4 col-form-label text-lg-right">{{ __('Position') }}</label>
                                     <div class="col-lg-6">
-                                        <select id="position" class="form-control @error('position') is-invalid @enderror" name="position">
+                                        <select id="position" class="form-control @error('position') is-invalid @enderror" name="position[]" multiple="multiple">
                                             <option value="HOD">HOD</option>
                                             <option value="lecturer" selected>lecturer</option>
                                             <option value="assistentlecturer">assistentlecturer</option>
