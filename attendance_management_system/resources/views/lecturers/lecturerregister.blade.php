@@ -14,7 +14,7 @@
     }
     .vl{
     border-left: 3px solid black;
-    height: 240px;
+    height: 290px;
     position: absolute ;
     left:33%;
     margin-left:-1px;
@@ -60,9 +60,6 @@
                                     <div class="col text-center">
                                         <img src="{{url('/image/uojlogo.png')}}" alt="image" height="200px" width="200px">
                                     </div>
-                                    {{--<div class="col">
-                                        <h1>UOJ</h1>
-                                    </div>--}}
                                 </div>
                             </div>
                             <div class="col-lg-4">
@@ -72,11 +69,11 @@
                                     </div>
                                     <div class="w-100"></div>
                                     <div class="col-lg-12 d-none d-lg-block">
-                                        <h1 class="text-center">UOJ</h1>
+                                        <h1 class="text-center display-3">UOJ</h1>
                                     </div>
                                     <div class="w-100"></div>
                                     <div class="col-lg-12 d-none d-lg-block">
-                                        <h4 class="text-center">JAFFNA</h4>
+                                        <h4 class="text-center h4font">JAFFNA</h4>
                                     </div>                       
                                 </div>
                             </div>
