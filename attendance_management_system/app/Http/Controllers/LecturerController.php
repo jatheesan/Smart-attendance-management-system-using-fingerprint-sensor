@@ -1,14 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
+use App\Lecturer;
 
-use App\User;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 
-class Usercontroller extends Controller
+class LecturerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +14,9 @@ class Usercontroller extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $lecturers = Lecturer::all();
 
-        return view('users.userindex', compact('users'));
+        return view('lecturers.lecturerindex', compact('lecturers'));
     }
 
     /**
@@ -40,7 +37,20 @@ class Usercontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'lect_name' => 'required',
+            'lect_email' => 'required',
+            'position' => 'required'
+        ]);
+
+        $lecturer = new Lecturer([
+            'lect_name' => $request->get('lect_name'),
+            'lect_email' => $request->get('lect_email'),
+            'position' => $request->get('position'),
+        ]);
+
+        $lecturer->save();
+        return redirect('/tables/lecturers')->with('success', 'Contact saved!');
     }
 
     /**
@@ -62,8 +72,9 @@ class Usercontroller extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('users.useredit', compact('user'));
+        $lecturer = Lecturer::find($id);
+
+        return view('lecturers.lectureredit', compact('lecturer'));
     }
 
     /**
@@ -76,21 +87,18 @@ class Usercontroller extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255'],
-            'role' => 'required',
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'lect_name' => 'required',
+            'lect_email' => 'required',
+            'position' => 'required'
         ]);
 
-        $user = User::find($id);
-        $user -> name = $request->get('name');
-        $user -> email = $request->get('email');
-        $user -> role = $request->get('role');
-        $user ->password = Hash::make($request -> get('password'));
-        //Hash::make($data['password'])
-        $user ->save();
+        $lecturer = Lecturer::find($id);
+        $lecturer -> lect_name = $request->get('lect_name');
+        $lecturer -> lect_email = $request->get('lect_email');
+        $lecturer -> position = $request->get('position');
 
-        return redirect('/tables/users')->with('success', 'User updated!');
+        $lecturer -> save();
+        return redirect('/tables/lecturers')->with('success', 'lecturer updated!');
     }
 
     /**
@@ -101,9 +109,9 @@ class Usercontroller extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
-        $user->delete();
+        $lecturer = Lecturer::find($id);
+        $lecturer->delete();
 
-        return redirect('/tables/users')->with('success', 'User deleted!');
+        return redirect('/tables/lecturers')->with('success', 'Lecturer deleted!');
     }
 }

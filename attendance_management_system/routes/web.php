@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LecturerController;
+//use App\Http\Middleware\IsLecturers;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,13 +41,22 @@ Route::get('/dashboard', function () {
 Route::get('admin/home', 'HomeController@adminHome')->name('admindashboard')->middleware('role');
 
 Route::get('/tables/users', 'Auth\UserController@index');
-Route::get('/tables/users/edit/{id}', 'Auth\UserController@edit')->name('edit');
-Route::patch('/tables/users/update/{id}', 'Auth\UserController@update')->name('update');
-Route::delete('/tables/users/delete/{id}', 'Auth\UserController@destroy')->name('delete');
+Route::get('/user/edit/{id}', 'Auth\UserController@edit')->name('edit');
+Route::patch('/user/update/{id}', 'Auth\UserController@update')->name('update');
+Route::delete('/user/delete/{id}', 'Auth\UserController@destroy')->name('delete');
 
 Route::get('change-password', 'User\ChangePasswordController@index');
 Route::post('change-password', 'User\ChangePasswordController@store')->name('change.password');
 
+Route::get('tables/lecturers',[LecturerController::class,'index']);
+Route::post('/lecturer/store',[LecturerController::class,'store']);
+Route::get('/lecturer/edit/{id}', [LecturerController::class, 'edit']) ->name('lecturer_edit');
+Route::patch('/lecturer/update/{id}', [LecturerController::class, 'update']) ->name('lecturer_update');
+Route::delete('/lecturer/delete/{id}', [LecturerController::class, 'destroy']) ->name('lecturer_delete');
+
+Route::group(['middleware' => 'islecturers'], function () {
+  Route::get('/course', 'Course_LecturerController@lecturer_show')->name('lecturer_show');
+});
+
 Auth::routes();
-//Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
