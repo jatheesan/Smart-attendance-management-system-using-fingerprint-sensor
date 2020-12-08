@@ -15,7 +15,7 @@ class Course_LecturerController extends Controller
      */
     public function lecturer_show(Request $request)
     {
-        $lecturers = Lecturer::where('position', 'lecturer')->get();
+        $lecturers = Lecturer::where('position', 'lecturer')->orWhere('position', 'HOD,lecturer')->orWhere('position', 'HOD')->get();
         $alecturers = Lecturer::where('position', 'assistentlecturer')->get();
         return view('courses.courseregister', compact('lecturers','alecturers'));
     }
