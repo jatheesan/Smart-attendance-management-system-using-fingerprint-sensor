@@ -148,7 +148,9 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-6">
-                  <p> &copy;2020 DEPARTMENT OF COMPUTER SCIENCE ALL RIGHTS RESERVED </p>
+
+                  <p>&copy;2020 DEPARTMENT OF COMPUTER SCIENCE ALL RIGHTS RESERVED - JAFFNA</p>
+
                 </div>
                 <div class="col-sm-6 text-right">
                   <p><a href="http://www.csc.jfn.ac.lk/" class="external">UNIVERSITY OF JAFFNA</a></p>
