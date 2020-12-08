@@ -6,7 +6,7 @@
  
     .vl{
     border-left: 3px solid black;
-    height: 290px;
+    height: 310px;
     position: absolute ;
     left:35%;
     margin-left:-1px;
@@ -42,11 +42,11 @@
                                     </div>
                                     <div class="w-100"></div>
                                     <div class="col-lg-12 d-none d-lg-block">
-                                        <h1 class="text-center">UOJ</h1>
+                                        <h1 class="text-center display-3">UOJ</h1>
                                     </div>
                                     <div class="w-100"></div>
                                     <div class="col-lg-12 d-none d-lg-block">
-                                        <h4 class="text-center">JAFFNA</h4>
+                                        <h4 class="text-center h4font">JAFFNA</h4>
                                     </div>                       
                                 </div>
                             </div>
@@ -121,7 +121,8 @@
                                 </div>
 
                                 <div class="form-group row mb-0">
-                                    <div class="col-md-6 offset-md-4">
+                                    <div class="col-md-7 offset-md-4">
+                                        <a class="btn btn-info btn-close" href="{{ url('/tables/users') }}">Cancel</a>
                                         <button type="submit" class="btn btn-primary">
                                             {{ __('Update') }}
                                         </button>
