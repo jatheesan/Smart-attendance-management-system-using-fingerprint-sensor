@@ -139,7 +139,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group row mb-0">
-                                    <div class="col-lg-6 offset-lg-4">
+                                    <div class="col-lg-7 offset-lg-4">
+                                        <a class="btn btn-info btn-close" href="{{ url('/tables/lecturers') }}">Cancel</a>
                                         <button type="submit" class="btn btn-primary">
                                             {{ __('Update') }}
                                         </button>
