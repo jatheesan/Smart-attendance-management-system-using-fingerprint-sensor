@@ -39,7 +39,7 @@ class LecturerController extends Controller
     {
         $request->validate([
             'lect_name' => 'required',
-            'lect_email' => 'required',
+            'lect_email' => 'required | email',
             'position' => 'required'
         ]);
 
@@ -88,7 +88,7 @@ class LecturerController extends Controller
     {
         $request->validate([
             'lect_name' => 'required',
-            'lect_email' => 'required',
+            'lect_email' => 'required | email',
             'position' => 'required'
         ]);
 
