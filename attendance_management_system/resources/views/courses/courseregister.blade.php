@@ -12,7 +12,7 @@
     }
     .vl{
         border-left: 3px solid black;
-        height: 290px;
+        height: 310px;
         position: absolute ;
         left:34%;
         margin-left:-1px;
@@ -66,12 +66,12 @@
                                         <img src="{{url('/image/uojlogo.png')}}" alt="image" height="200px" width="200px">
                                     </div>
                                     <div class="w-100"></div>
-                                    <div class="col-lg-12 d-none d-lg-block">
-                                        <h1 class="text-center">UOJ</h1>
+                                    <div class="col-lg-12 d-none d-lg-block ">
+                                        <h1 class="text-center display-3 ">UOJ</h1>
                                     </div>
                                     <div class="w-100"></div>
-                                    <div class="col-lg-12 d-none d-lg-block">
-                                        <h4 class="text-center">JAFFNA</h4>
+                                    <div class="col-lg-12 d-none d-lg-block ">
+                                        <h4 class="text-center h4font ">JAFFNA</h4>
                                     </div>                       
                                 </div>
                             </div>

@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="w-100"></div>
                                     <div class="col-lg-12 d-none d-lg-block">
-                                        <h1 class="text-center display-3">UOJ</h1>
+                                        <h1 class="text-center display-3 ">UOJ</h1>
                                     </div>
                                     <div class="w-100"></div>
                                     <div class="col-lg-12 d-none d-lg-block">
