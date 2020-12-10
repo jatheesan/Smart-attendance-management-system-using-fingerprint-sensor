@@ -19,9 +19,7 @@ class IsLecturers
         if(Lect::where('position', 'lecturer')->count()){
             return $next($request);
         }
-
-       
-        abort(403);
+     abort(403);
 
     }
 }
