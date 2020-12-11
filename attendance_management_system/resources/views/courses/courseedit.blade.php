@@ -12,7 +12,7 @@
     }
     .vl{
         border-left: 3px solid black;
-        height: 310px;
+        height: 340px;
         position: absolute ;
         left:34%;
         margin-left:-1px;

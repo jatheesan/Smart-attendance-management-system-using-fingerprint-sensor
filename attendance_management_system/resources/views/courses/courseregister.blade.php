@@ -12,9 +12,9 @@
     }
     .vl{
         border-left: 3px solid black;
-        height: 310px;
+        height: 340px;
         position: absolute ;
-        left:34%;
+        /* left:34%; */
         margin-left:-1px;
         top:-1;
     }
@@ -79,13 +79,7 @@
                                 <hr class="vl">
                             </div>
 
-                            <div class="col-lg-7">
-                            {{--<div>
-                                <h3 class="a">COURSE REGISTER</h3><br>
-                            </div>
-                            --}}
-                 
-        
+                            <div class="col-lg-7">     
                                 <div class="form-group row">
                                     <label for="course_code" class="col-lg-4 col-form-label text-lg-right">{{ __('Course Code') }}</label>
                                     <div class="col-lg-6">

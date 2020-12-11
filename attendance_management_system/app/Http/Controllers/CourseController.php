@@ -13,11 +13,24 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $courses = Course::simplePaginate(10);
-
-        return view('courses.courseindex', compact('courses'));
+        //$courses = Course::simplePaginate(10);
+        //return view('courses.courseindex', compact('courses'));
+        $search =  $request->input('search_course');
+        if($search!=""){
+            $courses = Course::where(function ($query) use ($search){
+                $query->where('course_code', 'like', '%'.$search.'%')
+                    ->orWhere('course_name', 'like', '%'.$search.'%')
+                    ->orWhere('course_level', 'like', '%'.$search.'%');
+            })
+            ->paginate(5);
+            $courses->appends(['search_course' => $search]);
+        }
+        else{
+            $courses = Course::paginate(10);
+        }
+        return View('courses.courseindex', compact('courses'));
 
     }
 
