@@ -17,5 +17,18 @@ class LecturersSeeder extends Seeder
             'lect_email' => 'srijathee@gmail.com',
             'position' => 'HOD',
         ]);
+
+        DB::table('lecturers') -> insert([
+            'lect_name' => 'abc',
+            'lect_email' => 'abc@gmail.com',
+            'position' => 'lecturer',
+        ]);
+
+        DB::table('lecturers') -> insert([
+            'lect_name' => 'pqr',
+            'lect_email' => 'pqr@gmail.com',
+            'position' => 'assistentlecturer',
+        ]);
+
     }
 }
