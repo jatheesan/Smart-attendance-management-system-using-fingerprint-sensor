@@ -12,11 +12,24 @@ class LecturerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $lecturers = Lecturer::simplePaginate(10);
+        // $lecturers = Lecturer::simplePaginate(10);
+        // return view('lecturers.lecturerindex', compact('lecturers'));
 
-        return view('lecturers.lecturerindex', compact('lecturers'));
+        $search =  $request->input('search_lect');
+        if($search!=""){
+            $lecturers = Lecturer::where(function ($query) use ($search){
+                $query->where('lect_name', 'like', '%'.$search.'%')
+                    ->orWhere('lect_email', 'like', '%'.$search.'%');
+            })
+            ->paginate(5);
+            $lecturers->appends(['search_lect' => $search]);
+        }
+        else{
+            $lecturers = Lecturer::paginate(10);
+        }
+        return View('lecturers.lecturerindex', compact('lecturers'));
     }
 
     /**

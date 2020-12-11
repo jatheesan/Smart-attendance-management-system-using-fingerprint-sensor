@@ -4,9 +4,24 @@
 <div class="container-fluid"> 
         <div class="row">
             <div class="col-sm-12">
-                <div>
-                    <a style="margin: 19px;" href="{{ url('/lecturer') }}" class="btn
-                btn-primary">New Lecturer</a>
+                <div style="margin: 15px;" class="row">
+                    <div class="col-sm-4">
+                        <a href="{{ url('/lecturer') }}"
+                            class="btn btn-primary">New Lecturer</a>
+                    </div>
+                    <div class="col-sm-4 offset-sm-4">
+                        <form action="{{ url('/tables/lecturers') }}" method="POST" role="search">
+                            {{ csrf_field() }}
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="search_lect" placeholder="Search lecturer and just enter"> <span
+                                    class="input-group-btn">
+                                    <button type="submit" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <div class="col-sm-12">
                     @if(session()->get('success'))
