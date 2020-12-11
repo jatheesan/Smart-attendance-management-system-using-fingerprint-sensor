@@ -66,9 +66,6 @@
                                     <div class="col text-center">
                                         <img src="{{url('/image/uojlogo.png')}}" alt="image" height="200px" width="200px">
                                     </div>
-                                    {{--<div class="col">
-                                        <h1>UOJ</h1>
-                                    </div>--}}
                                 </div>
                             </div>
                             <div class="col-lg-4">
@@ -91,12 +88,6 @@
                             </div>
 
                             <div class="col-lg-7">
-                            {{--<div>
-                                <h3 class="a">COURSE REGISTER</h3><br>
-                            </div>
-                            --}}
-                 
-        
                                 <div class="form-group row">
                                     <label for="course_code" class="col-lg-4 col-form-label text-lg-right">{{ __('Course Code') }}</label>
                                     <div class="col-lg-6">
@@ -177,9 +168,6 @@
                                         @enderror
                                     </div>
                                 </div>
-
-                               
-
 
                                 <div class="form-group row mb-0">
                                     <div class="col-lg-7 offset-lg-4">
