@@ -1,6 +1,7 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LecturerController;
+use App\Http\Controllers\CourseController;
 //use App\Http\Middleware\IsLecturers;
 /*
 |--------------------------------------------------------------------------
@@ -60,3 +61,12 @@ Route::group(['middleware' => 'islecturers'], function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+Route::get('/tables/courses',[CourseController::class,'index']);
+Route::post('/course/store',[CourseController::class,'store']);
+Route::get('/course/edit/{id}', [CourseController::class, 'edit']) ->name('course_edit');
+Route::patch('/course/update/{id}', [CourseController::class, 'update']) ->name('course_update');
+Route::delete('/course/delete/{id}', [CourseController::class, 'destroy']) ->name('course_delete');
+
