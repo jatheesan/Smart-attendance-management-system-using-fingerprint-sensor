@@ -48,7 +48,7 @@ Route::delete('/user/delete/{id}', 'Auth\UserController@destroy')->name('delete'
 Route::get('change-password', 'User\ChangePasswordController@index');
 Route::post('change-password', 'User\ChangePasswordController@store')->name('change.password');
 
-Route::get('/tables/lecturers',[LecturerController::class,'index']);
+Route::any('/tables/lecturers',[LecturerController::class,'index'])->name('lecturer_view');
 Route::post('/lecturer/store',[LecturerController::class,'store']);
 Route::get('/lecturer/edit/{id}', [LecturerController::class, 'edit']) ->name('lecturer_edit');
 Route::patch('/lecturer/update/{id}', [LecturerController::class, 'update']) ->name('lecturer_update');
