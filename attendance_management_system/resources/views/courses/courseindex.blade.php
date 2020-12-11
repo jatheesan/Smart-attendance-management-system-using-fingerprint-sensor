@@ -16,7 +16,7 @@
                     @endif
                 </div>
                 <div class="table-responsive">
-                    <table id="lecturetable" class="table table-striped table-hover table-bordered">
+                    <table id="coursetable" class="table table-striped table-hover table-bordered">
                     <thead>
                         <tr>
                             <th>Course ID</th>
