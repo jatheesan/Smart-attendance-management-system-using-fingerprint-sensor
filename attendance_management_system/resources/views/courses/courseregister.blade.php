@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ url('/course/store') }}">
                         @csrf
                         <div class="row">
                             <div class="col-lg-12">
@@ -84,17 +84,7 @@
                                 <h3 class="a">COURSE REGISTER</h3><br>
                             </div>
                             --}}
-                                <div class="form-group row d-none">
-                                    <label for="id" class="col-lg-4 col-form-label text-lg-right">{{ __('ID') }}</label>
-                                    <div class="col-lg-6">
-                                        <input id="id" type="text" class="form-control @error('id') is-invalid @enderror" name="id" value="{{ old('id') }}" required autocomplete="id" autofocus>
-                                        @error('id')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
+                 
         
                                 <div class="form-group row">
                                     <label for="course_code" class="col-lg-4 col-form-label text-lg-right">{{ __('Course Code') }}</label>
@@ -149,11 +139,11 @@
                                         <select id="lect_id" class="form-control @error('lect_id') is-invalid @enderror" name="lect_id">
                                             <option>Select Lecturer</option>   
                                             @foreach($lecturers as $lecturer)
-                                                <option value="{{$lecturer -> lect_id}}">{{$lecturer -> lect_name}}</option>
+                                              <option value="{{$lecturer -> lect_id}}">{{$lecturer -> lect_name}}</option>
                                             @endforeach
-                                        </select>
+                                    </select>
                                         {{--<input id="lect_id" type="text" class="form-control @error('lect_id') is-invalid @enderror" name="name" value="{{ old('lect_id') }}" required autocomplete="lect_id">--}}
-                                        @error('name')
+                                        @error('lect_id')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
