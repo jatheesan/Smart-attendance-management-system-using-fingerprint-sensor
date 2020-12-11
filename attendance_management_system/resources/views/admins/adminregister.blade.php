@@ -16,7 +16,7 @@
     border-left: 3px solid black;
     height: 270px;
     position: absolute ;
-    left:33%;
+    left:40%;
     margin-left:-1px;
     top:-1;
     }
@@ -72,11 +72,11 @@
                                     </div>
                                     <div class="w-100"></div>
                                     <div class="col-lg-12 d-none d-lg-block">
-                                        <h1 class="text-center">UOJ</h1>
+                                        <h1 class="text-center display-3">UOJ</h1>
                                     </div>
                                     <div class="w-100"></div>
                                     <div class="col-lg-12 d-none d-lg-block">
-                                        <h4 class="text-center">JAFFNA</h4>
+                                        <h4 class="text-center h4font ">JAFFNA</h4>
                                     </div>                       
                                 </div>
                             </div>
