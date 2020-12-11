@@ -40,7 +40,7 @@ Route::get('/dashboard', function () {
 
 Route::get('admin/home', 'HomeController@adminHome')->name('admindashboard')->middleware('role');
 
-Route::get('/tables/users', 'Auth\UserController@index');
+Route::any('/tables/users', 'Auth\UserController@index');
 Route::get('/user/edit/{id}', 'Auth\UserController@edit')->name('edit');
 Route::patch('/user/update/{id}', 'Auth\UserController@update')->name('update');
 Route::delete('/user/delete/{id}', 'Auth\UserController@destroy')->name('delete');
