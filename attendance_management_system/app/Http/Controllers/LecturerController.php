@@ -14,7 +14,7 @@ class LecturerController extends Controller
      */
     public function index()
     {
-        $lecturers = Lecturer::all();
+        $lecturers = Lecturer::simplePaginate(10);
 
         return view('lecturers.lecturerindex', compact('lecturers'));
     }
@@ -39,7 +39,7 @@ class LecturerController extends Controller
     {
         $request->validate([
             'lect_name' => 'required',
-            'lect_email' => 'required',
+            'lect_email' => 'required | email',
             'position' => 'required'
         ]);
 
@@ -88,7 +88,7 @@ class LecturerController extends Controller
     {
         $request->validate([
             'lect_name' => 'required',
-            'lect_email' => 'required',
+            'lect_email' => 'required | email',
             'position' => 'required'
         ]);
 

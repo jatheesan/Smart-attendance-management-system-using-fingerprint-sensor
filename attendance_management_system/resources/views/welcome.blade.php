@@ -7,61 +7,12 @@
         <title>Smart_Attendance_Management_System</title>
         
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/third.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Amita" rel="stylesheet">
 
-        <!-- Styles -->
-        <style>
-            html,body{
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+        <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-            
-            .content {
-                text-align: center;
-            }
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 18px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-            .m-b-md {
-                margin-bottom: 30px;
-            } 
-        </style>
     </head>
     <body>
         <div class="flex-center position-ref">
@@ -106,7 +57,7 @@
                                             <div class="wrapper count-title d-flex">
                                                 <div class="count-number">
                                                     <h2>400+</h2>
-                                                    <div class="name">students</div>
+                                                    <div class="name Count_name">students</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -115,7 +66,7 @@
                                             <div class="wrapper count-title d-flex">
                                                 <div class="count-number">
                                                     <h2>50+</h2>
-                                                    <div class="name">lectures</div>
+                                                    <div class="name Count_name">lectures</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -124,7 +75,7 @@
                                             <div class="wrapper count-title d-flex">
                                                 <div class="count-number">
                                                     <h2>100+</h2>
-                                                    <div class="name">couress</div>
+                                                    <div class="name Count_name">couress</div>
                                                 </div>
                                             </div>
                                         </div>

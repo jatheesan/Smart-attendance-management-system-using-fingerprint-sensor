@@ -16,6 +16,7 @@
     <!-- Google fonts - Poppins -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Righteous&display=swap" rel="stylesheet">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="{{ asset('css/style.default.css') }}" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
@@ -148,11 +149,7 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-6">
-<<<<<<< HEAD
-                  <p>&copy;2020 DEPARTMENT OF COMPUTER SCIENCE ALL RIGHTS RESERVED</p>
-=======
-                  <p> &copy;2020 DEPARTMENT OF COMPUTER SCIENCE ALL RIGHTS RESERVED </p>
->>>>>>> 7c9a39f1b778c46da181c42f37b5bf8b2a4fbfc9
+                  <p>&copy;2020 DEPARTMENT OF COMPUTER SCIENCE ALL RIGHTS RESERVED - JAFFNA</p>
                 </div>
                 <div class="col-sm-6 text-right">
                   <p><a href="http://www.csc.jfn.ac.lk/" class="external">UNIVERSITY OF JAFFNA</a></p>

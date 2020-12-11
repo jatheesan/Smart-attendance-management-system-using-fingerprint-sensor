@@ -15,7 +15,7 @@
     }
     .vl{
     border-left: 3px solid black;
-    height: 240px;
+    height: 290px;
     position: absolute ;
     left:33%;
     margin-left:-1px;
@@ -50,7 +50,7 @@
         <div class="col-lg-8">
             <div class="card">
                 <div class="card-header text-center">
-                    {{ __('LECTURER REGISTER') }}
+                    {{ __('LECTURER UPDATE') }}
                 </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('lecturer_update', ['id' => $lecturer->lect_id]) }}">
@@ -62,9 +62,6 @@
                                     <div class="col text-center">
                                         <img src="{{url('/image/uojlogo.png')}}" alt="image" height="200px" width="200px">
                                     </div>
-                                    {{--<div class="col">
-                                        <h1>UOJ</h1>
-                                    </div>--}}
                                 </div>
                             </div>
                             <div class="col-lg-4">
@@ -74,11 +71,11 @@
                                     </div>
                                     <div class="w-100"></div>
                                     <div class="col-lg-12 d-none d-lg-block">
-                                        <h1 class="text-center">UOJ</h1>
+                                        <h1 class="text-center display-3">UOJ</h1>
                                     </div>
                                     <div class="w-100"></div>
                                     <div class="col-lg-12 d-none d-lg-block">
-                                        <h4 class="text-center">JAFFNA</h4>
+                                        <h4 class="text-center h4font">JAFFNA</h4>
                                     </div>                       
                                 </div>
                             </div>
@@ -112,12 +109,27 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="position" class="col-lg-4 col-form-label text-lg-right">{{ __('Position') }}</label>
+                                    <label for="position[]" class="col-lg-4 col-form-label text-lg-right">{{ __('Position') }}</label>
                                     <div class="col-lg-6">
-                                        <select id="position" class="form-control @error('position') is-invalid @enderror" name="position">
-                                            <option value="HOD" {{$lecturer ->position == 'HOD' ? 'selected' : ''}} > {{ __('HOD') }} </option>
-                                            <option value="lecturer" {{$lecturer ->position == 'lecturer' ? 'selected' : ''}} > {{ __('lecturer') }} </option>
-                                            <option value="assistentlecturer" {{$lecturer ->position == 'assistentlecturer' ? 'selected' : ''}} > {{ __('assistentlecturer') }} </option>
+                                        @php
+                                            $positions = explode("," , ($lecturer ->position))
+                                        @endphp
+                                        <select id="position" class="form-control @error('position') is-invalid @enderror" name="position[]" multiple="multiple">
+                                            <option value="HOD" 
+                                                @if(in_array('HOD', $positions))
+                                                    selected="selected"
+                                                @endif
+                                            > {{ __('HOD') }}</option>
+                                            <option value="lecturer"
+                                                @if(in_array('lecturer', $positions))
+                                                    selected="selected"
+                                                @endif
+                                            > {{ __('lecturer') }} </option>
+                                            <option value="assistentlecturer"
+                                                @if(in_array('assistentlecturer', $positions))
+                                                    selected="selected"
+                                                @endif
+                                            > {{ __('assistentlecturer') }} </option>
                                         </select>
                                         @error('position')
                                         <span class="invalid-feedback" role="alert">
@@ -127,7 +139,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group row mb-0">
-                                    <div class="col-lg-6 offset-lg-4">
+                                    <div class="col-lg-7 offset-lg-4">
+                                        <a class="btn btn-info btn-close" href="{{ url('/tables/lecturers') }}">Cancel</a>
                                         <button type="submit" class="btn btn-primary">
                                             {{ __('Update') }}
                                         </button>
