@@ -15,11 +15,24 @@ class Usercontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::simplePaginate(10);
+        //$users = User::simplePaginate(10);
+        //return view('users.userindex', compact('users'));
 
-        return view('users.userindex', compact('users'));
+        $search =  $request->input('search_user');
+        if($search!=""){
+            $users = User::where(function ($query) use ($search){
+                $query->where('name', 'like', '%'.$search.'%')
+                    ->orWhere('email', 'like', '%'.$search.'%');
+            })
+            ->paginate(5);
+            $users->appends(['search_user' => $search]);
+        }
+        else{
+            $users = User::paginate(10);
+        }
+        return View('users.userindex', compact('users'));
     }
 
     /**
