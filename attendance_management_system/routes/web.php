@@ -69,7 +69,7 @@ Route::get('/course/edit/{id}', [CourseController::class, 'edit']) ->name('cours
 Route::patch('/course/update/{id}', [CourseController::class, 'update']) ->name('course_update');
 Route::delete('/course/delete/{id}', [CourseController::class, 'destroy']) ->name('course_delete');
 
-Route::get('/tables/students',[StudentController::class,'index']);
+Route::any('/tables/students',[StudentController::class,'index']);
 Route::post('/student/store',[StudentController::class,'store']);
 Route::get('/student/edit/{id}', [StudentController::class, 'edit']) ->name('student_edit');
 Route::patch('/student/update/{id}', [StudentController::class, 'update']) ->name('student_update');

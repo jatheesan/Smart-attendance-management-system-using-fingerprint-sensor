@@ -13,12 +13,24 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $students = Student::simplePaginate(10);
-
-        return view('students.studentindex', compact('students'));
-
+        //$students = Student::simplePaginate(10);
+        //return view('students.studentindex', compact('students'));
+        $search =  $request->input('search_student');
+        if($search!=""){
+            $students = Student::where(function ($query) use ($search){
+                $query->where('st_name', 'like', '%'.$search.'%')
+                    ->orWhere('st_regno', 'like', '%'.$search.'%')
+                    ->orWhere('st_level', 'like', '%'.$search.'%');
+            })
+            ->paginate(5);
+            $students->appends(['search_student' => $search]);
+        }
+        else{
+            $students = Student::paginate(10);
+        }
+        return View('students.studentindex', compact('students'));
     }
 
     /**
