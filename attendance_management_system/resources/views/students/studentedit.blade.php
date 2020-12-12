@@ -14,7 +14,7 @@
     }
     .vl{
     border-left: 3px solid black;
-    height: 270px;
+    height: 290px;
     position: absolute ;
     left:33%;
     margin-left:-1px;
@@ -120,8 +120,7 @@
                                 <div class="form-group row">
                                     <label for="st_level" class="col-lg-4 col-form-label text-lg-right">{{ __('Student Level') }}</label>
                                     <div class="col-lg-6">
-                                        <select id="st_level" class="form-control @error('st_level') is-invalid @enderror" name="st_level">
-                                            
+                                        <select id="st_level" class="form-control @error('st_level') is-invalid @enderror" name="st_level">        
                                             <option value="1S" {{($student->st_level == "1S")? 'selected':''}} >1S</option>
                                             <option value="1G" {{($student->st_level == "1G")? 'selected':''}} >1G</option>
                                             <option value="2S" {{($student->st_level == "2S")? 'selected':''}}>2S</option>

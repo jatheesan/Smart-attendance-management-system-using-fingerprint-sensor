@@ -14,7 +14,7 @@
     }
     .vl{
     border-left: 3px solid black;
-    height: 270px;
+    height: 290px;
     position: absolute ;
     left:33%;
     margin-left:-1px;
