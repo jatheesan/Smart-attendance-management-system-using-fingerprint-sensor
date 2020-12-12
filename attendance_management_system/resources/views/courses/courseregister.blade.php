@@ -135,7 +135,7 @@
                                             @foreach($lecturers as $lecturer)
                                               <option value="{{$lecturer -> lect_id}}">{{$lecturer -> lect_name}}</option>
                                             @endforeach
-                                    </select>
+                                        </select>
                                         {{--<input id="lect_id" type="text" class="form-control @error('lect_id') is-invalid @enderror" name="name" value="{{ old('lect_id') }}" required autocomplete="lect_id">--}}
                                         @error('lect_id')
                                             <span class="invalid-feedback" role="alert">

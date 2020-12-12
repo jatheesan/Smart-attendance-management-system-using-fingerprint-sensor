@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Course;
+use App\Lecturer;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -73,8 +74,9 @@ class CourseController extends Controller
     public function edit($id)
     {
         $course = Course::find($id);
-
-        return view('courses.courseedit', compact('course'));
+        $editlecturers = Lecturer::where('position', 'lecturer')->orWhere('position', 'HOD,lecturer')->orWhere('position', 'HOD')->get();
+        $editalecturers = Lecturer::where('position', 'assistentlecturer')->get();
+        return view('courses.courseedit', compact('course', 'editlecturers', 'editalecturers'));
     }
 
     /**
@@ -90,8 +92,8 @@ class CourseController extends Controller
             'course_code' => 'required',
             'course_name' => 'required',
             'course_level' => 'required',
-            //'lect_id' => 'required',
-            //'assistant_lect_id' => 'required'
+            'lect_id' => 'required',
+            'assistant_lect_id' => 'required'
            
         ]);
 
@@ -99,8 +101,8 @@ class CourseController extends Controller
         $course -> course_code = $request->get('course_code');
         $course -> course_name = $request->get('course_name');
         $course -> course_level = $request->get('course_level');
-       // $course -> lect_id = $request->get('lect_id');
-        //$course -> assistant_lect_id =$request->get('assistant_lect_id');
+        $course -> lect_id = $request->get('lect_id');
+        $course -> assistant_lect_id =$request->get('assistant_lect_id');
 
         $course -> save();
         return redirect('/tables/courses')->with('success', 'course updated successfully !');

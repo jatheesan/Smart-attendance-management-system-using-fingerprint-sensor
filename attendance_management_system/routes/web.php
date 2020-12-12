@@ -40,6 +40,8 @@ Route::get('/dashboard', function () {
   return view('dashboard');
 });
 
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('admin/home', 'HomeController@adminHome')->name('admindashboard')->middleware('role');
 
 Route::any('/tables/users', 'Auth\UserController@index');
@@ -59,9 +61,6 @@ Route::delete('/lecturer/delete/{id}', [LecturerController::class, 'destroy']) -
 Route::group(['middleware' => 'islecturers'], function () {
   Route::get('/course', 'Course_LecturerController@lecturer_show')->name('lecturer_show');
 });
-
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::any('/tables/courses',[CourseController::class,'index']);
 Route::post('/course/store',[CourseController::class,'store']);
