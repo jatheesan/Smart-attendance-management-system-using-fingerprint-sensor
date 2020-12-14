@@ -40,10 +40,6 @@ Route::group(['middleware' => ['auth', 'role']], function() {
   Route::get('/admin', function () {
     return view('admins.adminregister');
   });
-  
-  Route::get('/dashboard', function () {
-    return view('dashboard');
-  });
 
   Route::any('/tables/users', 'Auth\UserController@index');
   Route::get('/user/edit/{id}', 'Auth\UserController@edit')->name('edit');
