@@ -28,6 +28,7 @@ Route::get('/change-password', 'User\ChangePasswordController@index');
 Route::post('/change-password', 'User\ChangePasswordController@store')->name('change.password');
 
 Route::group(['middleware' => ['auth', 'role']], function() {
+
   Route::get('/student', function () {
     return view('students.studentregister');
   });
