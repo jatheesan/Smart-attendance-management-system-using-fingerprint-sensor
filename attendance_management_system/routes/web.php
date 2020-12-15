@@ -24,7 +24,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('admin/home', 'HomeController@adminHome')->name('admindashboard')->middleware('role');
 
+Route::get('/change-password', 'User\ChangePasswordController@index');
+Route::post('/change-password', 'User\ChangePasswordController@store')->name('change.password');
+
 Route::group(['middleware' => ['auth', 'role']], function() {
+
   Route::get('/student', function () {
     return view('students.studentregister');
   });
@@ -40,18 +44,11 @@ Route::group(['middleware' => ['auth', 'role']], function() {
   Route::get('/admin', function () {
     return view('admins.adminregister');
   });
-  
-  Route::get('/dashboard', function () {
-    return view('dashboard');
-  });
 
   Route::any('/tables/users', 'Auth\UserController@index');
   Route::get('/user/edit/{id}', 'Auth\UserController@edit')->name('edit');
   Route::patch('/user/update/{id}', 'Auth\UserController@update')->name('update');
   Route::delete('/user/delete/{id}', 'Auth\UserController@destroy')->name('delete');
-
-  Route::get('change-password', 'User\ChangePasswordController@index');
-  Route::post('change-password', 'User\ChangePasswordController@store')->name('change.password');
 
   Route::any('/tables/lecturers',[LecturerController::class,'index'])->name('lecturer_view');
   Route::post('/lecturer/store',[LecturerController::class,'store']);

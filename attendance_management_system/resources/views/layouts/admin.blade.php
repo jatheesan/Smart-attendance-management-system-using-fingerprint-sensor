@@ -78,7 +78,7 @@
           </div>
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
           <ul class="list-unstyled">
-            <li class="active"><a href="/dashboard"> <i class="fa fa-home"></i>Dashboard</a></li>
+            <li class="active"><a href="/admin/home"> <i class="fa fa-home"></i>Dashboard</a></li>
             <li><a href="#registerdropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-user-plus"></i>Register</a>
               <ul id="registerdropdownDropdown" class="collapse list-unstyled ">
                 <li><a href="{{ url('/student') }}">Student</a></li>
