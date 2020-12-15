@@ -17,13 +17,13 @@ class UsersSeeder extends Seeder
                'name'=>'Admin',
                'email'=>'admin@gmail.com',
                 'role'=>'1',
-               'password'=> bcrypt('123456'),
+               'password'=> Hash::make('12345678'),
             ],
             [
                'name'=>'User',
                'email'=>'user@gmail.com',
                 'role'=>'0',
-               'password'=> bcrypt('123456'),
+               'password'=> Hash::make('12345678'),
             ],
         ];
   

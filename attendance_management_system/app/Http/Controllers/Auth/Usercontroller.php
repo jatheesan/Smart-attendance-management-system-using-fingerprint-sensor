@@ -92,14 +92,28 @@ class Usercontroller extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
             'role' => 'required',
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['string', 'min:8'],
         ]);
 
         $user = User::find($id);
         $user -> name = $request->get('name');
         $user -> email = $request->get('email');
         $user -> role = $request->get('role');
-        $user ->password = Hash::make($request -> get('password'));
+        $password = $request -> get('password');
+        if ( isset($password) && $password == '!password'){
+            $user ->password = Hash::make($request -> get('password'));
+        }
+        if ( isset($password) && $password == 'password!'){
+            $user ->password = $user ->password;
+        }
+        // if ( isset($password1) ){
+        //     $user ->password = Hash::make($request -> get('password1'));
+        // }
+
+        // $password2 = $request -> get('password2');
+        // if ( isset($password2) ){
+        //     $user ->password = $user ->password;
+        // }
         //Hash::make($data['password'])
         $user ->save();
 
