@@ -85,7 +85,7 @@
                                 <div class="form-group row">
                                     <label for="lect_name" class="col-lg-4 col-form-label text-lg-right">{{ __('lecturer Name') }}</label>
                                     <div class="col-lg-6">
-                                        <input id="lect_name" type="text" class="form-control @error('lect_name') is-invalid @enderror" name="lect_name" value="{{ old('lect_name') }}" required autocomplete="lect_name">
+                                        <input id="lect_name" type="text" class="form-control @error('lect_name') is-invalid @enderror" name="lect_name" value="{{ old('lect_name') }}" placeholder="name" required autocomplete="lect_name">
                                         @error('lect_name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -97,7 +97,7 @@
                                 <div class="form-group row">
                                     <label for="lect_email" class="col-lg-4 col-form-label text-lg-right">{{ __('Email Address') }}</label>
                                     <div class="col-lg-6">
-                                        <input id="lect_email" type="text" class="form-control @error('lect_email') is-invalid @enderror" name="lect_email" value="{{ old('lect_email') }}" required autocomplete="lect_email">
+                                        <input id="lect_email" type="text" class="form-control @error('lect_email') is-invalid @enderror" name="lect_email" value="{{ old('lect_email') }}" placeholder="email" required autocomplete="lect_email">
                                         @error('lect_email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

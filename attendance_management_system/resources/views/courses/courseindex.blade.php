@@ -13,7 +13,7 @@
                         <form action="{{ url('/tables/courses') }}" method="POST" role="search">
                             {{ csrf_field() }}
                             <div class="input-group">
-                                <input type="text" class="form-control" name="search_course" placeholder="Search lecturer and just enter"> <span
+                                <input type="text" class="form-control" name="search_course" placeholder="Search course and just enter"> <span
                                     class="input-group-btn">
                                     <button type="submit" class="btn btn-default">
                                         <span class="glyphicon glyphicon-search"></span>
