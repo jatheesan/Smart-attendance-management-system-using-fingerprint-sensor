@@ -83,7 +83,7 @@
                                 <div class="form-group row">
                                     <label for="course_code" class="col-lg-4 col-form-label text-lg-right">{{ __('Course Code') }}</label>
                                     <div class="col-lg-6">
-                                        <input id="course_code" type="text" class="form-control @error('course_code') is-invalid @enderror" name="course_code" value="{{ old('course_code') }}" required autocomplete="course_code">
+                                        <input id="course_code" type="text" class="form-control @error('course_code') is-invalid @enderror" name="course_code" value="{{ old('course_code') }}" placeholder="CSCXXXSX or CSCXXXGX" autocomplete="course_code">
                                         @error('course_code')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -95,7 +95,7 @@
                                 <div class="form-group row">
                                     <label for="course_name" class="col-lg-4 col-form-label text-lg-right">{{ __('Course Name') }}</label>
                                     <div class="col-lg-6">
-                                        <input id="course_name" type="text" class="form-control @error('course_name') is-invalid @enderror" name="course_name" value="{{ old('course_name') }}" required autocomplete="course_name">
+                                        <input id="course_name" type="text" class="form-control @error('course_name') is-invalid @enderror" name="course_name" value="{{ old('course_name') }}" placeholder="course name" required autocomplete="course_name">
                                         @error('course_name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
