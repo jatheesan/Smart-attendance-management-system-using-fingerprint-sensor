@@ -57,7 +57,7 @@ Route::group(['middleware' => ['auth', 'role']], function() {
   Route::delete('/lecturer/delete/{id}', [LecturerController::class, 'destroy']) ->name('lecturer_delete');
 
   Route::group(['middleware' => 'islecturers'], function () {
-    Route::get('/course', 'Course_LecturerController@lecturer_show')->name('lecturer_show');
+  Route::get('/course', 'Course_LecturerController@lecturer_show')->name('lecturer_show');
   });
 
   Route::any('/tables/courses',[CourseController::class,'index']);
