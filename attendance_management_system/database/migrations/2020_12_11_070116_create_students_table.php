@@ -19,6 +19,7 @@ class CreateStudentsTable extends Migration
             $table->string('st_regno',12)->unique();
             $table->string('st_level');
             $table->string('st_acyear');
+            $table->string('st_fid')->nullable();
             $table->timestamps();
         });
     }
