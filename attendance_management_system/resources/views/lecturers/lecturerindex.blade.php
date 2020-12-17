@@ -35,6 +35,7 @@
                     <thead>
                         <tr>
                             <th>Lecturer ID</th>
+                            <th>Title</th>
                             <th>Lecturer Name</th>
                             <th>Lecturer Email</th>
                             <th>Position</th>
@@ -45,6 +46,7 @@
                         @foreach($lecturers as $lecturer)
                         <tr>
                             <td>{{ $lecturer->lect_id }}</td>
+                            <td>{{ $lecturer->lect_title }}</td>
                             <td>{{ $lecturer->lect_name }}</td>
                             <td>{{ $lecturer->lect_email }}</td>
                             <td>{{ $lecturer->position }}</td>
