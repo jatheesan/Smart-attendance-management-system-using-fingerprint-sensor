@@ -19,21 +19,22 @@ class CreateCoursesTable extends Migration
             $table->string('course_code',8)->unique();
             $table->string('course_name');
             $table->string('course_level');
-            $table->unsignedBigInteger('lect_id');
-            $table->unsignedBigInteger('assistant_lect_id');
+            //$table->unsignedBigInteger('lect_id');
+            $table->string('lect_id');
+            $table->string('assistant_lect_id');
             $table->timestamps();
 
-            $table->foreign('lect_id')
-            ->references('lect_id')->on('lecturers')
-            ->onUpdate('cascade')
-            //->onDelete('restrict');
-            ->onDelete('cascade');
+            // $table->foreign('lect_id')
+            // ->references('lect_id')->on('lecturers')
+            // ->onUpdate('cascade')
+            // //->onDelete('restrict');
+            // ->onDelete('cascade');
 
-            $table->foreign('assistant_lect_id')
-            ->references('lect_id')->on('lecturers')
-            ->onUpdate('cascade')
-            //->onDelete('restrict');
-            ->onDelete('cascade');
+            // $table->foreign('assistant_lect_id')
+            // ->references('lect_id')->on('lecturers')
+            // ->onUpdate('cascade')
+            // //->onDelete('restrict');
+            // ->onDelete('cascade');
             
         });
     }

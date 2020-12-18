@@ -139,10 +139,9 @@
                                 <div class="form-group row">
                                     <label for="lect_id" class="col-lg-4 col-form-label text-lg-right">{{ __('Lecturer') }}</label>
                                     <div class="col-lg-6">
-                                        <select id="lect_id" class="form-control @error('lect_id') is-invalid @enderror" name="lect_id">
-                                            <option>Select Lecturer</option>   
+                                        <select id="lect_id" class="form-control @error('lect_id') is-invalid @enderror" name="lect_id">  
                                             @foreach($editlecturers as $lecturer)
-                                              <option value="{{$lecturer -> lect_id}}" {{($course->lect_id == $lecturer->lect_id)? 'selected':''}} >{{$lecturer -> lect_name}}</option>
+                                              <option value="{{$lecturer -> lect_name}}" {{($course->lect_name == $lecturer->lect_name)? 'selected':''}} >{{$lecturer -> lect_name}}</option>
                                             @endforeach
                                         </select>
                                         {{--<input id="lect_id" type="text" class="form-control @error('lect_id') is-invalid @enderror" name="name" value="{{ old('lect_id') }}" required autocomplete="lect_id">--}}
@@ -158,10 +157,9 @@
                                 <div class="form-group row">
                                     <label for="assistant_lect_id" class="col-lg-4 col-form-label text-lg-right">{{ __('Assistant Lecturer') }}</label>
                                     <div class="col-lg-6">
-                                        <select id="assistant_lect_id" class="form-control @error('assistant_lect_id') is-invalid @enderror" name="assistant_lect_id">
-                                            <option>Select Assistant Lecturer</option>   
+                                        <select id="assistant_lect_id" class="form-control @error('assistant_lect_id') is-invalid @enderror" name="assistant_lect_id"> 
                                             @foreach($editalecturers as $alecturer)
-                                              <option value="{{$alecturer -> lect_id}}" {{($course->assistant_lect_id == $alecturer->lect_id)? 'selected':''}}>{{$alecturer -> lect_name}}</option>
+                                              <option value="{{$alecturer -> lect_name}}" {{($course->assistant_lect_id == $alecturer->lect_id)? 'selected':''}}>{{$alecturer -> lect_name}}</option>
                                             @endforeach
                                         </select>
                                         {{--<input id="assistant_lect_id" type="text" class="form-control @error('assistant_lect_id') is-invalid @enderror" name="assistant_lect_id" value="{{ old('assistant_lect_id') }}" required autocomplete="assistant_lect_id">--}}
