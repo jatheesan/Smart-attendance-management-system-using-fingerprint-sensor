@@ -38,8 +38,10 @@
                             <th>Course Code</th>
                             <th>Course Name</th>
                             <th>Course Level</th>
-                            <th>Lecturer ID</th>
-                            <th>Assistant Lecturer ID</th>
+                            {{--<th>Lecturer ID</th>--}}
+                            <th>Lecturer Name</th>
+                            {{--<th>Assistant Lecturer ID</th>--}}
+                            <th>Assistant Lecturer Name</th>
                             <th colspan=2>Actions</th>
                         </tr>
                     </thead>
@@ -50,8 +52,22 @@
                             <td>{{ $course->course_code }}</td>
                             <td>{{ $course->course_name }}</td>
                             <td>{{ $course->course_level }}</td>
-                            <td>{{ $course->lect_id }}</td>
-                            <td>{{ $course->assistant_lect_id }}</td>
+                            {{--<td>{{ $course->lect_id }}</td>--}}
+                            <td>
+                            @foreach($lecturers as $lecturer)
+                                @if($course->lect_id == $lecturer -> lect_id)
+                                    {{ $lecturer -> lect_name }}
+                                @endif
+                            @endforeach
+                            </td>
+                            {{--<td>{{ $course->assistant_lect_id }}</td>--}}
+                            <td>
+                            @foreach($lecturers as $lecturer)
+                                @if($course->assistant_lect_id == $lecturer -> lect_id)
+                                    {{ $lecturer -> lect_name }}
+                                @endif
+                            @endforeach
+                            </td>
                             <td>
                                 <a href="{{ route('course_edit', ['id' => $course->course_id]) }}" class="btn btn-primary">Edit</a>
                             </td>

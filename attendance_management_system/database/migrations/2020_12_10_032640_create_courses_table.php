@@ -23,17 +23,17 @@ class CreateCoursesTable extends Migration
             $table->unsignedBigInteger('assistant_lect_id');
             $table->timestamps();
 
-            $table->foreign('lect_id')
-            ->references('lect_id')->on('lecturers')
-            ->onUpdate('cascade')
-            //->onDelete('restrict');
-            ->onDelete('cascade');
+            // $table->foreign('lect_id')
+            // ->references('lect_id')->on('lecturers')
+            // ->onUpdate('cascade')
+            // //->onDelete('restrict');
+            // ->onDelete('cascade');
 
-            $table->foreign('assistant_lect_id')
-            ->references('lect_id')->on('lecturers')
-            ->onUpdate('cascade')
-            //->onDelete('restrict');
-            ->onDelete('cascade');
+            // $table->foreign('assistant_lect_id')
+            // ->references('lect_id')->on('lecturers')
+            // ->onUpdate('cascade')
+            // //->onDelete('restrict');
+            // ->onDelete('cascade');
             
         });
     }
