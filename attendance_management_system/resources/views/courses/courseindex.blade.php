@@ -40,7 +40,6 @@
                             <th>Course Level</th>
                             <th>Lecturer Name</th>
                             {{--<th>Lecturer ID</th>--}}
-                            <th>Lecturer Name</th>
                             {{--<th>Assistant Lecturer ID</th>--}}
                             <th>Assistant Lecturer Name</th>
                             <th colspan=2>Actions</th>
