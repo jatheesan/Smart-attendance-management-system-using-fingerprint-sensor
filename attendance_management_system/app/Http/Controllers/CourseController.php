@@ -19,6 +19,7 @@ class CourseController extends Controller
         //$courses = Course::simplePaginate(10);
         //return view('courses.courseindex', compact('courses'));
         $search =  $request->input('search_course');
+        $lecturers = Lecturer::all();
         if($search!=""){
             $courses = Course::where(function ($query) use ($search){
                 $query->where('course_code', 'like', '%'.$search.'%')
@@ -31,7 +32,7 @@ class CourseController extends Controller
         else{
             $courses = Course::paginate(10);
         }
-        return View('courses.courseindex', compact('courses'));
+        return View('courses.courseindex', compact('courses', 'lecturers'));
 
     }
 
