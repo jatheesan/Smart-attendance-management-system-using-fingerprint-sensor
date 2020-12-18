@@ -14,7 +14,7 @@
     }
     .vl{
     border-left: 3px solid black;
-    height: 290px;
+    height: 315px;
     position: absolute ;
     left:33%;
     margin-left:-1px;
@@ -85,9 +85,6 @@
                             </div>
 
                             <div class="col-lg-7">
-                            {{--<div>
-                                <h3 class="a">STUDENT REGISTER</h3><br>
-                            </div>--}}
     
                                 <div class="form-group row">
                                     <label for="st_name" class="col-lg-4 col-form-label text-lg-right">{{ __('Full Name') }}</label>
@@ -104,7 +101,7 @@
                                 <div class="form-group row">
                                     <label for="st_regno" class="col-lg-4 col-form-label text-lg-right">{{ __('Registration No') }}</label>
                                     <div class="col-lg-6">
-                                        <input id="st_regno" type="text" class="form-control @error('st_regno') is-invalid @enderror" name="st_regno" value="{{ old('st_regno') }}" placeholder="2010/CSC/000 or 2010/SP/000" required autocomplete="st_regno">
+                                        <input id="st_regno" type="text" class="form-control @error('st_regno') is-invalid @enderror" name="st_regno" value="{{ old('st_regno') }}" placeholder="2010/CSC/000" required autocomplete="st_regno">
                                         @error('st_regno')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -141,6 +138,17 @@
                                     <div class="col-lg-6">
                                         <input id="st_acyear" type="text" class="form-control @error('st_acyear') is-invalid @enderror" name="st_acyear" value="{{ old('st_acyear') }}" placeholder="2010/2011" required autocomplete="st_acyear">
                                         @error('st_acyear')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="st_fid" class="col-lg-4 col-form-label text-lg-right">{{ __('Fingerprint ID') }}</label>
+                                    <div class="col-lg-6">
+                                        <input id="st_fid" type="text" class="form-control @error('st_fid') is-invalid @enderror" name="st_fid" value="{{ old('st_fid') }}" placeholder="fingerprint id"  autocomplete="st_fid">
+                                        @error('st_fid')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

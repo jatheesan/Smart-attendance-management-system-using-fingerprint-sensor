@@ -14,9 +14,9 @@
     }
     .vl{
     border-left: 3px solid black;
-    height: 290px;
+    height: 300px;
     position: absolute ;
-    left:33%;
+    left:43%;
     margin-left:-1px;
     top:-1;
     }
@@ -81,6 +81,25 @@
                                 <hr class="vl">
                             </div>
                             <div class="col-lg-7">
+                                <div class="form-group row">
+                                    <label for="lect_title" class="col-lg-4 col-form-label text-lg-right">{{ __('Title') }}</label>
+                                    <div class="col-lg-6">
+                                        <select id="lect_title" class="form-control @error('lect_title') is-invalid @enderror" name="lect_title">
+                                            <option>Select Title</option>
+                                            <option value="Mr.">Mr</option>
+                                            <option value="Mrs.">Mrs</option>
+                                            <option value="Miss.">Miss</option>
+                                            <option value="Dr.">Dr</option>
+                                            <option value="Prof.">Prof</option>
+                                            <option value="Rev.">Rev</option>
+                                        </select>
+                                        @error('lect_title')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
     
                                 <div class="form-group row">
                                     <label for="lect_name" class="col-lg-4 col-form-label text-lg-right">{{ __('lecturer Name') }}</label>
