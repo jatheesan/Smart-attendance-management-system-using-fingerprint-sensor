@@ -33,7 +33,7 @@ class CreateCoursesTable extends Migration
             // ->references('lect_id')->on('lecturers')
             // ->onUpdate('cascade')
             // //->onDelete('restrict');
-            // ->onDelete('cascade');
+            // ->onDelete('cascade');e');
             
         });
     }

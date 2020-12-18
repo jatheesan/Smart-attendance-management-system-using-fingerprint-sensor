@@ -38,8 +38,8 @@
                             <th>Course Code</th>
                             <th>Course Name</th>
                             <th>Course Level</th>
-                            {{--<th>Lecturer ID</th>--}}
                             <th>Lecturer Name</th>
+                            {{--<th>Lecturer ID</th>--}}
                             {{--<th>Assistant Lecturer ID</th>--}}
                             <th>Assistant Lecturer Name</th>
                             <th colspan=2>Actions</th>
