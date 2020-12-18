@@ -38,13 +38,10 @@
                             <th>Course Code</th>
                             <th>Course Name</th>
                             <th>Course Level</th>
-<<<<<<< HEAD
                             <th>Lecturer Name</th>
-=======
                             {{--<th>Lecturer ID</th>--}}
                             <th>Lecturer Name</th>
                             {{--<th>Assistant Lecturer ID</th>--}}
->>>>>>> 5c70b9910cf532659427187ffd8318bc3909db6c
                             <th>Assistant Lecturer Name</th>
                             <th colspan=2>Actions</th>
                         </tr>
