@@ -30,14 +30,14 @@
                 @endif
             </div>
             <div class="table-responsive">
-            <table class="table table-striped table-hover table-bordered">
+              <table class="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>
-                        <td>ID</td>
-                        <td>user Name</td>
-                        <td>User Email</td>
-                        <td>User Role</td>
-                        <td colspan=2>Actions</td>
+                        <th>User ID</th>
+                        <th>User Name</th>
+                        <th>User Email</th>
+                        <th>User Role</th>
+                        <th colspan=2>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -60,9 +60,9 @@
                     </tr>
                     @endforeach
                 </tbody>
-            </table>
-        </div>
-        </div>
+             </table>
+           </div>
+       </div>
     </div>
 </div>
 {{ $users->links() }}
