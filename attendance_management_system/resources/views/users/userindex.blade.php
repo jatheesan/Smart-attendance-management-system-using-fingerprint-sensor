@@ -29,7 +29,8 @@
                 </div>
                 @endif
             </div>
-            <table class="table table-striped table-hover">
+            <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>
                         <td>ID</td>
@@ -60,6 +61,7 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
         </div>
     </div>
 </div>
