@@ -142,10 +142,9 @@
                                         <select id="lect_id" class="form-control @error('lect_id') is-invalid @enderror" name="lect_id">
                                             <option>Select Lecturer</option>   
                                             @foreach($editlecturers as $lecturer)
-                                              <option value="{{$lecturer -> lect_id}}" {{($course->lect_id == $lecturer->lect_id)? 'selected':''}} >{{$lecturer -> lect_name}}</option>
+                                              <option value="{{$lecturer -> lect_id}}" {{($course->lect_id == $lecturer->lect_id)? 'selected':''}} >{{$lecturer -> lect_title.$lecturer -> lect_name}}</option>
                                             @endforeach
                                         </select>
-                                        {{--<input id="lect_id" type="text" class="form-control @error('lect_id') is-invalid @enderror" name="name" value="{{ old('lect_id') }}" required autocomplete="lect_id">--}}
                                         @error('lect_id')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -161,7 +160,7 @@
                                         <select id="assistant_lect_id" class="form-control @error('assistant_lect_id') is-invalid @enderror" name="assistant_lect_id">
                                             <option>Select Assistant Lecturer</option>   
                                             @foreach($editalecturers as $alecturer)
-                                              <option value="{{$alecturer -> lect_id}}" {{($course->assistant_lect_id == $alecturer->lect_id)? 'selected':''}}>{{$alecturer -> lect_name}}</option>
+                                              <option value="{{$alecturer -> lect_id}}" {{($course->assistant_lect_id == $alecturer->lect_id)? 'selected':''}}>{{$lecturer -> lect_title.$alecturer -> lect_name}}</option>
                                             @endforeach
                                         </select>
                                         {{--<input id="assistant_lect_id" type="text" class="form-control @error('assistant_lect_id') is-invalid @enderror" name="assistant_lect_id" value="{{ old('assistant_lect_id') }}" required autocomplete="assistant_lect_id">--}}
