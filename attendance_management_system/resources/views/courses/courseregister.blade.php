@@ -133,7 +133,7 @@
                                         <select id="lect_id" class="form-control @error('lect_id') is-invalid @enderror" name="lect_id">
                                             <option>Select Lecturer</option>   
                                             @foreach($lecturers as $lecturer)
-                                              <option value="{{$lecturer -> lect_id}}">{{$lecturer -> lect_name}}</option>
+                                              <option value="{{$lecturer -> lect_id}}">{{$lecturer -> lect_title.$lecturer -> lect_name}}</option>
                                             @endforeach
                                         </select>
                                         {{--<input id="lect_id" type="text" class="form-control @error('lect_id') is-invalid @enderror" name="name" value="{{ old('lect_id') }}" required autocomplete="lect_id">--}}
@@ -151,7 +151,7 @@
                                         <select id="assistant_lect_id" class="form-control @error('assistant_lect_id') is-invalid @enderror" name="assistant_lect_id">
                                             <option>Select Assistant Lecturer</option>   
                                             @foreach($alecturers as $alecturer)
-                                                <option value="{{$alecturer -> lect_id}}">{{$alecturer -> lect_name}}</option>
+                                                <option value="{{$alecturer -> lect_id}}">{{$lecturer -> lect_title.$alecturer -> lect_name}}</option>
                                             @endforeach
                                         </select>
                                         {{--<input id="assistant_lect_id" type="text" class="form-control @error('assistant_lect_id') is-invalid @enderror" name="assistant_lect_id" value="{{ old('assistant_lect_id') }}" required autocomplete="assistant_lect_id">--}}

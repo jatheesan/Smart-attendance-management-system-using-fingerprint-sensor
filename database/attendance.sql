@@ -345,14 +345,14 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
+ --
 -- Dumping data for table `users`
 --
 
-/* INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `role`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `role`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'admin@gmail.com', NULL, 1, '$2y$10$bLD9v4Llf9NG07IHvbOlwus1HnEcSFVSoBSC3rIPno8OQniaaNwJ2', NULL, '2020-12-18 04:19:43', '2020-12-18 04:19:43'),
 (2, 'User', 'user@gmail.com', NULL, 0, '$2y$10$vVjdN6fyhhOevIhw1SPVzeEFr0t3z2C1JYr0yklYIPOqckA15UDFK', NULL, '2020-12-18 04:19:43', '2020-12-18 04:19:43');
- */
+ 
 --
 -- Indexes for dumped tables
 --

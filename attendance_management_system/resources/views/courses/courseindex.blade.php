@@ -39,8 +39,6 @@
                             <th>Course Name</th>
                             <th>Course Level</th>
                             <th>Lecturer Name</th>
-                            {{--<th>Lecturer ID</th>--}}
-                            {{--<th>Assistant Lecturer ID</th>--}}
                             <th>Assistant Lecturer Name</th>
                             <th colspan=2>Actions</th>
                         </tr>
@@ -56,7 +54,7 @@
                             <td>
                             @foreach($lecturers as $lecturer)
                                 @if($course->lect_id == $lecturer -> lect_id)
-                                    {{ $lecturer -> lect_name }}
+                                    {{$lecturer -> lect_title. $lecturer -> lect_name }}
                                 @endif
                             @endforeach
                             </td>
@@ -64,7 +62,7 @@
                             <td>
                             @foreach($lecturers as $lecturer)
                                 @if($course->assistant_lect_id == $lecturer -> lect_id)
-                                    {{ $lecturer -> lect_name }}
+                                    {{$lecturer -> lect_title . $lecturer -> lect_name }}
                                 @endif
                             @endforeach
                             </td>
