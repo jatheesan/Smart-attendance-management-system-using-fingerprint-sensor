@@ -104,7 +104,7 @@
                 <li><a href="#">4S/4M</a></li>
               </ul>
             </li>
-            <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>
+            {{--<li><a href="{{url('/tables/level_courses')}}"> <i class="fa fa-bar-chart"></i>Semester</a></li>--}}
             {{--<li><a href="forms.html"> <i class="fa fa-clone"></i>Forms </a></li>--}}
             <li>
               <a href="{{ route('logout') }}" class="nav-link logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
