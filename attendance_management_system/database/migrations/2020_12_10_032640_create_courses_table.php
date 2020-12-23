@@ -21,6 +21,7 @@ class CreateCoursesTable extends Migration
             $table->string('course_level');
             $table->unsignedBigInteger('lect_id');
             $table->unsignedBigInteger('assistant_lect_id');
+            $table->enum('semester', [1, 2]);
             $table->timestamps();
 
             // $table->foreign('lect_id')

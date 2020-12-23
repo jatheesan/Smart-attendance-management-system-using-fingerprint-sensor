@@ -172,6 +172,22 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group row">
+                                    <label for="semester" class="col-lg-4 col-form-label text-lg-right">{{ __('Semester') }}</label>
+                                    <div class="col-lg-6">
+                                        <select id="semester" class="form-control @error('semester') is-invalid @enderror" name="semester">
+                                            <option>Select Semester</option>
+                                            <option value="1" {{($course->semester == "1")? 'selected':''}}>Semester 1</option>
+                                            <option value="2" {{($course->semester == "2")? 'selected':''}}>Semester 2</option>
+                                        </select>
+                                        @error('semester')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
                                 <div class="form-group row mb-0">
                                     <div class="col-lg-7 offset-lg-4">
                                         <a class="btn btn-info btn-close" href="{{ url('/tables/courses') }}">Cancel</a>
