@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\DashboardController;
 //use App\Http\Middleware\IsLecturers;
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,8 @@ Route::group(['middleware' => ['auth', 'role']], function() {
   Route::get('/admin', function () {
     return view('admins.adminregister');
   });
+
+  Route::get('/admin/home',[DashboardController::class,'displycourse'])->name('admindashboard')->middleware('role');
 
   Route::any('/tables/users', 'Auth\UserController@index');
   Route::get('/user/edit/{id}', 'Auth\UserController@edit')->name('edit');

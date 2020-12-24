@@ -94,7 +94,8 @@ class CourseController extends Controller
             'course_name' => 'required',
             'course_level' => 'required',
             'lect_id' => 'required',
-            'assistant_lect_id' => 'required'
+            'assistant_lect_id' => 'required',
+            'semester' => 'required',
            
         ]);
 
@@ -104,6 +105,7 @@ class CourseController extends Controller
         $course -> course_level = $request->get('course_level');
         $course -> lect_id = $request->get('lect_id');
         $course -> assistant_lect_id =$request->get('assistant_lect_id');
+        $course -> semester =$request->get('semester');
 
         $course -> save();
         return redirect('/tables/courses')->with('success', 'course updated successfully !');
@@ -123,6 +125,5 @@ class CourseController extends Controller
         return redirect('/tables/courses')->with('success', 'course deleted successfully!');
         
     }
-
 
 }
