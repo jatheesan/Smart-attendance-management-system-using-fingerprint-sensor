@@ -80,3 +80,22 @@ Route::group(['middleware' => ['auth', 'role']], function() {
 
 
 
+
+Route::group([
+    'prefix' => 'attendance_3_s__students',
+], function () {
+    Route::get('/', 'Attendance3SStudentsController@index')
+         ->name('attendance_3_s__students.attendance_3_s__student.index');
+    Route::get('/create','Attendance3SStudentsController@create')
+         ->name('attendance_3_s__students.attendance_3_s__student.create');
+    Route::get('/show/{attendance3SStudent}','Attendance3SStudentsController@show')
+         ->name('attendance_3_s__students.attendance_3_s__student.show')->where('id', '[0-9]+');
+    Route::get('/{attendance3SStudent}/edit','Attendance3SStudentsController@edit')
+         ->name('attendance_3_s__students.attendance_3_s__student.edit')->where('id', '[0-9]+');
+    Route::post('/', 'Attendance3SStudentsController@store')
+         ->name('attendance_3_s__students.attendance_3_s__student.store');
+    Route::put('attendance_3_s__student/{attendance3SStudent}', 'Attendance3SStudentsController@update')
+         ->name('attendance_3_s__students.attendance_3_s__student.update')->where('id', '[0-9]+');
+    Route::delete('/attendance_3_s__student/{attendance3SStudent}','Attendance3SStudentsController@destroy')
+         ->name('attendance_3_s__students.attendance_3_s__student.destroy')->where('id', '[0-9]+');
+});
