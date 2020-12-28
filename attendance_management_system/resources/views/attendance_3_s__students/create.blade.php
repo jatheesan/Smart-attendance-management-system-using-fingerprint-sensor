@@ -1,10 +1,18 @@
-@extends('layouts.admin')
+@extends('level_3.level3')
 @section('pagetitle','3S Attendance')
-@section('content')
+@section('levelcontent')
 
-<div class="container">
+    <div class="row float-right">
+        <div class="btn-group btn-group-sm" role="group">
+            <a href="{{ route('attendance_3_s__students.attendance_3_s__student.index') }}"
+                class="btn btn-primary" title="Show All Attendance 3 S  Student">
+                <span class="fa fa-th-list" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
     <div class="row justify-content-center">
-        <div class="col-lg-8">
+    
+        <div class="col-lg-12">
             <div class="card">
                 {{--<div class="card-header text-center">
                     {{ __('STUDENT REGISTER') }}
@@ -42,8 +50,8 @@
                             <div class="col-lg-12">
     
                                 <div class="form-group row">
-                                    <label for="course_code" class="col-lg-4 col-form-label text-lg-right">{{ __('Course code') }}</label>
-                                    <div class="col-lg-6">
+                                    <label for="course_code" class="col-lg-2 col-form-label text-lg-right">{{ __('Course code') }}</label>
+                                    <div class="col-lg-4">
                                         <input id="course_code" type="text" class="form-control @error('course_code') is-invalid @enderror" name="course_code" value="{{ old('course_code') }}" placeholder="Course Code" required autocomplete="course_code">
                                         @error('course_code')
                                         <span class="invalid-feedback" role="alert">
@@ -51,11 +59,9 @@
                                         </span>
                                         @enderror
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label for="date" class="col-lg-4 col-form-label text-lg-right">{{ __('Date') }}</label>
-                                    <div class="col-lg-6">
+                                    <label for="date" class="col-lg-2 col-form-label text-lg-right">{{ __('Date') }}</label>
+                                    <div class="col-lg-4">
                                         <input id="date" type="date" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ old('date') }}" placeholder="--/--/----" required autocomplete="date">
                                         @error('date')
                                         <span class="invalid-feedback" role="alert">
@@ -63,11 +69,9 @@
                                         </span>
                                         @enderror
                                     </div>
-                                </div>
-                                
-                                <div class="form-group row">
-                                    <label for="hours" class="col-lg-4 col-form-label text-lg-right">{{ __('Hours') }}</label>
-                                    <div class="col-lg-6">
+
+                                    <label for="hours" class="col-lg-2 col-form-label text-lg-right">{{ __('Hours') }}</label>
+                                    <div class="col-lg-4">
                                         <input id="hours" type="number" class="form-control @error('hours') is-invalid @enderror" name="hours" value="{{ old('hours') }}" required autocomplete="hours">
                                         @error('hours')
                                         <span class="invalid-feedback" role="alert">
@@ -75,11 +79,9 @@
                                         </span>
                                         @enderror
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label for="hall" class="col-lg-4 col-form-label text-lg-right">{{ __('Hall') }}</label>
-                                    <div class="col-lg-6">
+                                    <label for="hall" class="col-lg-2 col-form-label text-lg-right">{{ __('Hall') }}</label>
+                                    <div class="col-lg-4">
                                         <select id="hall" class="form-control @error('hall') is-invalid @enderror" name="hall">
                                             <option>Select Level</option>
                                             <option value="CUL-1">CUL-1</option>
@@ -93,11 +95,12 @@
                                         </span>
                                         @enderror
                                     </div>
+
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="attendance_mark[]" class="col-lg-4 col-form-label text-lg-right">{{ __('Students') }}</label>
-                                    <div class="col-lg-6">
+                                    <label for="attendance_mark[]" class="col-lg-2 col-form-label text-lg-right">{{ __('Students') }}</label>
+                                    <div class="col-lg-10">
                                         @foreach($students as $student)
                                             <label for="{{ $student -> st_regno }}" class="checkbox-inline">
                                                 <input id="{{ $student -> st_regno }}" class="required" name="attendance_mark[]" type="checkbox" value="{{ $student -> st_regno }}" >
@@ -126,6 +129,6 @@
             </div>
         </div>
     </div>
-</div>
+
 
 @endsection

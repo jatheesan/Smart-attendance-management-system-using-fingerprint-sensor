@@ -1,17 +1,10 @@
-@extends('layouts.admin')
+@extends('level_3.level3')
 @section('pagetitle','3S Attendance')
-@section('content')
-<div class="container">
+@section('levelcontent')
+
     <div class="row justify-content-center">
         <div class="panel panel-default">
             <div class="panel-heading clearfix">
-
-                <span class="pull-left">
-                    <h4 class="mt-5 mb-5">
-                        {{ isset($title) ? $title : 'Attendance 3S' }}
-                        {{ $attendance3SStudent->date }}
-                    </h4>
-                </span>
 
                 <div class="pull-right">
 
@@ -49,16 +42,22 @@
 
             <div class="panel-body">
                 <section class="landing">
+                        <h1 class="text-center">
+                            {{ isset($title) ? $title : 'Attendance 3S' }}
+                            {{':'}}
+                            {{ $attendance3SStudent->date }}
+                        </h1>
+                        <hr/>
                         <dl class="row">
-                            <dt class="col-sm-3 text-right">Course Code</dt>
+                            <dt class="col-sm-3 text-right">Course Code : </dt>
                             <dd class="col-sm-9 text-left">{{ $attendance3SStudent->course_code }}</dd>
-                            <dt class="col-sm-3 text-right">Date</dt>
+                            <dt class="col-sm-3 text-right">Date : </dt>
                             <dd class="col-sm-9 text-left">{{ $attendance3SStudent->date }}</dd>
-                            <dt class="col-sm-3 text-right">Hours</dt>
+                            <dt class="col-sm-3 text-right">Hours : </dt>
                             <dd class="col-sm-9 text-left">{{ $attendance3SStudent->hours }}</dd>
-                            <dt class="col-sm-3 text-right">Hall</dt>
+                            <dt class="col-sm-3 text-right">Hall : </dt>
                             <dd class="col-sm-9 text-left">{{ $attendance3SStudent->hall }}</dd>
-                            <dt class="col-sm-3 text-right">Attendance Mark</dt>
+                            <dt class="col-sm-3 text-right">Students : </dt>
                             {{-- <dd>{{ optional($attendance3SStudent->student)->st_regno }}</dd>--}}
                             <dd class="col-sm-9 text-left">
                                 <ul>
@@ -76,5 +75,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection

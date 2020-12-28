@@ -1,8 +1,7 @@
-@extends('layouts.admin')
+@extends('level_3.level3')
 @section('pagetitle','3S Attendance')
-@section('content')
+@section('levelcontent')
 
-<div class="container-fluid">
     @if(Session::has('success_message'))
         <div class="alert alert-success">
             <span class="glyphicon glyphicon-ok"></span>
@@ -102,5 +101,4 @@
         @endif
     
     </div>
-</div>
 @endsection

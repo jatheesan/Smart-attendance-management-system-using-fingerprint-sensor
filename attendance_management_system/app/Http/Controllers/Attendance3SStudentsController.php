@@ -32,7 +32,7 @@ class Attendance3SStudentsController extends Controller
     {
         //$students = Student::pluck('st_regno','st_id')->all();
         $students = Student::where('st_level', '3S')->get();
-        return view('attendance_3_s__students.create', compact('students'));
+        return view('attendance_3_s__students.create1', compact('students'));
     }
 
     /**

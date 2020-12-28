@@ -46,6 +46,10 @@ Route::group(['middleware' => ['auth', 'role']], function() {
     return view('admins.adminregister');
   });
 
+  Route::get('/level3', function () {
+     return view('level_3.level3');
+   });
+
   Route::get('/admin/home',[DashboardController::class,'displycourse'])->name('admindashboard')->middleware('role');
 
   Route::any('/tables/users', 'Auth\UserController@index');
