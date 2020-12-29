@@ -98,10 +98,10 @@
             </li>
             <li><a href="#AttendancesdropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-address-book-o"></i>Attendances</a>
               <ul id="AttendancesdropdownDropdown" class="collapse list-unstyled ">
-                <li><a href="#">1S/1G</a></li>
-                <li><a href="#">2S/2G</a></li>
-                <li><a href="#">3S/3G/3M</a></li>
-                <li><a href="#">4S/4M</a></li>
+                <li><a href="#">level 1</a></li>
+                <li><a href="#">level 2</a></li>
+                <li><a href="{{ url('/attendance_3_s__students') }}">level 3</a></li>
+                <li><a href="#">level 4</a></li>
               </ul>
             </li>
             {{--<li><a href="{{url('/tables/level_courses')}}"> <i class="fa fa-bar-chart"></i>Semester</a></li>--}}

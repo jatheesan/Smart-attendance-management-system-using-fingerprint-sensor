@@ -54,13 +54,11 @@
     <label for="attendance_mark" class="col-lg-3 col-form-label text-lg-right">Attendance Mark</label>
     <div class="col-lg-9">
     @foreach($students as $student)
-        <div class="card" sty>
         <label for="{{ $student -> st_regno }}" class="col-lg-3 col-md-5 text-center list-inline-item.">
             <input id="{{ $student -> st_regno }}" class="required" name="attendance_mark[]" type="checkbox" value="{{ $student -> st_regno }}"
             {{ in_array($student -> st_regno, old('attendance_mark', optional($attendance3SStudent)->attendance_mark) ?: []) ? 'checked' : '' }}>
             {{ $student -> st_regno }}
         </label>
-        </div>
     @endforeach
         {!! $errors->first('attendance_mark', '<p class="help-block">:message</p>') !!}
     </div>
