@@ -47,8 +47,8 @@ Route::group(['middleware' => ['auth', 'role']], function() {
   });
 
   Route::get('/level3', function () {
-     return view('level_3.level3');
-   });
+    return view('level_3.level3');
+  });
 
   Route::get('/admin/home',[DashboardController::class,'displycourse'])->name('admindashboard')->middleware('role');
 
@@ -79,7 +79,12 @@ Route::group(['middleware' => ['auth', 'role']], function() {
   Route::patch('/student/update/{id}', [StudentController::class, 'update']) ->name('student_update');
   Route::delete('/student/delete/{id}', [StudentController::class, 'destroy']) ->name('student_delete');
 
+  Route::get('/level3s', 'S3courseController@index');
+  Route::post('/attendance', 'S3courseController@attendance');
 
+  // Route::get('/level3s', function () {
+  //   return view('level_3.3scourse.3scourses');
+  // });
 });
 
 
