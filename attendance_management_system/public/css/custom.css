@@ -35,6 +35,10 @@
     font-weight: 200;
 }
 
+.buttonfont{
+  font-weight: 100;
+}
+
 .list-group-item-cu{
     position: relative;
     display: block;
@@ -53,6 +57,9 @@
 @media screen and (max-width: 575px) {
     h1.h1font {
       font-size: 20px;
+    }
+    button.buttonfont{
+      font-size: 13px;
     }
 }
 

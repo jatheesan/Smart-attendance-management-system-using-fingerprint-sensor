@@ -1,11 +1,21 @@
 @extends('level_3.3scourse.3scourses')
 @section('pagetitle', 'Attandance/level3/3S/'.$course)
 @section('levelcontent')
-    <div>
+    <div class="panel panel-default">
+
+        <div class="panel-heading clearfix">
+
+            <div class="btn-group btn-group-sm pull-right" role="group">
+                <a href="{{ route('attendance_3_s__students.attendance_3_s__student.create') }}" class="btn btn-success" title="Create New Attendance 3 S  Student">
+                    <span class="fa fa-plus" aria-hidden="true"></span>
+                </a>
+            </div>
+
+        </div>
         <div class="panel-body panel-body-with-table">
             <div class="table-responsive">
                 <table class="table table-striped table-hover table-bordered">
-                    <thead>
+                    <thead class="thead-dark">
                         <tr>
                             <th>Course Code</th>
                             <th>Date</th>
