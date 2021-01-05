@@ -46,6 +46,10 @@ Route::group(['middleware' => ['auth', 'role']], function() {
     return view('admins.adminregister');
   });
 
+  Route::get('/level3', function () {
+    return view('level_3.level3');
+  });
+
   Route::get('/admin/home',[DashboardController::class,'displycourse'])->name('admindashboard')->middleware('role');
 
   Route::any('/tables/users', 'Auth\UserController@index');
@@ -75,8 +79,38 @@ Route::group(['middleware' => ['auth', 'role']], function() {
   Route::patch('/student/update/{id}', [StudentController::class, 'update']) ->name('student_update');
   Route::delete('/student/delete/{id}', [StudentController::class, 'destroy']) ->name('student_delete');
 
+  Route::get('/level3s', 'S3courseController@index');
+  Route::post('/attendance', 'S3courseController@attendance');
 
+  Route::get('/level3g', 'G3courseController@index');
+  Route::post('/attendance3g', 'G3courseController@attendance');
+
+  Route::get('/level3m', 'M3courseController@index');
+  Route::post('/attendance3m', 'M3courseController@attendance');
+
+  // Route::get('/level3s', function () {
+  //   return view('level_3.3scourse.3scourses');
+  // });
 });
 
 
 
+
+Route::group([
+    'prefix' => 'attendance_3_s__students',
+], function () {
+    Route::get('/', 'Attendance3SStudentsController@index')
+         ->name('attendance_3_s__students.attendance_3_s__student.index');
+    Route::get('/create','Attendance3SStudentsController@create')
+         ->name('attendance_3_s__students.attendance_3_s__student.create');
+    Route::get('/show/{attendance3SStudent}','Attendance3SStudentsController@show')
+         ->name('attendance_3_s__students.attendance_3_s__student.show')->where('id', '[0-9]+');
+    Route::get('/{attendance3SStudent}/edit','Attendance3SStudentsController@edit')
+         ->name('attendance_3_s__students.attendance_3_s__student.edit')->where('id', '[0-9]+');
+    Route::post('/', 'Attendance3SStudentsController@store')
+         ->name('attendance_3_s__students.attendance_3_s__student.store');
+    Route::put('attendance_3_s__student/{attendance3SStudent}', 'Attendance3SStudentsController@update')
+         ->name('attendance_3_s__students.attendance_3_s__student.update')->where('id', '[0-9]+');
+    Route::delete('/attendance_3_s__student/{attendance3SStudent}','Attendance3SStudentsController@destroy')
+         ->name('attendance_3_s__students.attendance_3_s__student.destroy')->where('id', '[0-9]+');
+});

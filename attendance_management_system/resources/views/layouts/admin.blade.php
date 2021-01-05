@@ -98,10 +98,35 @@
             </li>
             <li><a href="#AttendancesdropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-address-book-o"></i>Attendances</a>
               <ul id="AttendancesdropdownDropdown" class="collapse list-unstyled ">
-                <li><a href="#">1S/1G</a></li>
-                <li><a href="#">2S/2G</a></li>
-                <li><a href="#">3S/3G/3M</a></li>
-                <li><a href="#">4S/4M</a></li>
+                <li>
+                  <a href="#Level1AttendancesdropdownDropdown" aria-expanded="false" data-toggle="collapse">level 1</a>
+                  <ul id="Level1AttendancesdropdownDropdown" class="collapse list-unstyled ">
+                    <li><a href="#">1S</a></li>
+                    <li><a href="#">1G</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#Level2AttendancesdropdownDropdown" aria-expanded="false" data-toggle="collapse">level 2</a>
+                  <ul id="Level2AttendancesdropdownDropdown" class="collapse list-unstyled ">
+                    <li><a href="#">2S</a></li>
+                    <li><a href="#">2G</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#Level3AttendancesdropdownDropdown" aria-expanded="false" data-toggle="collapse">level 3</a>
+                  <ul id="Level3AttendancesdropdownDropdown" class="collapse list-unstyled ">
+                    <li><a href="{{ url('/attendance_3_s__students') }}">3S</a></li>
+                    <li><a href="#">3G</a></li>
+                    <li><a href="#">3M</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#Level4AttendancesdropdownDropdown" aria-expanded="false" data-toggle="collapse">level 4</a>
+                  <ul id="Level4AttendancesdropdownDropdown" class="collapse list-unstyled ">
+                    <li><a href="#">4S</a></li>
+                    <li><a href="#">4M</a></li>
+                  </ul>
+                </li>
               </ul>
             </li>
             {{--<li><a href="{{url('/tables/level_courses')}}"> <i class="fa fa-bar-chart"></i>Semester</a></li>--}}

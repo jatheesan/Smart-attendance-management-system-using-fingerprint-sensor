@@ -35,6 +35,19 @@
     font-weight: 200;
 }
 
+.buttonfont{
+  font-weight: 100;
+}
+
+.list-group-item-cu{
+    position: relative;
+    display: block;
+    /* margin: 0.75rem 1.25rem; */
+    background-color: #232323 !important;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    padding:0 !important;
+  }
+
 @media screen and (min-width: 576px) {
     h1.h1font {
       font-size: 30px;
@@ -44,6 +57,9 @@
 @media screen and (max-width: 575px) {
     h1.h1font {
       font-size: 20px;
+    }
+    button.buttonfont{
+      font-size: 13px;
     }
 }
 
