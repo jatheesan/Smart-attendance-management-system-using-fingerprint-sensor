@@ -1,8 +1,8 @@
-@extends('level_3.level3')
-@section('pagetitle','3S Attendance')
+@extends('level_3.3scourse.3scourses')
+@section('pagetitle', 'Attandance/level3/3S')
 @section('levelcontent')
 
-    <div class="row float-right">
+    <div class="clearfix">
         <div class="btn-group btn-group-sm pull-right" role="group">
             <a href="{{ route('attendance_3_s__students.attendance_3_s__student.index') }}"
                 class="btn btn-primary" title="Show All Attendance 3 S  Student">

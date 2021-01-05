@@ -1,5 +1,5 @@
-@extends('level_3.level3')
-@section('pagetitle','3S Attendance')
+@extends('level_3.3scourse.3scourses')
+@section('pagetitle', 'Attandance/level3/3S')
 @section('levelcontent')
 
     @if(Session::has('success_message'))

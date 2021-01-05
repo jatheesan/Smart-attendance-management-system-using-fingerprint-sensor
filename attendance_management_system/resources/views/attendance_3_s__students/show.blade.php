@@ -1,5 +1,5 @@
-@extends('level_3.level3')
-@section('pagetitle','3S Attendance')
+@extends('level_3.3scourse.3scourses')
+@section('pagetitle', 'Attandance/level3/3S')
 @section('levelcontent')
 
     <div class="row justify-content-center">
@@ -43,7 +43,8 @@
             <div class="panel-body">
                 <section class="landing">
                         <h1 class="text-center">
-                            {{ isset($title) ? $title : 'Attendance 3S' }}
+                            {{-- isset($title) ? $title : 'Attendance 3S' --}}
+                            {{ $attendance3SStudent->course_code }}
                             {{':'}}
                             {{ $attendance3SStudent->date }}
                         </h1>
