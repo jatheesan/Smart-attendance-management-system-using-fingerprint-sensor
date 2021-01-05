@@ -5,17 +5,17 @@
     <div class="row bg-white has-shadow pt-3">
         <div class="col-lg-12">
             <div class="row card-deck">
-            @if(isset($s3_courses))
-            @foreach($s3_courses as $s3_course)
+            @if(isset($g3_courses))
+            @foreach($g3_courses as $g3_course)
             <div class="col-lg-2 col-md-4 col-4">
                 <div class="card text-white bg-dark" style="border-radius: 5%;">
                     <div class="card-body">
-                        <form method="POST" action="{{ url('/attendance') }}">
+                        <form method="POST" action="{{ url('/attendance3g') }}">
                         @csrf
                             <div class="form-group row">
-                                <input id="s3_course" type="text" class="d-none form-control" name="s3_course" value="{{ $s3_course->course_code }}" required autocomplete="s3_course">
+                                <input id="g3_course" type="text" class="d-none form-control" name="g3_course" value="{{ $g3_course->course_code }}" required autocomplete="g3_course">
                                     <button type="submit" class="btn btn-dark btn-sm btn-block text-center buttonfont">
-                                    {{$s3_course->course_code}}
+                                    {{$g3_course->course_code}}
                                     </button>
                             </div>
                         </form>
