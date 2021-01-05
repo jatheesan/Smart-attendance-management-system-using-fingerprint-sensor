@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="row justify-content-center">
-    
+
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header text-center">
@@ -30,57 +30,56 @@
                             @endforeach
                         </ul>
                     @endif
-                    <form method="POST" action="{{ route('attendance_3_s__students.attendance_3_s__student.store') }}" accept-charset="UTF-8">
-                        @csrf
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="row d-lg-none">
-                                    <div class="col text-center">
-                                        <img src="{{url('/image/uojlogo.png')}}" alt="image" height="200px" width="200px">
-                                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row d-lg-none">
+                                <div class="col text-center">
+                                    <img src="{{ url('/image/uojlogo.png') }}" alt="image"
+                                        height="200px" width="200px">
                                 </div>
-                            </div>
-                            {{--<div class="col-lg-4">
-                                <div class="form-group row">
-                                    <div class="col-lg-12 d-none d-lg-block text-center">
-                                        <img src="{{url('/image/uojlogo.png')}}" alt="image" height="200px" width="200px">
-                                    </div>
-                                    <div class="w-100"></div>
-                                    <div class="col-lg-12 d-none d-lg-block">
-                                        <h1 class="text-center display-3">UOJ</h1>
-                                    </div>
-                                    <div class="w-100"></div>
-                                    <div class="col-lg-12 d-none d-lg-block">
-                                        <h4 class="text-center h4font">JAFFNA</h4>
-                                    </div>                       
-                                </div>
-                            </div>
-                            <div class="col-lg-1 d-none d-lg-block">
-                                <hr class="vl">
-                            </div>--}}
-
-                            <div class="col-lg-12">
-                                <form method="POST"
-                                    action="{{ route('attendance_3_s__students.attendance_3_s__student.update', $attendance3SStudent->id) }}"
-                                    id="edit_attendance_3_s__student_form" name="edit_attendance_3_s__student_form"
-                                    accept-charset="UTF-8" class="form-horizontal">
-                                    {{ csrf_field() }}
-                                    <input name="_method" type="hidden" value="PUT">
-                                    @include('attendance_3_s__students.form', [
-                                    'attendance3SStudent' => $attendance3SStudent,
-                                    ])
-
-                                    <div class="form-group">
-                                        <div class="col-lg-offset-2 col-lg-10">
-                                            <input class="btn btn-primary" type="submit" value="Update">
-                                        </div>
-                                    </div>
-                                </form>
                             </div>
                         </div>
-                    </form>
+                        {{--<div class="col-lg-4">
+                                <div class="form-group row">
+                                    <div class="col-lg-12 d-none d-lg-block text-center">
+                                        <img src="{{ url('/image/uojlogo.png') }}" alt="image"
+                        height="200px" width="200px">
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-lg-12 d-none d-lg-block">
+                        <h1 class="text-center display-3">UOJ</h1>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-lg-12 d-none d-lg-block">
+                        <h4 class="text-center h4font">JAFFNA</h4>
+                    </div>
                 </div>
             </div>
+            <div class="col-lg-1 d-none d-lg-block">
+                <hr class="vl">
+            </div>--}}
+
+            <div class="col-lg-12">
+                <form method="POST"
+                    action="{{ route('attendance_3_s__students.attendance_3_s__student.update', $attendance3SStudent->id) }}"
+                    id="edit_attendance_3_s__student_form" name="edit_attendance_3_s__student_form"
+                    accept-charset="UTF-8" class="form-horizontal">
+                    {{ csrf_field() }}
+                    <input name="_method" type="hidden" value="PUT">
+                    @include('attendance_3_s__students.form', [
+                    'attendance3SStudent' => $attendance3SStudent,
+                    ])
+
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <input class="btn btn-primary" type="submit" value="Update">
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
+    </div>
+    </div>
+    </div>
     </div>
 @endsection
