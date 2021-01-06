@@ -34,7 +34,11 @@ class Attendance3SStudentsController extends Controller
         //$students = Student::pluck('st_regno','st_id')->all();
         $s3_courses = Course::where('course_level', '3S')->where('semester', '2')->select('course_code')->get();
         $students = Student::where('st_level', '3S')->get();
-        return view('attendance_3_s__students.create1', compact('s3_courses', 'students'));
+        $course3s = Course::where('course_code', 'like','CSC3__S%')-> where('semester',2)->get();
+        return view('attendance_3_s__students.create', compact('s3_courses', 'students','course3s'));
+
+       
+        //return view('attendance_3_s__students.create', compact('course3s'));
     }
 
     /**
@@ -59,6 +63,9 @@ class Attendance3SStudentsController extends Controller
         //     return back()->withInput()
         //         ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request.']);
         // }
+
+       
+
 
         $request->validate([
             'course_code' => 'string|min:1|nullable',
@@ -111,7 +118,8 @@ class Attendance3SStudentsController extends Controller
         //$students = Student::pluck('st_regno','st_id')->all();
         $students = Student::where('st_level', '3S')->get();
         $s3_courses = Course::where('course_level', '3S')->where('semester', '2')->select('course_code')->get();
-        return view('attendance_3_s__students.edit', compact('s3_courses', 'attendance3SStudent','students'));
+        $course3s = Course::where('course_code', 'like','CSC3__S%')-> where('semester',2)->get();
+        return view('attendance_3_s__students.edit', compact('s3_courses', 'attendance3SStudent','students','course3s'));
     }
 
     /**
