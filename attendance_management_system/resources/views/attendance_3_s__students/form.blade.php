@@ -1,10 +1,35 @@
 <div class="form-group row {{ $errors->has('course_code') ? 'has-error' : '' }}">
+
     <label for="course_code" class="col-lg-3 col-form-label text-lg-right">Course Code</label>
     <div class="col-lg-7">
-        <input class="form-control" name="course_code" type="text" id="course_code"
+        {{-- <input class="form-control" name="course_code" type="text" id="course_code"
             value="{{ old('course_code', optional($attendance3SStudent)->course_code) }}"
             minlength="1" placeholder="Enter course code here...">
-        {!! $errors->first('course_code', '<p class="help-block">:message</p>') !!}
+        {!! $errors->first('course_code', '<p class="help-block">:message</p>') !!} --}}
+
+        <select id="course_code" class="form-control @error('course_code') is-invalid @enderror" name="course_code">
+            <option value="" style="display: none;"
+                {{ old('course_code', optional($attendance3SStudent)->course_code ?: '') == '' ? 'selected' : '' }}
+                disabled selected>Select courses</option>
+
+            @foreach($course3s as $c3s)
+            {{-- <option value="{{$c3s -> course_code}}">{{$c3s-> course_code}}</option> --}}
+            <option value="{{$c3s -> course_code}}" {{old('course_code', optional($attendance3SStudent)->course_code) == $c3s -> course_code ? 'selected':''}}>{{$c3s-> course_code}}</option>
+            @endforeach
+        </select>
+
+
+
+
+        {{-- <select class="form-control" id="course_code" name="course_code">
+            {{-- <option value="" style="display: none;"
+                {{ old('course_code', optional($attendance3SStudent)->course_code ?: '') == '' ? 'selected' : '' }}
+                disabled selected>Select courses</option> 
+            @foreach($course3s as $c3s)
+            <option value="{{old($c3s -> course_code, optional($attendance3SStudent)->course_code) == $c3s -> course_code ? 'selected':''}}">{{$c3s-> course_code}}</option>
+           
+            @endforeach
+        </select> --}}
     </div>
 </div>
 
