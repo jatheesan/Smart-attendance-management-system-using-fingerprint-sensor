@@ -102,7 +102,9 @@ class Attendance3SStudentsController extends Controller
     {
         $attendance3SStudent = Attendance_3S_Student::with('student')->findOrFail($id);
         $s3_courses = Course::where('course_level', '3S')->where('semester', '2')->select('course_code')->get();
-        return view('attendance_3_s__students.show', compact('s3_courses', 'attendance3SStudent'));
+        $s3_reg = Student::where('st_level', '3S')->get();
+        $s3_cname = Course::where('course_level', '3S')->get();
+        return view('attendance_3_s__students.show', compact('s3_courses', 'attendance3SStudent','s3_reg','s3_cname'));
     }
 
     /**
