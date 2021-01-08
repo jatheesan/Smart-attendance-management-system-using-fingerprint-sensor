@@ -4,6 +4,7 @@ use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\DashboardController;
+
 //use App\Http\Middleware\IsLecturers;
 /*
 |--------------------------------------------------------------------------
@@ -133,3 +134,7 @@ Route::group([
     Route::delete('/attendance_3_g__student/{attendance3GStudent}','Attendance3GStudentsController@destroy')
          ->name('attendance_3_g__students.attendance_3_g__student.destroy')->where('id', '[0-9]+');
 });
+
+
+
+
