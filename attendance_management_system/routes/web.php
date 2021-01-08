@@ -138,3 +138,22 @@ Route::group([
 
 
 
+
+Route::group([
+    'prefix' => 'attendance_3_m__students',
+], function () {
+    Route::get('/', 'Attendance3MStudentsController@index')
+         ->name('attendance_3_m__students.attendance_3_m__student.index');
+    Route::get('/create','Attendance3MStudentsController@create')
+         ->name('attendance_3_m__students.attendance_3_m__student.create');
+    Route::get('/show/{attendance3MStudent}','Attendance3MStudentsController@show')
+         ->name('attendance_3_m__students.attendance_3_m__student.show')->where('id', '[0-9]+');
+    Route::get('/{attendance3MStudent}/edit','Attendance3MStudentsController@edit')
+         ->name('attendance_3_m__students.attendance_3_m__student.edit')->where('id', '[0-9]+');
+    Route::post('/', 'Attendance3MStudentsController@store')
+         ->name('attendance_3_m__students.attendance_3_m__student.store');
+    Route::put('attendance_3_m__student/{attendance3MStudent}', 'Attendance3MStudentsController@update')
+         ->name('attendance_3_m__students.attendance_3_m__student.update')->where('id', '[0-9]+');
+    Route::delete('/attendance_3_m__student/{attendance3MStudent}','Attendance3MStudentsController@destroy')
+         ->name('attendance_3_m__students.attendance_3_m__student.destroy')->where('id', '[0-9]+');
+});
