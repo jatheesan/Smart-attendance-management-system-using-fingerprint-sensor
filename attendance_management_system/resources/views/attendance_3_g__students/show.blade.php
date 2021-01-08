@@ -83,7 +83,7 @@
                                      @foreach($attendance3GStudent->attendance_mark as $student)
                                         <tr>          
                                         <td> {{ $student }} </td>
-                                                @foreach($g3_reg as $s3reg)
+                                                @foreach($g3_reg as $g3reg)
                                                   @if ($g3reg ->st_regno == $student)
                                                    <td>  {{$g3reg ->st_name}} </td>
                                             
