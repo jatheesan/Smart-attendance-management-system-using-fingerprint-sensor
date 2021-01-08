@@ -141,41 +141,20 @@ class Attendance3GStudentsController extends Controller
      */
     public function update($id, Request $request)
     {
-        // try {
+        try {
             
-        //     $data = $this->getData($request);
+            $data = $this->getData($request);
             
-        //     $attendance3GStudent = Attendance_3G_Student::findOrFail($id);
-        //     $attendance3GStudent->update($data);
+            $attendance3GStudent = Attendance_3G_Student::findOrFail($id);
+            $attendance3GStudent->update($data);
 
-        //     return redirect()->route('attendance_3_g__students.attendance_3_g__student.index');
-        //       //  ->with('success_message', 'Attendance 3 G  Student was successfully updated.');
-        // } catch (Exception $exception) {
+            return redirect()->route('attendance_3_g__students.attendance_3_g__student.index');
+              //  ->with('success_message', 'Attendance 3 G  Student was successfully updated.');
+        } catch (Exception $exception) {
 
-        //     return back()->withInput()
-        //         ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request.']);
-        // } 
-        
-        $request->validate([
-            'course_code' => 'string|min:1|nullable',
-            'date' => 'required',
-            'hours' => 'numeric|nullable|min:-2147483648|max:2147483647',
-            'hall' => 'nullable',
-           //'attendance_mark' => 'nullable',
-            
-        ]);
-
-    $attendance = new Attendance_3G_Student([
-        'course_code' => $request->get('course_code'),
-        'date' => $request->get('date'),
-        'hours' => $request->get('hours'),
-        'hall' => $request->get('hall'),
-        'attendance_mark' => $request->get('attendance_mark')
-         ]);
-            //return $request->get('attendance_mark');
-         $attendance->save();
-                   
-         return redirect()->route('attendance_3_g__students.attendance_3_g__student.index');
+            return back()->withInput()
+                ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request.']);
+        } 
 
     }
 

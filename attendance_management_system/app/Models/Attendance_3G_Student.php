@@ -47,7 +47,9 @@ class Attendance_3G_Student extends Model
      *
      * @var array
      */
-    protected $casts = [];
+    protected $casts = [
+        'attendance_mark' => 'array'
+    ];
     
     /**
      * Get the student for this model.
