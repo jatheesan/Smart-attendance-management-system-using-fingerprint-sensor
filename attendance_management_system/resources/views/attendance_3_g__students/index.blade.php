@@ -1,0 +1,99 @@
+@extends('layouts.app')
+
+@section('content')
+
+    @if(Session::has('success_message'))
+        <div class="alert alert-success">
+            <span class="glyphicon glyphicon-ok"></span>
+            {!! session('success_message') !!}
+
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+
+        </div>
+    @endif
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading clearfix">
+
+            <div class="pull-left">
+                <h4 class="mt-5 mb-5">Attendance 3 G  Students</h4>
+            </div>
+
+            <div class="btn-group btn-group-sm pull-right" role="group">
+                <a href="{{ route('attendance_3_g__students.attendance_3_g__student.create') }}" class="btn btn-success" title="Create New Attendance 3 G  Student">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </a>
+            </div>
+
+        </div>
+        
+        @if(count($attendance3GStudents) == 0)
+            <div class="panel-body text-center">
+                <h4>No Attendance 3 G  Students Available.</h4>
+            </div>
+        @else
+        <div class="panel-body panel-body-with-table">
+            <div class="table-responsive">
+
+                <table class="table table-striped ">
+                    <thead>
+                        <tr>
+                            <th>Course Code</th>
+                            <th>Date</th>
+                            <th>Hours</th>
+                            <th>Hall</th>
+                            <th>Attendance Mark</th>
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($attendance3GStudents as $attendance3GStudent)
+                        <tr>
+                            <td>{{ $attendance3GStudent->course_code }}</td>
+                            <td>{{ $attendance3GStudent->date }}</td>
+                            <td>{{ $attendance3GStudent->hours }}</td>
+                            <td>{{ $attendance3GStudent->hall }}</td>
+                            <td>{{ optional($attendance3GStudent->student)->st_regno }}</td>
+
+                            <td>
+
+                                <form method="POST" action="{!! route('attendance_3_g__students.attendance_3_g__student.destroy', $attendance3GStudent->id) !!}" accept-charset="UTF-8">
+                                <input name="_method" value="DELETE" type="hidden">
+                                {{ csrf_field() }}
+
+                                    <div class="btn-group btn-group-xs pull-right" role="group">
+                                        <a href="{{ route('attendance_3_g__students.attendance_3_g__student.show', $attendance3GStudent->id ) }}" class="btn btn-info" title="Show Attendance 3 G  Student">
+                                            <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
+                                        </a>
+                                        <a href="{{ route('attendance_3_g__students.attendance_3_g__student.edit', $attendance3GStudent->id ) }}" class="btn btn-primary" title="Edit Attendance 3 G  Student">
+                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                        </a>
+
+                                        <button type="submit" class="btn btn-danger" title="Delete Attendance 3 G  Student" onclick="return confirm(&quot;Click Ok to delete Attendance 3 G  Student.&quot;)">
+                                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                        </button>
+                                    </div>
+
+                                </form>
+                                
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+        <div class="panel-footer">
+            {!! $attendance3GStudents->render() !!}
+        </div>
+        
+        @endif
+    
+    </div>
+@endsection
