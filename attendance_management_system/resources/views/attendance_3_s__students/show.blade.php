@@ -52,6 +52,14 @@
                         <dl class="row">
                             <dt class="col-sm-3 text-right">Course Code : </dt>
                             <dd class="col-sm-9 text-left">{{ $attendance3SStudent->course_code }}</dd>
+                            <dt class="col-sm-3 text-right">Course Name : </dt>
+                            <dd class="col-sm-9 text-left">
+                                @foreach($s3_cname as $s3cname)
+                                                  @if ($s3cname ->course_code ==  $attendance3SStudent->course_code )
+                                                   {{ $s3cname->course_name }}
+                                                  @endif
+                                                @endforeach
+                               </dd>
                             <dt class="col-sm-3 text-right">Date : </dt>
                             <dd class="col-sm-9 text-left">{{ $attendance3SStudent->date }}</dd>
                             <dt class="col-sm-3 text-right">Hours : </dt>
@@ -60,16 +68,38 @@
                             <dd class="col-sm-9 text-left">{{ $attendance3SStudent->hall }}</dd>
                             <dt class="col-sm-3 text-right">Students : </dt>
                             {{-- <dd>{{ optional($attendance3SStudent->student)->st_regno }}</dd>--}}
-                            <dd class="col-sm-9 text-left">
-                                <ul>
-                                    @if (is_array($attendance3SStudent->attendance_mark) || is_object($attendance3SStudent->attendance_mark))
-                                        @foreach($attendance3SStudent->attendance_mark as $student)
-                                            <li>{{ $student }}</li>
+                            {{-- <dd class="col-sm-9 text-left"> --}}
+                            <dd class="col-sm-9 text-left">   
+                            
+                                     @if (is_array($attendance3SStudent->attendance_mark) || is_object($attendance3SStudent->attendance_mark))
+                                     <table id="view" class="table table-striped table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Registration No</th>
+                                                <th>Student Name</th>
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody> 
+                                     @foreach($attendance3SStudent->attendance_mark as $student)
+                                        <tr>          
+                                        <td> {{ $student }} </td>
+                                                @foreach($s3_reg as $s3reg)
+                                                  @if ($s3reg ->st_regno == $student)
+                                                   <td>  {{$s3reg ->st_name}} </td>
+                                            
+                                                  @endif
+                                                @endforeach
+                                        </tr> 
                                         @endforeach
+                                
+                            
                                     @else
                                         {{ __('zero attendance') }}
                                     @endif
-                                </ul>
+                                   
+                                </tbody> 
+                            </table>     
                             </dd>
                         </dl>
                 </section>

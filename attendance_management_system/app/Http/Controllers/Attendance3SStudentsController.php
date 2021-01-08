@@ -72,7 +72,7 @@ class Attendance3SStudentsController extends Controller
             'date' => 'required',
             'hours' => 'numeric|nullable|min:-2147483648|max:2147483647',
             'hall' => 'nullable',
-            'attendance_mark' => 'nullable',
+            //'attendance_mark' => 'nullable',
             
         ]);
 
@@ -87,7 +87,7 @@ class Attendance3SStudentsController extends Controller
          $attendance->save();
                    
          return redirect()->route('attendance_3_s__students.attendance_3_s__student.index');
-         //->with('success', 'Attendance 3 S  Student was successfully added.');
+         //->with('success', 'Attendance 3 S  Students attendance was successfully added.');
 
     }
 
@@ -102,7 +102,9 @@ class Attendance3SStudentsController extends Controller
     {
         $attendance3SStudent = Attendance_3S_Student::with('student')->findOrFail($id);
         $s3_courses = Course::where('course_level', '3S')->where('semester', '2')->select('course_code')->get();
-        return view('attendance_3_s__students.show', compact('s3_courses', 'attendance3SStudent'));
+        $s3_reg = Student::where('st_level', '3S')->get();
+        $s3_cname = Course::where('course_level', '3S')->get();
+        return view('attendance_3_s__students.show', compact('s3_courses', 'attendance3SStudent','s3_reg','s3_cname'));
     }
 
     /**
@@ -132,20 +134,45 @@ class Attendance3SStudentsController extends Controller
      */
     public function update($id, Request $request)
     {
-        try {
+        // try {
             
-            $data = $this->getData($request);
+        //     $data = $this->getData($request);
             
-            $attendance3SStudent = Attendance_3S_Student::findOrFail($id);
-            $attendance3SStudent->update($data);
+        //     $attendance3SStudent = Attendance_3S_Student::findOrFail($id);
+        //     $attendance3SStudent->update($data);
 
-            return redirect()->route('attendance_3_s__students.attendance_3_s__student.index');
-                //->with('success_message', 'Attendance 3 S  Student was successfully updated.');
-        } catch (Exception $exception) {
+        //     return redirect()->route('attendance_3_s__students.attendance_3_s__student.index');
+        //         //->with('success_message', 'Attendance 3 S  Student was successfully updated.');
+        // } catch (Exception $exception) {
 
-            return back()->withInput()
-                ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request.']);
-        }        
+        //     return back()->withInput()
+        //         ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request.']);
+        // }  
+        
+        $request->validate([
+            'course_code' => 'string|min:1|nullable',
+            'date' => 'required',
+            'hours' => 'numeric|nullable|min:-2147483648|max:2147483647',
+            'hall' => 'nullable',
+            //'attendance_mark' => 'nullable',
+            
+        ]);
+
+    $attendance = new Attendance_3S_Student([
+        'course_code' => $request->get('course_code'),
+        'date' => $request->get('date'),
+        'hours' => $request->get('hours'),
+        'hall' => $request->get('hall'),
+        'attendance_mark' => $request->get('attendance_mark')
+         ]);
+            //return $request->get('attendance_mark');
+         $attendance->save();
+                   
+         return redirect()->route('attendance_3_s__students.attendance_3_s__student.index');
+         //->with('success', 'Attendance 3 S  Students attendance was successfully Updated.');
+
+
+
     }
 
     /**
@@ -162,7 +189,7 @@ class Attendance3SStudentsController extends Controller
             $attendance3SStudent->delete();
 
             return redirect()->route('attendance_3_s__students.attendance_3_s__student.index')
-                ->with('success_message', 'Attendance 3 S  Student was successfully deleted.');
+                ->with('success_message', 'Attendance 3 S  Students attendance was successfully deleted.');
         } catch (Exception $exception) {
 
             return back()->withInput()

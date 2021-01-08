@@ -20,7 +20,7 @@ class CreateAttendance3GStudentsTable extends Migration
             $table->date('date')->nullable();
             $table->integer('hours')->nullable();
             $table->string('hall')->nullable();
-            $table->string('attendance_mark')->nullable();
+            $table->json('attendance_mark')->nullable();
 
         });
     }
