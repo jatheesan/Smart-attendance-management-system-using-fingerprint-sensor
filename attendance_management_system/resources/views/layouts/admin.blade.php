@@ -116,7 +116,7 @@
                   <a href="#Level3AttendancesdropdownDropdown" aria-expanded="false" data-toggle="collapse">level 3</a>
                   <ul id="Level3AttendancesdropdownDropdown" class="collapse list-unstyled ">
                     <li><a href="{{ url('/attendance_3_s__students') }}">3S</a></li>
-                    <li><a href="#">3G</a></li>
+                    <li><a href="{{ url('/attendance_3_g__students') }}">3G</a></li>
                     <li><a href="#">3M</a></li>
                   </ul>
                 </li>
