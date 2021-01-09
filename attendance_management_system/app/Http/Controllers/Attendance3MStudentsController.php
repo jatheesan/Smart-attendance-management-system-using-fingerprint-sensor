@@ -31,12 +31,11 @@ class Attendance3MStudentsController extends Controller
      */
     public function create()
     {
-       // $students = Student::pluck('st_regno','st_id')->all();
-        //return view('attendance_3_m__students.create', compact('students'));
-
+       
         $m3_courses = Course::where('course_level', '3M')->where('semester', '2')->select('course_code')->get();
         $students = Student::where('st_level', '3M')->get();
-        $course3m = Course::where('course_code', 'like','CSC3__M%')-> where('semester',2)->get();
+        //$course3m = Course::where('course_code', 'like','CSC3__M%')-> where('semester',2)->get();
+        $course3m = Course::where('course_level', '3M')-> where('semester',2)->get();
         return view('attendance_3_m__students.create', compact('m3_courses', 'students','course3m'));
     }
 
@@ -100,7 +99,7 @@ class Attendance3MStudentsController extends Controller
         $m3_reg = Student::where('st_level', '3M')->get();
         $m3_cname = Course::where('course_level', '3M')->get();
         return view('attendance_3_M__students.show', compact('m3_courses', 'attendance3MStudent','m3_reg','m3_cname')); 
-        //return view('attendance_3_m__students.show', compact('attendance3MStudent'));
+       
     }
 
     /**
@@ -113,13 +112,14 @@ class Attendance3MStudentsController extends Controller
     public function edit($id)
     {
         $attendance3MStudent = Attendance_3M_Student::findOrFail($id);
-        //$students = Student::pluck('st_regno','st_id')->all();
+        
         $students = Student::where('st_level', '3M')->get();
         $m3_courses = Course::where('course_level', '3M')->where('semester', '2')->select('course_code')->get();
-        $course3m = Course::where('course_code', 'like','CSC3__M%')-> where('semester',2)->get();
+        $course3m = Course::where('course_level', '3M')-> where('semester',2)->get();
+        //$course3m = Course::where('course_code', 'like','CSC3__M%')-> where('semester',2)->get();
         return view('attendance_3_m__students.edit', compact('m3_courses', 'attendance3MStudent','students','course3m'));
 
-        //return view('attendance_3_m__students.edit', compact('attendance3MStudent','students'));
+        
     }
 
     /**
@@ -132,20 +132,41 @@ class Attendance3MStudentsController extends Controller
      */
     public function update($id, Request $request)
     {
-        try {
+        // try {
             
-            $data = $this->getData($request);
+        //     $data = $this->getData($request);
             
-            $attendance3MStudent = Attendance_3M_Student::findOrFail($id);
-            $attendance3MStudent->update($data);
+        //     $attendance3MStudent = Attendance_3M_Student::findOrFail($id);
+        //     $attendance3MStudent->update($data);
 
-            return redirect()->route('attendance_3_m__students.attendance_3_m__student.index');
-                //->with('success_message', 'Attendance 3 M  Student was successfully updated.');
-        } catch (Exception $exception) {
+        //     return redirect()->route('attendance_3_m__students.attendance_3_m__student.index');
+        //         //->with('success_message', 'Attendance 3 M  Student was successfully updated.');
+        // } catch (Exception $exception) {
 
-            return back()->withInput()
-                ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request.']);
-        }        
+        //     return back()->withInput()
+        //         ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request.']);
+        // }   
+        
+        $request->validate([
+            'course_code' => 'string|min:1|nullable',
+            'date' => 'required',
+            'hours' => 'numeric|nullable|min:-2147483648|max:2147483647',
+            'hall' => 'nullable',
+           //'attendance_mark' => 'nullable',
+            
+        ]);
+
+        $attendance3MStudent = Attendance_3M_Student::findOrFail($id);
+        $attendance3MStudent-> course_code = $request->get('course_code');
+        $attendance3MStudent -> date = $request->get('date');
+        $attendance3MStudent -> hours = $request->get('hours');
+        $attendance3MStudent -> hall = $request->get('hall');
+        $attendance3MStudent-> attendance_mark = $request->get('attendance_mark');
+
+        $attendance3MStudent->save();
+                   
+        return redirect()->route('attendance_3_m__students.attendance_3_m__student.index');
+
     }
 
     /**
