@@ -19,12 +19,23 @@ class G3courseController extends Controller
 
     }
 
+    // public function attendance(Request $request)
+    // {
+    //     $course = $request->input('g3_course');
+    //     $attendances = Attendance_3G_Student::with('student')->where('course_code','=', $course)->paginate(25);
+    //     $g3_courses = Course::where('course_level', '3G')->where('semester', '2')->select('course_code')->get();
+    //     return view('level_3.3gcourse.3g_course_attendance', compact('course', 'attendances', 'g3_courses'));
+    // }
+
+    // function for printing attendance like school register
+
     public function attendance(Request $request)
     {
         $course = $request->input('g3_course');
         $attendances = Attendance_3G_Student::with('student')->where('course_code','=', $course)->paginate(25);
         $g3_courses = Course::where('course_level', '3G')->where('semester', '2')->select('course_code')->get();
-        return view('level_3.3gcourse.3g_course_attendance', compact('course', 'attendances', 'g3_courses'));
+        $g3_st=Student::where('st_level','3G')->get();;
+        return view('level_3.3gcourse.3g', compact('course', 'attendances', 'g3_courses','g3_st'));
     }
 
 }
