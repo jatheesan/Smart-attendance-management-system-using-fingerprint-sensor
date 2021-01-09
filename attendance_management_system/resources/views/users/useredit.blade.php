@@ -6,7 +6,7 @@
  
     .vl{
     border-left: 3px solid black;
-    height: 290px;
+    height: 310px;
     position: absolute ;
     left:35%;
     margin-left:-1px;
@@ -18,7 +18,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Update a user') }}</div>
+                <div class="card-header text-center">{{ __('User Update') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('update', ['id' => $user->id]) }}">
@@ -42,11 +42,11 @@
                                     </div>
                                     <div class="w-100"></div>
                                     <div class="col-lg-12 d-none d-lg-block">
-                                        <h1 class="text-center">UOJ</h1>
+                                        <h1 class="text-center display-3">UOJ</h1>
                                     </div>
                                     <div class="w-100"></div>
                                     <div class="col-lg-12 d-none d-lg-block">
-                                        <h4 class="text-center">JAFFNA</h4>
+                                        <h4 class="text-center h4font">JAFFNA</h4>
                                     </div>                       
                                 </div>
                             </div>
@@ -99,10 +99,21 @@
                                 </div>
 
                                 <div class="form-group row">
+                                    <div class="col-md-6 offset-md-4 custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="password1" name="password" class="custom-control-input" value="!password">
+                                        <label class="custom-control-label" for="password1">change password</label>
+                                    </div>
+                                    <div class="col-md-6 offset-md-4 custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="password2" name="password" class="custom-control-input" value="password!">
+                                        <label class="custom-control-label" for="password2">don't change password</label>
+                                    </div>
+                                </div>
+
+                                {{--<div class="form-group row">
                                     <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                        <input id="password" type="text" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ $user ->password }}" required autocomplete="new-password">
 
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
@@ -118,10 +129,11 @@
                                     <div class="col-md-6">
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                     </div>
-                                </div>
+                                </div>--}}
 
                                 <div class="form-group row mb-0">
-                                    <div class="col-md-6 offset-md-4">
+                                    <div class="col-md-7 offset-md-4">
+                                        <a class="btn btn-info btn-close" href="{{ url('/tables/users') }}">Cancel</a>
                                         <button type="submit" class="btn btn-primary">
                                             {{ __('Update') }}
                                         </button>

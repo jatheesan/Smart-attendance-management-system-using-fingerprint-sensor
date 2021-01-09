@@ -3,7 +3,7 @@
 <style>
 .vl{
     border-left: 3px solid black;
-    height: 280px;
+    height: 300px;
     position: absolute ;
     left:35%;
     margin-left:-1px;
@@ -38,11 +38,11 @@
                                     </div>
                                     <div class="w-100"></div>
                                     <div class="col-lg-12 d-none d-lg-block">
-                                        <h1 class="text-center">UOJ</h1>
+                                        <h1 class="text-center display-3">U O J</h1>
                                     </div>
                                     <div class="w-100"></div>
                                     <div class="col-lg-12 d-none d-lg-block">
-                                        <h4 class="text-center">JAFFNA</h4>
+                                        <h4 class="text-center h4font">JAFFNA</h4>
                                     </div>                       
                                 </div>
                             </div>
@@ -50,6 +50,12 @@
                                 <hr class="vl">
                             </div>
                             <div class="col-lg-7">
+                                @if($message = Session::get('error'))
+                                    <div class="alert alert-danger">
+                                        <button type="button" class="close" data-dismiss="alert">x</button>
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                @endif
                                 <div class="form-group row row-content">
                                     <label for="email" class="col-lg-4 col-form-label text-lg-right">{{ __('E-Mail Address') }}</label>
                                     <div class="col-lg-6">

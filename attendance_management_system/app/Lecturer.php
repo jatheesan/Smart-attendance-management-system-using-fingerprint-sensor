@@ -29,6 +29,26 @@ class Lecturer extends Model
      * @var array
      */
     protected $fillable = [
-        'lect_name', 'lect_email', 'position',
+        'lect_name', 'lect_email', 'position','lect_title',
     ];
+
+    /**
+     * Set the position
+     *
+     */
+
+    public function setPositionAttribute($value)
+    {
+        $this->attributes['position'] = implode(',',$value);
+    }
+    
+    
+    /**
+     * Get the position
+     *
+     */
+    // public function getPositionAttribute($value)
+    // {
+    //     return explode(',',$value);
+    // }
 }

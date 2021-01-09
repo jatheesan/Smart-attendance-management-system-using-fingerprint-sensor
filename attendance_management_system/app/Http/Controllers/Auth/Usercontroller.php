@@ -15,11 +15,24 @@ class Usercontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::all();
+        //$users = User::simplePaginate(10);
+        //return view('users.userindex', compact('users'));
 
-        return view('users.userindex', compact('users'));
+        $search =  $request->input('search_user');
+        if($search!=""){
+            $users = User::where(function ($query) use ($search){
+                $query->where('name', 'like', '%'.$search.'%')
+                    ->orWhere('email', 'like', '%'.$search.'%');
+            })
+            ->paginate(5);
+            $users->appends(['search_user' => $search]);
+        }
+        else{
+            $users = User::paginate(10);
+        }
+        return View('users.userindex', compact('users'));
     }
 
     /**
@@ -79,14 +92,28 @@ class Usercontroller extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
             'role' => 'required',
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['string', 'min:8'],
         ]);
 
         $user = User::find($id);
         $user -> name = $request->get('name');
         $user -> email = $request->get('email');
         $user -> role = $request->get('role');
-        $user ->password = Hash::make($request -> get('password'));
+        $password = $request -> get('password');
+        if ( isset($password) && $password == '!password'){
+            $user ->password = Hash::make($request -> get('password'));
+        }
+        if ( isset($password) && $password == 'password!'){
+            $user ->password = $user ->password;
+        }
+        // if ( isset($password1) ){
+        //     $user ->password = Hash::make($request -> get('password1'));
+        // }
+
+        // $password2 = $request -> get('password2');
+        // if ( isset($password2) ){
+        //     $user ->password = $user ->password;
+        // }
         //Hash::make($data['password'])
         $user ->save();
 

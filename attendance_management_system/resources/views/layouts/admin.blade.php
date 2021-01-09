@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@yield('title', 'SAMS')</title>
+    <link rel = "icon" href ="http://lms.jfn.ac.lk/lms/pluginfile.php/1/core_admin/logo/0x150/1585272725/UoJ_logo.png" type = "image/x-icon"> 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="all,follow">
@@ -16,6 +17,7 @@
     <!-- Google fonts - Poppins -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Righteous&display=swap" rel="stylesheet">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="{{ asset('css/style.default.css') }}" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
@@ -77,7 +79,7 @@
           </div>
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
           <ul class="list-unstyled">
-            <li class="active"><a href="/dashboard"> <i class="fa fa-home"></i>Dashboard</a></li>
+            <li class="active"><a href="/admin/home"> <i class="fa fa-home"></i>Dashboard</a></li>
             <li><a href="#registerdropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-user-plus"></i>Register</a>
               <ul id="registerdropdownDropdown" class="collapse list-unstyled ">
                 <li><a href="{{ url('/student') }}">Student</a></li>
@@ -96,18 +98,43 @@
             </li>
             <li><a href="#AttendancesdropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-address-book-o"></i>Attendances</a>
               <ul id="AttendancesdropdownDropdown" class="collapse list-unstyled ">
-                <li><a href="#">1S/1G</a></li>
-                <li><a href="#">2S/2G</a></li>
-                <li><a href="#">3S/3G/3M</a></li>
-                <li><a href="#">4S/4M</a></li>
+                <li>
+                  <a href="#Level1AttendancesdropdownDropdown" aria-expanded="false" data-toggle="collapse">level 1</a>
+                  <ul id="Level1AttendancesdropdownDropdown" class="collapse list-unstyled ">
+                    <li><a href="#">1S</a></li>
+                    <li><a href="#">1G</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#Level2AttendancesdropdownDropdown" aria-expanded="false" data-toggle="collapse">level 2</a>
+                  <ul id="Level2AttendancesdropdownDropdown" class="collapse list-unstyled ">
+                    <li><a href="#">2S</a></li>
+                    <li><a href="#">2G</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#Level3AttendancesdropdownDropdown" aria-expanded="false" data-toggle="collapse">level 3</a>
+                  <ul id="Level3AttendancesdropdownDropdown" class="collapse list-unstyled ">
+                    <li><a href="{{ url('/attendance_3_s__students') }}">3S</a></li>
+                    <li><a href="{{ url('/attendance_3_g__students') }}">3G</a></li>
+                    <li><a href="{{ url('/attendance_3_m__students') }}">3M</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#Level4AttendancesdropdownDropdown" aria-expanded="false" data-toggle="collapse">level 4</a>
+                  <ul id="Level4AttendancesdropdownDropdown" class="collapse list-unstyled ">
+                    <li><a href="#">4S</a></li>
+                    <li><a href="#">4M</a></li>
+                  </ul>
+                </li>
               </ul>
             </li>
-            <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>
+            {{--<li><a href="{{url('/tables/level_courses')}}"> <i class="fa fa-bar-chart"></i>Semester</a></li>--}}
             {{--<li><a href="forms.html"> <i class="fa fa-clone"></i>Forms </a></li>--}}
             <li>
               <a href="{{ route('logout') }}" class="nav-link logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                  <i class="fa fa-sign-in"></i>
-                  <span class="d-none d-sm-inline">{{ __('Login page') }}</span>
+                  <i class="fa fa-sign-in"></i>Login page
+                  {{--<span>{{ __('Login page') }}</span>--}}
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
                 </a>
             </li>
@@ -148,10 +175,12 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-6">
-                  <p> &copy;2020 DEPARTMENT OF COMPUTER SCIENCE ALL RIGHTS RESERVED </p>
+
+                  <p>&copy;2020 DEPARTMENT OF COMPUTER SCIENCE ALL RIGHTS RESERVED - JAFFNA</p>
+
                 </div>
                 <div class="col-sm-6 text-right">
-                  <p><a href="http://www.csc.jfn.ac.lk/" class="external">UNIVERSITY OF JAFFNA</a></p>
+                  <p><a href="http://www.jfn.ac.lk/" class="external">UNIVERSITY OF JAFFNA</a></p>
                   <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
                 </div>
               </div>
