@@ -34,11 +34,12 @@ class Attendance3SStudentsController extends Controller
         //$students = Student::pluck('st_regno','st_id')->all();
         $s3_courses = Course::where('course_level', '3S')->where('semester', '2')->select('course_code')->get();
         $students = Student::where('st_level', '3S')->get();
-        $course3s = Course::where('course_code', 'like','CSC3__S%')-> where('semester',2)->get();
+        $course3s = Course::where('course_level', '3S')-> where('semester',2)->get();
+        //$course3s = Course::where('course_code', 'like','CSC3__S%')-> where('semester',2)->get();
         return view('attendance_3_s__students.create', compact('s3_courses', 'students','course3s'));
 
        
-        //return view('attendance_3_s__students.create', compact('course3s'));
+        
     }
 
     /**
@@ -120,7 +121,8 @@ class Attendance3SStudentsController extends Controller
         //$students = Student::pluck('st_regno','st_id')->all();
         $students = Student::where('st_level', '3S')->get();
         $s3_courses = Course::where('course_level', '3S')->where('semester', '2')->select('course_code')->get();
-        $course3s = Course::where('course_code', 'like','CSC3__S%')-> where('semester',2)->get();
+        $course3s = Course::where('course_level', '3S')-> where('semester',2)->get();
+        //$course3s = Course::where('course_code', 'like','CSC3__S%')-> where('semester',2)->get();
         return view('attendance_3_s__students.edit', compact('s3_courses', 'attendance3SStudent','students','course3s'));
     }
 
@@ -134,20 +136,40 @@ class Attendance3SStudentsController extends Controller
      */
     public function update($id, Request $request)
     {
-        try {
+        // try {
             
-            $data = $this->getData($request);
+        //     $data = $this->getData($request);
             
-            $attendance3SStudent = Attendance_3S_Student::findOrFail($id);
-            $attendance3SStudent->update($data);
+        //     $attendance3SStudent = Attendance_3S_Student::findOrFail($id);
+        //     $attendance3SStudent->update($data);
 
-            return redirect()->route('attendance_3_s__students.attendance_3_s__student.index');
-                //->with('success_message', 'Attendance 3 S  Student was successfully updated.');
-        } catch (Exception $exception) {
+        //     return redirect()->route('attendance_3_s__students.attendance_3_s__student.index');
+        //         //->with('success_message', 'Attendance 3 S  Student was successfully updated.');
+        // } catch (Exception $exception) {
 
-            return back()->withInput()
-                ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request.']);
-        }  
+        //     return back()->withInput()
+        //         ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request.']);
+        // } 
+        
+        $request->validate([
+            'course_code' => 'string|min:1|nullable',
+            'date' => 'required',
+            'hours' => 'numeric|nullable|min:-2147483648|max:2147483647',
+            'hall' => 'nullable',
+           //'attendance_mark' => 'nullable',
+            
+        ]);
+
+        $attendance3SStudent = Attendance_3S_Student::findOrFail($id);
+        $attendance3SStudent-> course_code = $request->get('course_code');
+        $attendance3SStudent -> date = $request->get('date');
+        $attendance3SStudent -> hours = $request->get('hours');
+        $attendance3SStudent -> hall = $request->get('hall');
+        $attendance3SStudent-> attendance_mark = $request->get('attendance_mark');
+
+        $attendance3SStudent->save();
+                   
+        return redirect()->route('attendance_3_s__students.attendance_3_s__student.index');
     
     }
 
