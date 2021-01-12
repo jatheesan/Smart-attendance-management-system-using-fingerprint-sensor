@@ -44,7 +44,7 @@
                             <th>{{ $attendance->date }}</th>
                             @endforeach
                             <th>total</th>
-                            <th>Attendance Percentage</th>
+                            <th>Attendance Percentage(%)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,8 +72,12 @@
                     <th> @php echo $st_count;  @endphp </th>
                      <th>
                      @php 
+                     if($m3_coursecount !=0){
                      $percentage= $st_count /$m3_coursecount  ;
-                     echo  $percentage*100;
+                     echo round( $percentage*100,2);}
+                     else{
+                        echo 0; 
+                     }
                      @endphp  
                         </th> 
                             
