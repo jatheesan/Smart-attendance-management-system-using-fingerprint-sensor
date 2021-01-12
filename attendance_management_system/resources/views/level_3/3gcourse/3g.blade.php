@@ -12,6 +12,28 @@
             </div>
 
         </div>
+        <div class="panel-body">
+            <section class="landing">
+                <hr/>
+                <dl class="row">
+                    <dt class="col-sm-3 text-right">Course Code : </dt>
+                    <dd class="col-sm-9 text-left">{{ $course}}</dd>
+                    <dt class="col-sm-3 text-right">Course Name: </dt>
+                    <dd class="col-sm-9 text-left">
+                        @foreach($g3_cname as $g3cname)
+                                                      @if ($g3cname ->course_code ==  $course )
+                                                       {{ $g3cname->course_name }}
+                                                      @endif
+                                                    @endforeach
+                    </dd>
+                    <dt class="col-sm-3 text-right">Total Number of Students: </dt>
+                    <dd class="col-sm-9 text-left">{{  $count3g}}</dd>
+                    <dt class="col-sm-3 text-right">Total Number of Lectures: </dt>
+                    <dd class="col-sm-9 text-left">{{  $g3_coursecount}}</dd>
+                </dl>  
+                <hr/>    
+            </section>
+        </div>
         <div class="panel-body panel-body-with-table">
             <div class="table-responsive">
                 <table class="table table-striped table-hover table-bordered">
@@ -21,6 +43,8 @@
                             @foreach($attendances as $attendance)
                             <th>{{ $attendance->date }}</th>
                             @endforeach
+                            <th>total</th>
+                            <th>Attendance Percentage</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -28,12 +52,14 @@
                       <tr>
                          
                         <td>{{ $g3st->st_regno }}</td>
-                        @foreach($attendances as $attendance)
+                        @php  $st_count=0;  @endphp
+                       @foreach($attendances as $attendance)
                         <td>
                         @if (is_array($attendance->attendance_mark) || is_object($attendance->attendance_mark))
                                 
                             @if(in_array( $g3st->st_regno,$attendance->attendance_mark))
                              <p>1</p>  
+                             @php $st_count=$st_count+1;  @endphp
                             @else
                              <p>0</p>
                             @endif
@@ -41,10 +67,44 @@
                            <p>0</p>
                         @endif  
                         </td>
+                        
                       @endforeach  
+                    <th> @php echo $st_count;  @endphp </th>
+                     <th>
+                     @php 
+                     $percentage= $st_count /$g3_coursecount  ;
+                     echo  $percentage*100;
+                     @endphp  
+                        </th> 
                             
                         </tr>
-                     @endforeach  
+                     @endforeach 
+                     <tr>
+                        <th>total attendees</th>
+                        @foreach($attendances as $attendance)
+                         <th>
+                         @if (is_array($attendance->attendance_mark) || is_object($attendance->attendance_mark))
+                         {{count($attendance->attendance_mark)}}     
+                         
+                         @else
+                            <p>0</p>
+                         @endif  
+                         </th>
+                       @endforeach   
+                    </tr> 
+                    <tr>
+                        <th>total absentees</th>
+                        @foreach($attendances as $attendance)
+                        <th>
+                        @if (is_array($attendance->attendance_mark) || is_object($attendance->attendance_mark))
+                        {{$count3g - count($attendance->attendance_mark)}}     
+                        
+                        @else
+                           <p>0</p>
+                        @endif  
+                        </th>
+                      @endforeach    
+                    </tr>
                     </tbody>
                 </table>
 
