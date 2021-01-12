@@ -31,7 +31,12 @@ class M3courseController extends Controller
         $course = $request->input('m3_course');
         $attendances = Attendance_3M_Student::with('student')->where('course_code','=', $course)->paginate(25);
         $m3_courses = Course::where('course_level', '3M')->where('semester', '2')->select('course_code')->get();
-        $m3_st=Student::where('st_level','3M')->get();;
-        return view('level_3.3mcourse.3m', compact('course', 'attendances', 'm3_courses','m3_st'));
+        $m3_st=Student::where('st_level','3M')->get();
+        $count3m = Student::where('st_level', '3M')->count();
+        $m3_cname = Course::where('course_level', '3M')->get();
+        $m3_coursecount = Attendance_3M_Student::where('course_code',$course )->count('date');
+       
+        return view('level_3.3mcourse.3m', compact('course', 'attendances', 'm3_courses','m3_st','count3m','m3_coursecount','m3_cname'));
+        
     }
 }
