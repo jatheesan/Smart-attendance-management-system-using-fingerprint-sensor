@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('pagetitle', 'Attandance/level3/3G')
+@section('pagetitle', 'Attandance/level3/3S')
 @section('content')
 <div class="container-fluid"> 
     <div class="row bg-white has-shadow pt-3">

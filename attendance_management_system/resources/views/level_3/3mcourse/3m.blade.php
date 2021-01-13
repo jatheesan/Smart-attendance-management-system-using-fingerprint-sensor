@@ -1,12 +1,12 @@
-@extends('level_3.3scourse.3scourses')
-@section('pagetitle', 'Attandance/level3/3S/'.$course)
+@extends('level_3.3mcourse.3mcourses')
+@section('pagetitle', 'Attandance/level3/3M/'.$course)
 @section('levelcontent')
     <div class="panel panel-default">
 
         <div class="panel-heading clearfix">
 
             <div class="btn-group btn-group-sm pull-right" role="group">
-                <a href="{{ route('attendance_3_s__students.attendance_3_s__student.create') }}" class="btn btn-success" title="Create New Attendance 3 S  Student">
+                <a href="{{ route('attendance_3_m__students.attendance_3_m__student.create') }}" class="btn btn-success" title="Create New Attendance 3 M  Student">
                     <span class="fa fa-plus" aria-hidden="true"></span>
                 </a>
             </div>
@@ -20,16 +20,16 @@
                     <dd class="col-sm-9 text-left">{{ $course}}</dd>
                     <dt class="col-sm-3 text-right">Course Name: </dt>
                     <dd class="col-sm-9 text-left">
-                        @foreach($s3_cname as $s3cname)
-                                                      @if ($s3cname ->course_code ==  $course )
-                                                       {{ $s3cname->course_name }}
+                        @foreach($m3_cname as $m3cname)
+                                                      @if ($m3cname ->course_code ==  $course )
+                                                       {{ $m3cname->course_name }}
                                                       @endif
                                                     @endforeach
                     </dd>
                     <dt class="col-sm-3 text-right">Total Number of Students: </dt>
-                    <dd class="col-sm-9 text-left">{{  $count3s}}</dd>
+                    <dd class="col-sm-9 text-left">{{  $count3m}}</dd>
                     <dt class="col-sm-3 text-right">Total Number of Lectures: </dt>
-                    <dd class="col-sm-9 text-left">{{  $s3_coursecount}}</dd>
+                    <dd class="col-sm-9 text-left">{{  $m3_coursecount}}</dd>
                 </dl>  
                 <hr/>    
             </section>
@@ -48,16 +48,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($s3_st as $s3st)
+                    @foreach($m3_st as $m3st)
                       <tr>
                          
-                        <td>{{ $s3st->st_regno }}</td>
+                        <td>{{ $m3st->st_regno }}</td>
                         @php  $st_count=0;  @endphp
                        @foreach($attendances as $attendance)
                         <td>
                         @if (is_array($attendance->attendance_mark) || is_object($attendance->attendance_mark))
                                 
-                            @if(in_array( $s3st->st_regno,$attendance->attendance_mark))
+                            @if(in_array( $m3st->st_regno,$attendance->attendance_mark))
                              <p>1</p>  
                              @php $st_count=$st_count+1;  @endphp
                             @else
@@ -72,8 +72,8 @@
                     <th> @php echo $st_count;  @endphp </th>
                      <th>
                      @php 
-                     if($s3_coursecount !=0){
-                     $percentage= $st_count /$s3_coursecount  ;
+                     if($m3_coursecount !=0){
+                     $percentage= $st_count /$m3_coursecount  ;
                      echo round( $percentage*100,2);}
                      else{
                         echo 0; 
@@ -101,7 +101,7 @@
                         @foreach($attendances as $attendance)
                         <th>
                         @if (is_array($attendance->attendance_mark) || is_object($attendance->attendance_mark))
-                        {{$count3s - count($attendance->attendance_mark)}}     
+                        {{$count3m - count($attendance->attendance_mark)}}     
                         
                         @else
                            <p>0</p>
