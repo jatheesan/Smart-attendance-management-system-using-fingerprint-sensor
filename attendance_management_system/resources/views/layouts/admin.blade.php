@@ -45,8 +45,8 @@
               <!-- Navbar Header-->
               <div class="navbar-header">
                 <!-- Navbar Brand --><a href="index.html" class="navbar-brand d-none d-sm-inline-block">
-                  <div class="brand-text d-none d-lg-inline-block"><img src="{{ asset('image/uojlogo.png') }}" width="30" height="30" alt="..." class="img-fluid rounded-circle d-inline-block align-top"><span></span><strong>SAMS</strong></div>
-                  <div class="brand-text d-none d-sm-inline-block d-lg-none"><img src="{{ asset('image/uojlogo.png') }}" width="30" height="30" alt="..." class="img-fluid rounded-circle d-inline-block align-top"><strong>SAMS</strong></div></a>
+                  <div class="brand-text d-none d-lg-inline-block"><img src="{{ asset('image/SAMS3.png') }}" width="120px" alt="..." class="img-fluid d-inline-block align-top"></div>
+                  <div class="brand-text d-none d-sm-inline-block d-lg-none"><img src="{{ asset('image/SAMS3.png') }}" width="120px" alt="..." class="img-fluid d-inline-block align-top"></div></a>
                 <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
               </div>
               <!-- Navbar Menu -->
@@ -73,11 +73,11 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="{{ URL::asset('/image/1.png') }}" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4">{{ Auth::user()->name }}</h1>
+              <h1 class="h3">{{ Auth::user()->name }}</h1>
               <i class="fa fa-circle text-success">Online</i>
             </div>
           </div>
-          <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+          {{--<!-- Sidebar Navidation Menus--><span class="heading">Main</span>--}}
           <ul class="list-unstyled">
             <li class="active"><a href="/admin/home"> <i class="fa fa-home"></i>Dashboard</a></li>
             <li><a href="#registerdropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-user-plus"></i>Register</a>

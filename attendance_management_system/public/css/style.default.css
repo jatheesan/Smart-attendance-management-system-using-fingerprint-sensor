@@ -390,7 +390,7 @@ body {
   * ==========================================================
   */
   nav.side-navbar {
-    background: #fff;
+    background: #002147;
     min-width: 250px;
     max-width: 250px;
     color: #686a76;
@@ -420,7 +420,7 @@ body {
   }
   
   nav.side-navbar a[aria-expanded="true"] {
-    background: #EEF5F9;
+    background: #002147;
   }
   
   nav.side-navbar a[aria-expanded="true"]::before {
@@ -440,6 +440,8 @@ body {
   
   nav.side-navbar .sidebar-header {
     padding: 30px 15px;
+    background: #e66030;
+    color: #fff;
   }
   
   nav.side-navbar .avatar {
@@ -451,8 +453,8 @@ body {
     margin-left: 10px;
   }
   
-  nav.side-navbar .title h1 {
-    color: #333;
+  nav.side-navbar .title h3 {
+    color: #fff;
   }
   
   nav.side-navbar .title p {
@@ -487,28 +489,32 @@ body {
   }
   
   nav.side-navbar ul li a:hover {
-    background: #796AEE;
+    /* background: #796AEE; */
+    background: #053469;
     border-left: 4px solid #3b25e6;
     color: #fff;
   }
   
   nav.side-navbar ul li li a {
     padding-left: 50px;
-    background: #EEF5F9;
+    background: #002147;
   }
   
   nav.side-navbar ul li.active > a {
-    background: #796AEE;
+    /* background: #796AEE; */
+    background: #053469;
     color: #fff;
     border-left: 4px solid #3b25e6;
   }
   
   nav.side-navbar ul li.active > a:hover {
-    background: #796AEE;
+    /* background: #796AEE; */
+    background: #053469;
   }
   
   nav.side-navbar ul li li.active > a {
-    background: #8e81f1;
+    /* background: #8e81f1; */
+    background: #053469;
   }
   
   nav.side-navbar ul li ul {
@@ -657,7 +663,8 @@ body {
   * ==========================================================
   */
   nav.navbar {
-    background: #2f333e;
+    /* background: #2f333e; */
+    background: #002147;
     padding-top: 15px;
     padding-bottom: 15px;
     color: #fff;
