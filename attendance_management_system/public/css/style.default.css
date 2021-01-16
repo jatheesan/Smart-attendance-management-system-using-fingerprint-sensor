@@ -393,7 +393,8 @@ body {
     background: #002147;
     min-width: 250px;
     max-width: 250px;
-    color: #686a76;
+    /* color: #686a76; */
+    color: #a2a4ad;
     -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
     z-index: 9;
@@ -1550,7 +1551,8 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
-    background: #2f333e;
+    /* background: #002147; */
+    background: rgb(39, 39, 39);
     color: #fff;
     padding: 20px 10px;
   }
