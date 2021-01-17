@@ -35,8 +35,8 @@ class M3courseController extends Controller
         $count3m = Student::where('st_level', '3M')->count();
         $m3_cname = Course::where('course_level', '3M')->get();
         $m3_coursecount = Attendance_3M_Student::where('course_code',$course )->count('date');
-       
-        return view('level_3.3mcourse.3m', compact('course', 'attendances', 'm3_courses','m3_st','count3m','m3_coursecount','m3_cname'));
+        $m3_hourssum = Attendance_3M_Student::where('course_code',$course )->sum('hours');
+        return view('level_3.3mcourse.3m', compact('course', 'attendances', 'm3_courses','m3_st','count3m','m3_coursecount','m3_cname','m3_hourssum'));
         
     }
 }
