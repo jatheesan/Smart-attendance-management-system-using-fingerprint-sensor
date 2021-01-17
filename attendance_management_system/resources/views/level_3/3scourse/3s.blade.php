@@ -1,6 +1,13 @@
 @extends('level_3.3scourse.3scourses')
 @section('pagetitle', 'Attandance/level3/3S/'.$course)
 @section('levelcontent')
+        <div class="panel-heading clearfix">
+            <div class="btn-group btn-group-sm pull-right" role="group">
+                <a href="{{ route('attendance_3_s__students.attendance_3_s__student.create') }}" class="btn btn-success" title="Create New Attendance 3 S  Student">
+                    <span class="fa fa-plus" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
             <div class="col-lg-12">
                 <section class="landing">
                     <hr />
@@ -19,6 +26,8 @@
                         <dd class="col-sm-6 text-left">{{ $count3s }}</dd>
                         <dt class="col-sm-6 text-right">Total Number of Lectures: </dt>
                         <dd class="col-sm-6 text-left">{{ $s3_coursecount }}</dd>
+                        <dt class="col-sm-6 text-right">Total Number of Lecture hours: </dt>
+                        <dd class="col-sm-6 text-left">{{ $s3_hourssum .' hours'}}</dd>
                     </dl>
                     <hr />
                 </section>
@@ -102,7 +111,7 @@
                                                 {{$count3s - count($attendance->attendance_mark)}}     
                         
                                             @else
-                                                <p>0</p>
+                                                <p>{{$count3s}}</p>
                                             @endif  
                                         </th>
                                     @endforeach    

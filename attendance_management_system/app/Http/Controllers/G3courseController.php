@@ -38,8 +38,8 @@ class G3courseController extends Controller
         $count3g = Student::where('st_level', '3G')->count();
         $g3_cname = Course::where('course_level', '3G')->get();
         $g3_coursecount = Attendance_3G_Student::where('course_code',$course )->count('date');
-
-        return view('level_3.3gcourse.3g', compact('course', 'attendances', 'g3_courses','g3_st','count3g','g3_coursecount','g3_cname'));
+        $g3_hourssum = Attendance_3G_Student::where('course_code',$course )->sum('hours');
+        return view('level_3.3gcourse.3g', compact('course', 'attendances', 'g3_courses','g3_st','count3g','g3_coursecount','g3_cname','g3_hourssum'));
     }
 
 }

@@ -27,11 +27,9 @@
             </div>
         </div>
 
-        <section>
             <div class="col-lg-12">
                 @yield('levelcontent')
-            </div>
-        </section>
+            </div>   
     </div>
 </div>    
 
