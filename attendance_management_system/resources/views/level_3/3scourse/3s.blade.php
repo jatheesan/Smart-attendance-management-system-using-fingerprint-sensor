@@ -1,13 +1,6 @@
 @extends('level_3.3scourse.3scourses')
 @section('pagetitle', 'Attandance/level3/3S/'.$course)
 @section('levelcontent')
-        <div class="panel-heading clearfix">
-            <div class="btn-group btn-group-sm pull-right" role="group">
-                <a href="{{ route('attendance_3_s__students.attendance_3_s__student.create') }}" class="btn btn-success" title="Create New Attendance 3 S  Student">
-                    <span class="fa fa-plus" aria-hidden="true"></span>
-                </a>
-            </div>
-        </div>
             <div class="col-lg-12">
                 <section class="landing">
                     <hr />
@@ -32,7 +25,14 @@
                     <hr />
                 </section>
             </div>
-            <div class="col-lg-12" style="border: 5px solid; border-radius: 8px; padding:0px !important;">
+            <div class="panel-heading clearfix">
+                <div class="btn-group btn-group-sm pull-right" role="group">
+                    <a href="{{ route('attendance_3_s__students.attendance_3_s__student.create') }}" class="btn btn-success" title="Create New Attendance 3 S  Student">
+                        <span class="fa fa-plus" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-12" style="border: 5px solid; border-radius: 8px; padding:0px !important; margin-bottom:10px;">
                     <div class="table-responsive" style="display:flex !important;">
                         <table class="table table-striped table-hover table-bordered">
                             <thead class="thead-dark" style="background: #053469; color:#fff;">
