@@ -21,6 +21,14 @@
                         <dd class="col-sm-6 text-left">{{ $s3_coursecount }}</dd>
                         <dt class="col-sm-6 text-right">Total Number of Lecture hours: </dt>
                         <dd class="col-sm-6 text-left">{{ $s3_hourssum .' hours'}}</dd>
+                        <dt class="col-sm-6 text-right">Semester: </dt>
+                        <dd class="col-sm-6 text-left">
+                            @foreach($s3_cname as $s3cname)
+                                @if($s3cname ->course_code ==  $course )
+                                    {{ $s3cname->semester}}
+                                @endif
+                            @endforeach
+                        </dd>
                     </dl>
                     <hr />
                 </section>
@@ -41,7 +49,8 @@
                                     @foreach($attendances as $attendance)
                                         <th>{{ $attendance->date }}</th>
                                     @endforeach
-                                        <th>total</th>
+                                        <th>Total Number of Attended Lecture Days</th>
+                                        <th>Total Number of Attended Lecture Hours</th>
                                         <th>Attendance Percentage(%)</th>
                                 </tr>
                             </thead>
@@ -50,7 +59,8 @@
                                 <tr>
                                     <td>{{ $s3st->st_regno }}</td>
                                     @php  
-                                        $st_count=0;  
+                                        $st_count=0; 
+                                        $st_hours=0; 
                                     @endphp
 
                                     @foreach($attendances as $attendance)
@@ -60,7 +70,8 @@
                                                 @if(in_array( $s3st->st_regno,$attendance->attendance_mark))
                                                     <p>1</p>  
                                                     @php 
-                                                        $st_count=$st_count+1;  
+                                                        $st_count=$st_count+1; 
+                                                        $st_hours=$st_hours+ $attendance->hours;
                                                     @endphp
                                                 @else
                                                     <p>0</p>
@@ -76,11 +87,16 @@
                                             echo $st_count;  
                                         @endphp 
                                     </th>
+                                    <th> 
+                                        @php 
+                                            echo $st_hours;  
+                                        @endphp 
+                                    </th>
                                     <th>
                                         @php 
-                                            if($s3_coursecount !=0)
+                                            if($s3_hourssum !=0)
                                             {
-                                                $percentage= $st_count /$s3_coursecount  ;
+                                                $percentage= $st_hours /$s3_hourssum  ;
                                                 echo round( $percentage*100,2);
                                             }
                                             else{
