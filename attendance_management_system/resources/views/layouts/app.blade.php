@@ -27,8 +27,8 @@
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CJosefin+Sans:600,700" rel="stylesheet">
-    <!-- FONTAWESOME ICONS -->
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}">
     <!-- ALL CSS FILES -->
     <link href="{{ asset('css/materialize.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" />
@@ -71,20 +71,29 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item"
-                                            href="{{ url('/change-password') }}">Profile</a>
-                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                            document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                    href="{{ url('/change-password') }}">Password Change
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                                    document.getElementById('logout-form').submit();"><i class="fa fa-sign-out" aria-hidden="true"></i>
+                                                    {{ __('Logout') }}
+                                                </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}"
-                                            method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
+                                                <form id="logout-form" action="{{ route('logout') }}"
+                                                    method="POST" style="display: none;">
+                                                    @csrf
+                                                </form>
+                                            </li>
+                                            
+                                        </ul>
                                     </div>
                                 </li>
                             @endguest
+                            
                         </ul>
                     </div>
                 </div>
@@ -109,6 +118,7 @@
             </div>
         </div>
     </section>
+    
 </div>
 </body>
 </html>

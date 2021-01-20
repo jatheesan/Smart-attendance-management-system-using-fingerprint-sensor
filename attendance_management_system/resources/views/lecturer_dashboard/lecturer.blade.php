@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('pagetitle','Courses')
+<!-- @section('pagetitle','Courses') -->
 @section('content')
     <!-- MOBILE MENU -->
     <section>
@@ -85,8 +85,10 @@
                 <div class="col-md-9 col-md-offset-3">
                     <ul>
                         <li><a href="dashboard.html" class="pro-act">My Dashboard</a></li>
-                        <li><a href="db-profile.html">Profile</a></li>
-                        <li><a href="db-courses.html">Courses</a></li>
+                        <li><a href="{{url('/profile')}}">Profile</a></li>
+                        <li>
+                            <a href="db-courses.html">Courses</a>
+                        </li>
                         {{--<li><a href="db-exams.html">Exams</a></li>
                         <li><a href="db-time-line.html">Time Line</a></li>--}}
                     </ul>
@@ -110,7 +112,7 @@
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <main class="py-4">
+                    <main>
                         @yield('lecturercontent')
                     </main>
                 </div>
