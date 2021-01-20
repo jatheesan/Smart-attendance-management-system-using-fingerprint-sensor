@@ -59,7 +59,7 @@
                             <h4>User Account</h4>
                             <ul>
                                 <li><a href="#!" data-toggle="modal" data-target="#modal1">Sign In</a></li>
-                                <li><a href="#!" data-toggle="modal" data-target="#modal2">Register</a></li>
+                                <li><a href="#!" data-toggle="modal" data-target="#modal2">Sign Up</a></li>
                             </ul>
                         </div>
                     </div>
@@ -349,8 +349,8 @@
                     <a href="#" class="pop-close" data-dismiss="modal"><img src="images/cancel.png" alt="" />
                     </a>
                     <h4>Forgot password</h4>
-                    <p>Don't have an account? Create your account. It's take less then a minutes</p>
-                    <form class="s12" method="POST" action="{{ route('password.email') }}">
+                    <p style="color:red">please contact the site administrator.</p>
+                    {{--<form class="s12" method="POST" action="{{ route('password.email') }}">
                     @csrf
                         <div>
                             <div class="input-field s12">
@@ -366,14 +366,16 @@
                             <div class="input-field s4">
                                 <input type="submit" value="Submit" class="waves-effect waves-light log-in-btn"> </div>
                         </div>
-                        <div>
-                            <div class="input-field s12"> <a href="#" data-dismiss="modal" data-toggle="modal"
-                                    data-target="#modal1">Are you a already member ? Login</a> | <a href="#"
-                                    data-dismiss="modal" data-toggle="modal" data-target="#modal2">Create a new
-                                    account</a> 
-                            </div>
+                        
+                    </form>--}}
+                    <hr />
+                    <div>
+                        <div class="input-field s12"> <a href="#" data-dismiss="modal" data-toggle="modal"
+                            data-target="#modal1">Are you a already member ? Login</a> | <a href="#"
+                            data-dismiss="modal" data-toggle="modal" data-target="#modal2">Create a new
+                            account</a> 
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
