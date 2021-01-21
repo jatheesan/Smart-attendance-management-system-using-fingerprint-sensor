@@ -122,7 +122,7 @@
                     <img src="{{ asset('image/slider/2.jpg') }}" alt="">
                     <div class="carousel-caption slider-con">
                         <h2>Smart <span>Attendance</span></h2>
-                        <p>Student attendance management system deals with the maintenance of the student's attendance
+                        <p>Smart attendance management system deals with the maintenance of the student's attendance
                             details. It generates the attendance of the student on basis of presence in class</p>
                     </div>
                 </div>
