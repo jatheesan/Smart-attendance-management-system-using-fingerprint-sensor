@@ -29,6 +29,10 @@ Route::get('admin/home', 'HomeController@adminHome')->name('admindashboard')->mi
 Route::get('/change-password', 'User\ChangePasswordController@index');
 Route::post('/change-password', 'User\ChangePasswordController@store')->name('change.password');
 
+Route::get('/profile', 'LecturerPageController@profile')->name('profile');
+Route::post('/edit-profile', 'LecturerPageController@edit')->name('edit-profile');
+Route::post('/update-profile/{id}', 'LecturerPageController@update')->name('update-profile');
+
 Route::group(['middleware' => ['auth', 'role']], function() {
 
   Route::get('/student', function () {
