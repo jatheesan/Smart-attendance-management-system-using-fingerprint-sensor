@@ -4,7 +4,7 @@ use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\DashboardController;
-
+use App\Http\Controllers\SemesterController;
 //use App\Http\Middleware\IsLecturers;
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +54,9 @@ Route::group(['middleware' => ['auth', 'role']], function() {
   Route::get('/level3', function () {
     return view('level_3.level3');
   });
+
+  Route::get('/semester',[SemesterController::class,'index']);
+  Route::post('/seme-update',[SemesterController::class,'update']);
 
   Route::get('/admin/home',[DashboardController::class,'displycourse'])->name('admindashboard')->middleware('role');
 
