@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Attendance_3M_Student;
 use App\Student;
 use App\Course;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Exception;
 
@@ -19,8 +20,9 @@ class Attendance3MStudentsController extends Controller
      */
     public function index()
     {
+        $semester = DB::table('variables')->where('name', 'semester')->value('value');
         $attendance3MStudents = Attendance_3M_Student::with('student')->paginate(25);
-        $m3_courses = Course::where('course_level', '3M')->where('semester', '2')->select('course_code')->get();
+        $m3_courses = Course::where('course_level', '3M')->where('semester','=', $semester )->select('course_code')->get();
         return view('attendance_3_m__students.index', compact('m3_courses','attendance3MStudents'));
     }
 
@@ -31,11 +33,11 @@ class Attendance3MStudentsController extends Controller
      */
     public function create()
     {
-       
-        $m3_courses = Course::where('course_level', '3M')->where('semester', '2')->select('course_code')->get();
+        $semester = DB::table('variables')->where('name', 'semester')->value('value');
+        $m3_courses = Course::where('course_level', '3M')->where('semester','=', $semester )->select('course_code')->get();
         $students = Student::where('st_level', '3M')->get();
         //$course3m = Course::where('course_code', 'like','CSC3__M%')-> where('semester',2)->get();
-        $course3m = Course::where('course_level', '3M')-> where('semester',2)->get();
+        $course3m = Course::where('course_level', '3M')-> where('semester','=', $semester )->get();
         return view('attendance_3_m__students.create', compact('m3_courses', 'students','course3m'));
     }
 
@@ -94,8 +96,9 @@ class Attendance3MStudentsController extends Controller
      */
     public function show($id)
     {
+        $semester = DB::table('variables')->where('name', 'semester')->value('value');
         $attendance3MStudent = Attendance_3M_Student::with('student')->findOrFail($id);
-        $m3_courses = Course::where('course_level', '3M')->where('semester', '2')->select('course_code')->get();
+        $m3_courses = Course::where('course_level', '3M')->where('semester','=', $semester )->select('course_code')->get();
         $m3_reg = Student::where('st_level', '3M')->get();
         $m3_cname = Course::where('course_level', '3M')->get();
         return view('attendance_3_M__students.show', compact('m3_courses', 'attendance3MStudent','m3_reg','m3_cname')); 
@@ -113,9 +116,10 @@ class Attendance3MStudentsController extends Controller
     {
         $attendance3MStudent = Attendance_3M_Student::findOrFail($id);
         
+        $semester = DB::table('variables')->where('name', 'semester')->value('value');
         $students = Student::where('st_level', '3M')->get();
-        $m3_courses = Course::where('course_level', '3M')->where('semester', '2')->select('course_code')->get();
-        $course3m = Course::where('course_level', '3M')-> where('semester',2)->get();
+        $m3_courses = Course::where('course_level', '3M')->where('semester','=', $semester )->select('course_code')->get();
+        $course3m = Course::where('course_level', '3M')-> where('semester','=', $semester )->get();
         //$course3m = Course::where('course_code', 'like','CSC3__M%')-> where('semester',2)->get();
         return view('attendance_3_m__students.edit', compact('m3_courses', 'attendance3MStudent','students','course3m'));
 

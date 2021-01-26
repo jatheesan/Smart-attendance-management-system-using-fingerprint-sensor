@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 use App\Course;
 use App\Models\Attendance_3G_Student;
 use App\Student;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class G3courseController extends Controller
 {
     public function index()
     {
-        $g3_courses = Course::where('course_level', '3G')->where('semester', '2')->select('course_code')->get();
+        $semester = DB::table('variables')->where('name', 'semester')->value('value');
+        $g3_courses = Course::where('course_level', '3G')->where('semester','=', $semester )->select('course_code')->get();
         return view('level_3.3gcourse.3gcourses', compact('g3_courses'));
 
         //dd('$s3_courses');
@@ -31,9 +33,10 @@ class G3courseController extends Controller
 
     public function attendance(Request $request)
     {
+        $semester = DB::table('variables')->where('name', 'semester')->value('value');
         $course = $request->input('g3_course');
         $attendances = Attendance_3G_Student::with('student')->where('course_code','=', $course)->paginate(25);
-        $g3_courses = Course::where('course_level', '3G')->where('semester', '2')->select('course_code')->get();
+        $g3_courses = Course::where('course_level', '3G')->where('semester','=', $semester )->select('course_code')->get();
         $g3_st=Student::where('st_level','3G')->get();
         $count3g = Student::where('st_level', '3G')->count();
         $g3_cname = Course::where('course_level', '3G')->get();

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Attendance_3G_Student;
 use App\Student;
 use App\Course;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Exception;
 
@@ -19,8 +20,9 @@ class Attendance3GStudentsController extends Controller
      */
     public function index()
     {
+        $semester = DB::table('variables')->where('name', 'semester')->value('value');
         $attendance3GStudents = Attendance_3G_Student::with('student')->paginate(25);
-        $g3_courses = Course::where('course_level', '3G')->where('semester', '2')->select('course_code')->get();
+        $g3_courses = Course::where('course_level', '3G')->where('semester','=', $semester )->select('course_code')->get();
         return view('attendance_3_g__students.index', compact('g3_courses','attendance3GStudents'));
     }
 
@@ -31,10 +33,10 @@ class Attendance3GStudentsController extends Controller
      */
     public function create()
     {
-        
-        $g3_courses = Course::where('course_level', '3G')->where('semester', '2')->select('course_code')->get();
+        $semester = DB::table('variables')->where('name', 'semester')->value('value');
+        $g3_courses = Course::where('course_level', '3G')->where('semester','=', $semester )->select('course_code')->get();
         $students = Student::where('st_level', '3G')->get();
-        $course3g = Course::where('course_level', '3G')-> where('semester',2)->get();
+        $course3g = Course::where('course_level', '3G')-> where('semester','=', $semester )->get();
         //$course3g = Course::where('course_code', 'like','CSC3__G%')-> where('semester',2)->get();
         return view('attendance_3_g__students.create', compact('g3_courses', 'students','course3g'));
        
@@ -97,8 +99,8 @@ class Attendance3GStudentsController extends Controller
     {
         $attendance3GStudent = Attendance_3G_Student::with('student')->findOrFail($id);
 
-        
-        $g3_courses = Course::where('course_level', '3G')->where('semester', '2')->select('course_code')->get();
+        $semester = DB::table('variables')->where('name', 'semester')->value('value');
+        $g3_courses = Course::where('course_level', '3G')->where('semester','=', $semester )->select('course_code')->get();
         $g3_reg = Student::where('st_level', '3G')->get();
         $g3_cname = Course::where('course_level', '3G')->get();
         return view('attendance_3_G__students.show', compact('g3_courses', 'attendance3GStudent','g3_reg','g3_cname')); 
@@ -119,9 +121,10 @@ class Attendance3GStudentsController extends Controller
         $attendance3GStudent = Attendance_3G_Student::findOrFail($id);
       
         //$students = Student::pluck('st_regno','st_id')->all();
+        $semester = DB::table('variables')->where('name', 'semester')->value('value');
         $students = Student::where('st_level', '3G')->get();
-        $g3_courses = Course::where('course_level', '3G')->where('semester', '2')->select('course_code')->get();
-        $course3g = Course::where('course_level', '3G')-> where('semester',2)->get();
+        $g3_courses = Course::where('course_level', '3G')->where('semester','=', $semester )->select('course_code')->get();
+        $course3g = Course::where('course_level', '3G')-> where('semester','=', $semester )->get();
         //$course3g = Course::where('course_code', 'like','CSC3__G%')-> where('semester',2)->get();
         return view('attendance_3_g__students.edit', compact('g3_courses', 'attendance3GStudent','students','course3g'));
 
