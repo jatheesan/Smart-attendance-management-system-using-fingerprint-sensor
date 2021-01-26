@@ -132,6 +132,16 @@
                                         </th>
                                     @endforeach    
                                 </tr>
+                                <tr>
+                                    <th>edit</th>
+                                    @foreach($attendances as $attendance)
+                                        <th>
+                                            <a href="{{ route('attendance_3_s__students.attendance_3_s__student.edit', $attendance->id ) }}" class="btn btn-primary" title="Edit Attendance 3 S  Student">
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                            </a>
+                                        </th>
+                                    @endforeach
+                                </tr>
                             </tbody>
                         </table>
                     </div>
