@@ -36,7 +36,7 @@ class Attendance3SStudentsController extends Controller
         //$students = Student::pluck('st_regno','st_id')->all();
         $semester = DB::table('variables')->where('name', 'semester')->value('value');
         $s3_courses = Course::where('course_level', '3S')->where('semester','=', $semester )->select('course_code')->get();
-        $students = Student::where('st_level', '3S')->get();
+        $students = Student::where('st_level', '3S')->orderBy('st_regno','asc')->get();
         $course3s = Course::where('course_level', '3S')-> where('semester','=', $semester )->get();
         //$course3s = Course::where('course_code', 'like','CSC3__S%')-> where('semester',2)->get();
         return view('attendance_3_s__students.create', compact('s3_courses', 'students','course3s'));
@@ -107,7 +107,7 @@ class Attendance3SStudentsController extends Controller
         $semester = DB::table('variables')->where('name', 'semester')->value('value');
         $attendance3SStudent = Attendance_3S_Student::with('student')->findOrFail($id);
         $s3_courses = Course::where('course_level', '3S')->where('semester','=', $semester )->select('course_code')->get();
-        $s3_reg = Student::where('st_level', '3S')->get();
+        $s3_reg = Student::where('st_level', '3S')->orderBy('st_regno','asc')->get();
         $s3_cname = Course::where('course_level', '3S')->get();
         return view('attendance_3_s__students.show', compact('s3_courses', 'attendance3SStudent','s3_reg','s3_cname'));
     }
@@ -124,7 +124,7 @@ class Attendance3SStudentsController extends Controller
         $attendance3SStudent = Attendance_3S_Student::findOrFail($id);
         //$students = Student::pluck('st_regno','st_id')->all();
         $semester = DB::table('variables')->where('name', 'semester')->value('value');
-        $students = Student::where('st_level', '3S')->get();
+        $students = Student::where('st_level', '3S')->orderBy('st_regno','asc')->get();
         $s3_courses = Course::where('course_level', '3S')->where('semester','=', $semester )->select('course_code')->get();
         $course3s = Course::where('course_level', '3S')-> where('semester','=', $semester )->get();
         //$course3s = Course::where('course_code', 'like','CSC3__S%')-> where('semester',2)->get();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Course;
 use App\Models\Attendance_3S_Student;
 use App\Student;
+use App\Lecturer;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -35,12 +36,13 @@ class S3courseController extends Controller
         $course = $request->input('s3_course');
         $attendances = Attendance_3S_Student::with('student')->where('course_code','=', $course)->paginate(25);
         $s3_courses = Course::where('course_level', '3S')->where('semester','=', $semester )->select('course_code')->get();
-        $s3_st=Student::where('st_level','3S')->get();
+        $s3_st=Student::where('st_level','3S')->orderBy('st_regno','asc')->get();
         $count3s = Student::where('st_level', '3S')->count();
-        $s3_cname = Course::where('course_level', '3S')->get();
+        $s3_cname = Course::where('course_level', '3S')->where('course_code', $course)->select('course_name','semester')->get();
         $s3_coursecount = Attendance_3S_Student::where('course_code',$course )->count('date');
         $s3_hourssum = Attendance_3S_Student::where('course_code',$course )->sum('hours');
-      return view('level_3.3scourse.3s', compact('course', 'attendances', 's3_courses','s3_st','count3s','s3_coursecount','s3_cname','s3_hourssum'));
+        $lecturer_name= Course::join('lecturers','courses.lect_id','=','lecturers.lect_id')->where('course_code','=', $course)->select('lect_name','lect_title')->get();
+        return view('level_3.3scourse.3s', compact('course', 'attendances', 's3_courses','s3_st','count3s','s3_coursecount','s3_cname','s3_hourssum','lecturer_name'));
     }
 
 
