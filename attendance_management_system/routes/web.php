@@ -88,13 +88,13 @@ Route::group(['middleware' => ['auth', 'role']], function() {
   Route::delete('/student/delete/{id}', [StudentController::class, 'destroy']) ->name('student_delete');
 
   Route::get('/level3s', 'S3courseController@index');
-  Route::post('/attendance', 'S3courseController@attendance');
+  Route::any('/attendance', 'S3courseController@attendance');
 
   Route::get('/level3g', 'G3courseController@index');
-  Route::post('/attendance3g', 'G3courseController@attendance');
+  Route::any('/attendance3g', 'G3courseController@attendance');
 
   Route::get('/level3m', 'M3courseController@index');
-  Route::post('/attendance3m', 'M3courseController@attendance');
+  Route::any('/attendance3m', 'M3courseController@attendance');
 
   // Route::get('/level3s', function () {
   //   return view('level_3.3scourse.3scourses');

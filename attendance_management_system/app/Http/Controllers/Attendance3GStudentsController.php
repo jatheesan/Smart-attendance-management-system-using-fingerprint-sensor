@@ -21,7 +21,7 @@ class Attendance3GStudentsController extends Controller
     public function index()
     {
         $semester = DB::table('variables')->where('name', 'semester')->value('value');
-        $attendance3GStudents = Attendance_3G_Student::with('student')->paginate(25);
+        $attendance3GStudents = Attendance_3G_Student::with('student')->paginate(10);
         $g3_courses = Course::where('course_level', '3G')->where('semester','=', $semester )->select('course_code')->get();
         return view('attendance_3_g__students.index', compact('g3_courses','attendance3GStudents'));
     }
