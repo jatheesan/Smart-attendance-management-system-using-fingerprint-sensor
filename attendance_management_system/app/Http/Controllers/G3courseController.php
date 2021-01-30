@@ -36,9 +36,9 @@ class G3courseController extends Controller
     {
         $semester = DB::table('variables')->where('name', 'semester')->value('value');
         $course = $request->input('g3_course');
-        $attendances = Attendance_3G_Student::with('student')->where('course_code','=', $course)->paginate(25);
+        $attendances = Attendance_3G_Student::with('student')->where('course_code','=', $course)->get();
         $g3_courses = Course::where('course_level', '3G')->where('semester','=', $semester )->select('course_code')->get();
-        $g3_st=Student::where('st_level','3G')->orderBy('st_regno','asc')->get();
+        $g3_st=Student::where('st_level','3G')->orderBy('st_regno','asc')->paginate(10);
         $count3g = Student::where('st_level', '3G')->count();
         $g3_cname = Course::where('course_level', '3G')->where('course_code', $course)->select('course_name','semester')->get();
         $g3_coursecount = Attendance_3G_Student::where('course_code',$course )->count('date');

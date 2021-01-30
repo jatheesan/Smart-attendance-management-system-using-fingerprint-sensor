@@ -1,8 +1,14 @@
 @extends('level_3.3mcourse.3mcourses')
 @section('pagetitle', 'Attandance/level3/3G/'.$course)
 @section('levelcontent')
-        
-            <div class="col-lg-12">
+      
+            @if($m3_coursecount == 0)
+            <div class="panel-body text-center">
+                <hr/>
+            <h4>{{$course}} Attendance is not available.</h4>
+            </div>
+            @else
+                <div class="col-lg-12">
                 <section class="landing">
                     <hr />
                     <dl class="row">
@@ -70,11 +76,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @php $i=1; @endphp
-                                @foreach($m3_st as $m3st)
+                                {{-- @php $i=1; @endphp --}}
+                                @foreach($m3_st as $key => $m3st)
                                 <tr>
-                                    <td>{{ $i }}</td>
-                                    @php $i=$i+1; @endphp
+                                    {{-- <td>{{ $i }}</td>
+                                    @php $i=$i+1; @endphp --}}
+                                    <td>{{$m3_st ->firstitem()+$key}}</td>
                                     <td>{{ $m3st->st_regno }}</td>
                                     <td>{{ $m3st->st_name }}</td>
                                     @php  
@@ -126,7 +133,7 @@
                             
                                 </tr>
                                 @endforeach 
-                                <tr>
+                                <tr class="thead-dark">
                                     <th colspan="3">total attendees</th>
                                         @foreach($attendances as $attendance)
                                             <th>
@@ -138,7 +145,7 @@
                                             </th>
                                         @endforeach   
                                 </tr> 
-                                <tr>
+                                <tr class="thead-dark">
                                     <th colspan="3">total absentees</th>
                                     @foreach($attendances as $attendance)
                                         <th>
@@ -151,7 +158,24 @@
                                         </th>
                                     @endforeach    
                                 </tr>
-                                <tr>
+                                <tr class="thead-dark">
+                                    <th colspan="3">Student's Attendence Percentage(%)</th>
+                                    @foreach($attendances as $attendance)
+                                        <th>
+                                            @php 
+                                            if (is_array($attendance->attendance_mark) || is_object($attendance->attendance_mark))
+                                            {
+                                                $percentage1= count($attendance->attendance_mark) /$count3m ;
+                                                echo round( $percentage1*100,2);
+                                            }
+                                            else{
+                                                echo 0; 
+                                            }
+                                          @endphp  
+                                        </th>
+                                    @endforeach    
+                                </tr>
+                                <tr class="thead-dark">
                                     <th colspan="3">edit</th>
                                     @foreach($attendances as $attendance)
                                         <th>
@@ -165,4 +189,6 @@
                         </table>
                     </div>
             </div>
+            {{ $m3_st->appends(request()->input())->links() }}   
+         @endif     
 @endsection
