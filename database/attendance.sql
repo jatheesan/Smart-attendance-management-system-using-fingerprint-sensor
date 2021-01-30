@@ -3,12 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2021 at 09:32 AM
+-- Generation Time: Jan 30, 2021 at 03:34 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
-
-create database attendance;
-use attendance;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -24,6 +21,57 @@ SET time_zone = "+00:00";
 --
 -- Database: `attendance`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `attendance_3_g__students`
+--
+
+CREATE TABLE `attendance_3_g__students` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `course_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `hours` int(11) DEFAULT NULL,
+  `hall` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `attendance_mark` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`attendance_mark`))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `attendance_3_g__students`
+--
+
+INSERT INTO `attendance_3_g__students` (`id`, `created_at`, `updated_at`, `course_code`, `date`, `hours`, `hall`, `attendance_mark`) VALUES
+(1, '2021-01-08 03:26:10', '2021-01-08 03:26:10', 'CSC304G3', '2021-01-08', 2, 'CUL-1', '[\"2017\\/SP\\/005\",\"2017\\/SP\\/010\",\"2017\\/SP\\/012\",\"2017\\/SP\\/013\",\"2017\\/SP\\/017\"]'),
+(3, '2021-01-08 03:26:56', '2021-01-21 23:48:18', 'CSC304G3', '2021-01-08', 2, 'CUL-1', '[\"2017\\/SP\\/005\",\"2017\\/SP\\/012\",\"2017\\/SP\\/013\",\"2017\\/SP\\/017\"]'),
+(4, '2021-01-08 03:32:19', '2021-01-08 03:40:49', 'CSC304G3', '2021-01-08', 2, 'CUL-1', '[\"2017\\/SP\\/010\",\"2017\\/SP\\/012\",\"2017\\/SP\\/013\",\"2017\\/SP\\/017\"]');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `attendance_3_m__students`
+--
+
+CREATE TABLE `attendance_3_m__students` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `course_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `hours` int(11) DEFAULT NULL,
+  `hall` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `attendance_mark` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`attendance_mark`))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `attendance_3_m__students`
+--
+
+INSERT INTO `attendance_3_m__students` (`id`, `created_at`, `updated_at`, `course_code`, `date`, `hours`, `hall`, `attendance_mark`) VALUES
+(1, '2021-01-08 23:34:54', '2021-01-22 00:02:34', 'CSC301M3', '2021-01-05', 1, 'CUL-2', '[\"2017\\/SP\\/002\",\"2017\\/SP\\/006\",\"2017\\/SP\\/008\"]'),
+(2, '2021-01-16 21:45:55', '2021-01-16 21:45:55', 'CSC301M3', '2021-01-17', 1, 'CUL-2', '[\"2017\\/SP\\/002\",\"2017\\/SP\\/003\",\"2017\\/SP\\/006\",\"2017\\/SP\\/008\",\"2017\\/SP\\/014\"]');
 
 -- --------------------------------------------------------
 
@@ -47,18 +95,30 @@ CREATE TABLE `attendance_3_s__students` (
 --
 
 INSERT INTO `attendance_3_s__students` (`id`, `created_at`, `updated_at`, `course_code`, `date`, `hours`, `hall`, `attendance_mark`) VALUES
-(1, '2020-12-25 00:17:56', '2020-12-25 00:17:56', 'CSC304S3', '2020-12-25', 1, 'CUL-2', '[\"2017\\/CSC\\/001\",\"2017\\/CSC\\/002\",\"2017\\/CSC\\/003\",\"2017\\/CSC\\/004\",\"2017\\/CSC\\/005\",\"2017\\/CSC\\/006\",\"2017\\/CSC\\/007\",\"2017\\/CSC\\/008\",\"2017\\/CSC\\/009\",\"2017\\/CSC\\/010\",\"2017\\/CSC\\/011\",\"2017\\/CSC\\/012\",\"2017\\/CSC\\/013\",\"2017\\/CSC\\/014\",\"2017\\/CSC\\/015\",\"2017\\/CSC\\/016\",\"2017\\/CSC\\/017\",\"2017\\/CSC\\/018\",\"2017\\/CSC\\/019\",\"2017\\/CSC\\/020\",\"2017\\/CSC\\/021\",\"2017\\/CSC\\/022\",\"2017\\/CSC\\/023\",\"2017\\/CSC\\/024\",\"2017\\/CSC\\/025\",\"2017\\/CSC\\/026\",\"2017\\/CSC\\/027\",\"2017\\/CSC\\/028\",\"2017\\/CSC\\/029\",\"2017\\/CSC\\/030\",\"2017\\/CSC\\/031\",\"2017\\/CSC\\/032\",\"2017\\/CSC\\/033\",\"2017\\/CSC\\/034\",\"2017\\/CSC\\/035\",\"2017\\/CSC\\/036\",\"2017\\/CSC\\/037\",\"2017\\/CSC\\/038\",\"2017\\/CSC\\/040\",\"2017\\/CSC\\/043\",\"2017\\/CSC\\/044\",\"2017\\/CSC\\/045\",\"2017\\/CSC\\/046\",\"2017\\/CSC\\/047\",\"2017\\/CSC\\/048\",\"2017\\/CSC\\/FS\\/049\"]'),
+(1, '2020-12-25 00:17:56', '2020-12-25 00:17:56', 'CSC304S3', '2020-12-25', 1, 'CUL-2', '[\"2017\\/CSC\\/001\",\"2017\\/CSC\\/002\",\"2017\\/CSC\\/003\",\"2017\\/CSC\\/004\",\"2017\\/CSC\\/005\",\"2017\\/CSC\\/006\",\"2017\\/CSC\\/007\",\"2017\\/CSC\\/008\",\"2017\\/CSC\\/009\",\"2017\\/CSC\\/010\",\"2017\\/CSC\\/011\",\"2017\\/CSC\\/012\",\"2017\\/CSC\\/013\",\"2017\\/CSC\\/014\",\"2017\\/CSC\\/015\",\"2017\\/CSC\\/016\",\"2017\\/CSC\\/017\",\"2017\\/CSC\\/018\",\"2017\\/CSC\\/019\",\"2017\\/CSC\\/020\",\"2017\\/CSC\\/021\",\"2017\\/CSC\\/022\",\"2017\\/CSC\\/023\",\"2017\\/CSC\\/024\",\"2017\\/CSC\\/025\",\"2017\\/CSC\\/026\",\"2017\\/CSC\\/027\",\"2017\\/CSC\\/028\",\"2017\\/CSC\\/029\",\"2017\\/CSC\\/030\",\"2017\\/CSC\\/031\",\"2017\\/CSC\\/032\",\"2017\\/CSC\\/033\",\"2017\\/CSC\\/034\",\"2017\\/CSC\\/035\",\"2017\\/CSC\\/036\",\"2017\\/CSC\\/037\",\"2017\\/CSC\\/038\",\"2017\\/CSC\\/040\",\"2017\\/CSC\\/043\",\"2017\\/CSC\\/044\",\"2017\\/CSC\\/045\",\"2017\\/CSC\\/046\",\"2017\\/CSC\\/047\",\"2017\\/CSC\\/048\",\"2017\\/CSC\\/FS\\/\"]'),
 (2, '2020-12-25 03:43:52', '2020-12-25 04:27:26', 'CSC304S3', '2020-12-27', 2, 'LAB-1', '[\"2017\\/CSC\\/001\",\"2017\\/CSC\\/002\",\"2017\\/CSC\\/003\",\"2017\\/CSC\\/004\",\"2017\\/CSC\\/005\",\"2017\\/CSC\\/006\",\"2017\\/CSC\\/007\",\"2017\\/CSC\\/008\",\"2017\\/CSC\\/009\",\"2017\\/CSC\\/010\",\"2017\\/CSC\\/011\",\"2017\\/CSC\\/012\",\"2017\\/CSC\\/013\",\"2017\\/CSC\\/014\",\"2017\\/CSC\\/015\",\"2017\\/CSC\\/016\",\"2017\\/CSC\\/017\",\"2017\\/CSC\\/018\",\"2017\\/CSC\\/019\",\"2017\\/CSC\\/020\",\"2017\\/CSC\\/021\",\"2017\\/CSC\\/022\",\"2017\\/CSC\\/023\",\"2017\\/CSC\\/024\",\"2017\\/CSC\\/025\",\"2017\\/CSC\\/026\",\"2017\\/CSC\\/027\"]'),
-(5, '2020-12-25 04:29:09', '2021-01-05 04:22:42', 'CSC101S3', '2020-12-02', 3, 'LAB-1', '[\"2017\\/CSC\\/005\",\"2017\\/CSC\\/031\",\"2017\\/CSC\\/032\",\"2017\\/CSC\\/048\",\"2017\\/CSC\\/FS\\/049\"]'),
+(5, '2020-12-25 04:29:09', '2021-01-05 04:22:42', 'CSC101S3', '2020-12-02', 3, 'LAB-1', '[\"2017\\/CSC\\/005\",\"2017\\/CSC\\/031\",\"2017\\/CSC\\/032\",\"2017\\/CSC\\/048\",\"2017\\/CSC\\/FS\\/\"]'),
 (6, '2020-12-25 04:29:23', '2020-12-25 04:29:23', 'CSC101S3', '2020-12-02', 2, 'CUL-2', '[\"2017\\/CSC\\/017\",\"2017\\/CSC\\/018\",\"2017\\/CSC\\/031\"]'),
-(7, '2020-12-25 04:31:35', '2020-12-25 04:42:36', 'CSC304S3', '2020-12-25', 1, 'CUL-2', '[\"2017\\/CSC\\/001\"]'),
+(7, '2020-12-25 04:31:35', '2021-01-21 23:38:43', 'CSC304S3', '2020-12-25', 1, 'CUL-2', '[\"2017\\/CSC\\/001\",\"2017\\/CSC\\/004\",\"2017\\/CSC\\/007\",\"2017\\/CSC\\/010\"]'),
 (8, '2020-12-25 04:49:39', '2020-12-25 04:49:39', 'CSC304S3', '2020-12-02', 1, 'CUL-1', NULL),
-(9, '2020-12-27 00:35:09', '2020-12-27 00:35:09', 'CSC304S3', '2020-12-27', 2, 'CSL', '[\"2017\\/CSC\\/044\",\"2017\\/CSC\\/045\",\"2017\\/CSC\\/046\",\"2017\\/CSC\\/047\",\"2017\\/CSC\\/048\",\"2017\\/CSC\\/FS\\/049\"]'),
+(9, '2020-12-27 00:35:09', '2020-12-27 00:35:09', 'CSC304S3', '2020-12-27', 2, 'CSL', '[\"2017\\/CSC\\/044\",\"2017\\/CSC\\/045\",\"2017\\/CSC\\/046\",\"2017\\/CSC\\/047\",\"2017\\/CSC\\/048\",\"2017\\/CSC\\/FS\\/\"]'),
 (10, '2020-12-27 05:43:26', '2021-01-05 04:23:03', 'CSC304S3', '2020-12-21', 5, 'CSL', '[\"2017\\/CSC\\/004\",\"2017\\/CSC\\/005\",\"2017\\/CSC\\/006\"]'),
-(12, '2021-01-04 00:57:51', '2021-01-04 00:57:51', 'CSC306S3', '2021-01-04', 4, 'CUL-1', '[\"2017\\/CSC\\/001\",\"2017\\/CSC\\/002\",\"2017\\/CSC\\/004\",\"2017\\/CSC\\/005\",\"2017\\/CSC\\/007\",\"2017\\/CSC\\/008\",\"2017\\/CSC\\/010\",\"2017\\/CSC\\/011\",\"2017\\/CSC\\/013\",\"2017\\/CSC\\/014\",\"2017\\/CSC\\/016\",\"2017\\/CSC\\/017\",\"2017\\/CSC\\/019\",\"2017\\/CSC\\/022\",\"2017\\/CSC\\/023\",\"2017\\/CSC\\/025\",\"2017\\/CSC\\/026\",\"2017\\/CSC\\/028\",\"2017\\/CSC\\/029\",\"2017\\/CSC\\/031\",\"2017\\/CSC\\/032\",\"2017\\/CSC\\/034\",\"2017\\/CSC\\/035\",\"2017\\/CSC\\/037\",\"2017\\/CSC\\/038\",\"2017\\/CSC\\/043\",\"2017\\/CSC\\/044\",\"2017\\/CSC\\/046\",\"2017\\/CSC\\/047\",\"2017\\/CSC\\/FS\\/049\"]'),
+(12, '2021-01-04 00:57:51', '2021-01-04 00:57:51', 'CSC306S3', '2021-01-04', 4, 'CUL-1', '[\"2017\\/CSC\\/001\",\"2017\\/CSC\\/002\",\"2017\\/CSC\\/004\",\"2017\\/CSC\\/005\",\"2017\\/CSC\\/007\",\"2017\\/CSC\\/008\",\"2017\\/CSC\\/010\",\"2017\\/CSC\\/011\",\"2017\\/CSC\\/013\",\"2017\\/CSC\\/014\",\"2017\\/CSC\\/016\",\"2017\\/CSC\\/017\",\"2017\\/CSC\\/019\",\"2017\\/CSC\\/022\",\"2017\\/CSC\\/023\",\"2017\\/CSC\\/025\",\"2017\\/CSC\\/026\",\"2017\\/CSC\\/028\",\"2017\\/CSC\\/029\",\"2017\\/CSC\\/031\",\"2017\\/CSC\\/032\",\"2017\\/CSC\\/034\",\"2017\\/CSC\\/035\",\"2017\\/CSC\\/037\",\"2017\\/CSC\\/038\",\"2017\\/CSC\\/043\",\"2017\\/CSC\\/044\",\"2017\\/CSC\\/046\",\"2017\\/CSC\\/047\",\"2017\\/CSC\\/FS\\/\"]'),
 (13, '2021-01-05 00:39:26', '2021-01-05 23:20:30', 'CSC306S3', '2021-01-12', 1, 'CSL', '[\"2017\\/CSC\\/004\",\"2017\\/CSC\\/005\"]'),
 (14, '2021-01-06 00:18:40', '2021-01-06 00:18:40', 'CSC306S3', '2021-01-07', 2, 'CUL-2', '[\"2017\\/CSC\\/001\",\"2017\\/CSC\\/002\",\"2017\\/CSC\\/009\",\"2017\\/CSC\\/010\",\"2017\\/CSC\\/014\",\"2017\\/CSC\\/019\",\"2017\\/CSC\\/026\",\"2017\\/CSC\\/030\",\"2017\\/CSC\\/032\",\"2017\\/CSC\\/034\",\"2017\\/CSC\\/044\",\"2017\\/CSC\\/048\"]'),
-(15, '2021-01-06 00:54:13', '2021-01-06 00:54:48', 'CSC308S3', '2021-01-06', 3, 'CUL-2', '[\"2017\\/CSC\\/001\",\"2017\\/CSC\\/004\",\"2017\\/CSC\\/007\",\"2017\\/CSC\\/010\",\"2017\\/CSC\\/013\",\"2017\\/CSC\\/015\",\"2017\\/CSC\\/016\",\"2017\\/CSC\\/018\",\"2017\\/CSC\\/019\",\"2017\\/CSC\\/021\",\"2017\\/CSC\\/022\",\"2017\\/CSC\\/024\",\"2017\\/CSC\\/025\",\"2017\\/CSC\\/027\",\"2017\\/CSC\\/028\",\"2017\\/CSC\\/031\",\"2017\\/CSC\\/032\",\"2017\\/CSC\\/034\",\"2017\\/CSC\\/035\",\"2017\\/CSC\\/037\",\"2017\\/CSC\\/038\",\"2017\\/CSC\\/043\",\"2017\\/CSC\\/044\",\"2017\\/CSC\\/046\",\"2017\\/CSC\\/FS\\/049\"]');
+(15, '2021-01-06 00:54:13', '2021-01-06 00:54:48', 'CSC308S3', '2021-01-06', 3, 'CUL-2', '[\"2017\\/CSC\\/001\",\"2017\\/CSC\\/004\",\"2017\\/CSC\\/007\",\"2017\\/CSC\\/010\",\"2017\\/CSC\\/013\",\"2017\\/CSC\\/015\",\"2017\\/CSC\\/016\",\"2017\\/CSC\\/018\",\"2017\\/CSC\\/019\",\"2017\\/CSC\\/021\",\"2017\\/CSC\\/022\",\"2017\\/CSC\\/024\",\"2017\\/CSC\\/025\",\"2017\\/CSC\\/027\",\"2017\\/CSC\\/028\",\"2017\\/CSC\\/031\",\"2017\\/CSC\\/032\",\"2017\\/CSC\\/034\",\"2017\\/CSC\\/035\",\"2017\\/CSC\\/037\",\"2017\\/CSC\\/038\",\"2017\\/CSC\\/043\",\"2017\\/CSC\\/044\",\"2017\\/CSC\\/046\",\"2017\\/CSC\\/FS\\/\"]'),
+(16, '2021-01-06 03:08:58', '2021-01-06 19:25:03', 'CSC309S3', '2021-01-07', 1, 'LAB-1', '[\"2017\\/CSC\\/001\",\"2017\\/CSC\\/004\",\"2017\\/CSC\\/005\",\"2017\\/CSC\\/007\",\"2017\\/CSC\\/008\",\"2017\\/CSC\\/009\",\"2017\\/CSC\\/011\",\"2017\\/CSC\\/012\",\"2017\\/CSC\\/015\",\"2017\\/CSC\\/021\",\"2017\\/CSC\\/023\",\"2017\\/CSC\\/024\",\"2017\\/CSC\\/025\",\"2017\\/CSC\\/026\",\"2017\\/CSC\\/027\",\"2017\\/CSC\\/028\",\"2017\\/CSC\\/029\",\"2017\\/CSC\\/031\"]'),
+(17, '2021-01-06 19:23:59', '2021-01-06 19:23:59', 'CSC308S3', '2021-01-07', 1, 'CUL-2', '[\"2017\\/CSC\\/037\",\"2017\\/CSC\\/038\",\"2017\\/CSC\\/040\"]'),
+(18, '2021-01-08 03:33:47', '2021-01-09 05:15:52', 'CSC308S3', '2021-01-07', 1, 'CUL-2', NULL),
+(19, '2021-01-08 03:37:52', '2021-01-08 03:37:52', 'CSC309S3', '2021-01-09', 1, 'CUL-1', NULL),
+(20, '2021-01-15 21:22:38', '2021-01-15 21:22:38', 'CSC304S3', '2021-01-17', 2, 'CUL-1', '[\"2017\\/CSC\\/001\",\"2017\\/CSC\\/003\",\"2017\\/CSC\\/008\",\"2017\\/CSC\\/009\",\"2017\\/CSC\\/010\",\"2017\\/CSC\\/011\",\"2017\\/CSC\\/016\",\"2017\\/CSC\\/018\",\"2017\\/CSC\\/020\",\"2017\\/CSC\\/022\",\"2017\\/CSC\\/025\",\"2017\\/CSC\\/030\",\"2017\\/CSC\\/033\",\"2017\\/CSC\\/034\",\"2017\\/CSC\\/037\",\"2017\\/CSC\\/044\",\"2017\\/CSC\\/047\"]'),
+(21, '2021-01-15 21:23:32', '2021-01-15 21:23:32', 'CSC304S3', '2021-01-18', 2, 'CUL-1', '[\"2017\\/CSC\\/001\",\"2017\\/CSC\\/005\",\"2017\\/CSC\\/009\",\"2017\\/CSC\\/016\",\"2017\\/CSC\\/020\",\"2017\\/CSC\\/024\",\"2017\\/CSC\\/FS\\/\"]'),
+(22, '2021-01-15 21:24:06', '2021-01-15 21:24:06', 'CSC304S3', '2021-01-17', 1, NULL, '[\"2017\\/CSC\\/003\",\"2017\\/CSC\\/004\",\"2017\\/CSC\\/005\",\"2017\\/CSC\\/006\",\"2017\\/CSC\\/007\"]'),
+(23, '2021-01-15 21:30:00', '2021-01-15 21:30:00', 'CSC304S3', '2021-01-23', 1, 'CUL-1', '[\"2017\\/CSC\\/011\",\"2017\\/CSC\\/014\",\"2017\\/CSC\\/017\",\"2017\\/CSC\\/023\",\"2017\\/CSC\\/029\"]'),
+(24, '2021-01-15 21:30:29', '2021-01-15 21:30:29', 'CSC304S3', '2021-01-23', 2, 'CUL-1', '[\"2017\\/CSC\\/001\",\"2017\\/CSC\\/005\",\"2017\\/CSC\\/009\",\"2017\\/CSC\\/011\",\"2017\\/CSC\\/013\"]'),
+(25, '2021-01-16 00:25:15', '2021-01-16 00:25:15', 'CSC304S3', '2021-01-30', 1, 'CUL-1', '[\"2017\\/CSC\\/008\",\"2017\\/CSC\\/017\",\"2017\\/CSC\\/020\"]'),
+(26, '2021-01-21 01:11:54', '2021-01-21 01:15:43', 'CSC304S3', '2021-01-21', 2, 'CUL-1', '[\"2017\\/CSC\\/001\",\"2017\\/CSC\\/007\",\"2017\\/CSC\\/010\",\"2017\\/CSC\\/013\",\"2017\\/CSC\\/016\",\"2017\\/CSC\\/017\",\"2017\\/CSC\\/019\",\"2017\\/CSC\\/020\",\"2017\\/CSC\\/022\",\"2017\\/CSC\\/025\",\"2017\\/CSC\\/028\",\"2017\\/CSC\\/031\",\"2017\\/CSC\\/034\"]'),
+(27, '2021-01-21 23:39:45', '2021-01-21 23:39:45', 'CSC304S3', '2021-01-22', 1, 'CUL-1', '[\"2017\\/CSC\\/004\",\"2017\\/CSC\\/005\"]');
 
 -- --------------------------------------------------------
 
@@ -216,7 +276,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (197, '2020_12_11_070116_create_students_table', 2),
 (198, '2020_12_23_143129_create_attendance_3_s__students_table', 3),
 (199, '2020_12_24_044901_create_attendance_3_s__students_table', 4),
-(200, '2020_12_25_051813_create_attendance_3_s__students_table', 5);
+(200, '2020_12_25_051813_create_attendance_3_s__students_table', 5),
+(202, '2021_01_08_024431_create_attendance_3_g__students_table', 6),
+(203, '2021_01_08_111448_create_attendance_3_m__students_table', 7),
+(204, '2021_01_25_182717_create_semesters_table', 8),
+(205, '2021_01_25_183443_create_semesters_table', 9),
+(206, '2021_01_26_043807_create_variables_table', 10);
 
 -- --------------------------------------------------------
 
@@ -230,6 +295,14 @@ CREATE TABLE `password_resets` (
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+('admin@gmail.com', '$2y$10$rWo1pMZr.hSVK.pI7UBvCOSzHmPlmSDXGFzUKccDyUfjuR/HJpEYm', '2021-01-12 02:35:48'),
+('srijathee@gmail.com', '$2y$10$g2zsr7gEg10yCol8ksuGseL.eQPnka6P2xy0hmUi9cLwzon4cEI2y', '2021-01-20 04:43:36');
+
 -- --------------------------------------------------------
 
 --
@@ -239,7 +312,7 @@ CREATE TABLE `password_resets` (
 CREATE TABLE `students` (
   `st_id` bigint(20) UNSIGNED NOT NULL,
   `st_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `st_regno` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `st_regno` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL,
   `st_level` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `st_acyear` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `st_fid` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -317,7 +390,7 @@ INSERT INTO `students` (`st_id`, `st_name`, `st_regno`, `st_level`, `st_acyear`,
 (63, 'Sethukavalan Lokavanilavan', '2017/CSC/046', '3S', '2016/2017', NULL, NULL, NULL),
 (64, 'Rathnayaka Mudiyanselage Lukshan kavinda', '2017/CSC/047', '3S', '2016/2017', NULL, NULL, NULL),
 (65, 'Herath Mudiyanselage Cathuranga Sanjeewa rathnayake', '2017/CSC/048', '3S', '2016/2017', NULL, NULL, NULL),
-(66, 'Nawab Yousufi', '2017/CSC/FS/049', '3S', '2016/2017', NULL, NULL, NULL),
+(66, 'Nawab Yousufi', '2017/CSC/FS/', '3S', '2016/2017', NULL, NULL, NULL),
 (67, 'Sithamparanadesan Kumareasan', '2017/SP/005', '3G', '2016/2017', NULL, NULL, NULL),
 (68, 'Sathiyaseelan Kosika', '2017/SP/010', '3G', '2016/2017', NULL, NULL, NULL),
 (69, 'Mageswaran Janarthanan', '2017/SP/012', '3G', '2016/2017', NULL, NULL, NULL),
@@ -363,11 +436,45 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `role`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'admin@gmail.com', NULL, 1, '$2y$10$bLD9v4Llf9NG07IHvbOlwus1HnEcSFVSoBSC3rIPno8OQniaaNwJ2', NULL, '2020-12-18 04:19:43', '2020-12-18 04:19:43'),
-(2, 'User', 'user@gmail.com', NULL, 0, '$2y$10$vVjdN6fyhhOevIhw1SPVzeEFr0t3z2C1JYr0yklYIPOqckA15UDFK', NULL, '2020-12-18 04:19:43', '2020-12-18 04:19:43');
+(2, 'User', 'user@gmail.com', NULL, 0, '$2y$10$vVjdN6fyhhOevIhw1SPVzeEFr0t3z2C1JYr0yklYIPOqckA15UDFK', NULL, '2020-12-18 04:19:43', '2020-12-18 04:19:43'),
+(3, 'Jatheesan', 'srijathee@gmail.com', NULL, 0, '$2y$10$0jGCnCjrdZ5UmROsJDhle.cqvBtLr0RhsMnXFE19Qv3iRo.0WNoqK', NULL, '2021-01-12 06:21:52', '2021-01-12 06:21:52'),
+(4, 'Jatheesan', 'srijathees@gmail.com', NULL, 0, '$2y$10$pfJJkFDam6dQ7Knp0nVFWu.SPVI602Gwl0JWY0GLxUGqttp7hofKm', NULL, '2021-01-12 06:24:47', '2021-01-12 06:24:47'),
+(5, 'ramanan', 'a.ramanan@univ.jfn.ac.lk', NULL, 0, '$2y$10$a6yZtqTxoY4skmKuVDy1I.cb5dyg33FLbuJnBzWEj2lHVbJdXUybq', NULL, '2021-01-18 00:10:30', '2021-01-20 08:16:03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `variables`
+--
+
+CREATE TABLE `variables` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `value` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `variables`
+--
+
+INSERT INTO `variables` (`id`, `name`, `value`) VALUES
+(1, 'semester', 2);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `attendance_3_g__students`
+--
+ALTER TABLE `attendance_3_g__students`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `attendance_3_m__students`
+--
+ALTER TABLE `attendance_3_m__students`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `attendance_3_s__students`
@@ -422,14 +529,32 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
+-- Indexes for table `variables`
+--
+ALTER TABLE `variables`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `attendance_3_g__students`
+--
+ALTER TABLE `attendance_3_g__students`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `attendance_3_m__students`
+--
+ALTER TABLE `attendance_3_m__students`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `attendance_3_s__students`
 --
 ALTER TABLE `attendance_3_s__students`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `courses`
@@ -453,7 +578,7 @@ ALTER TABLE `lecturers`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=207;
 
 --
 -- AUTO_INCREMENT for table `students`
@@ -465,7 +590,13 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `variables`
+--
+ALTER TABLE `variables`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
