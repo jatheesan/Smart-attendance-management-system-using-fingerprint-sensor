@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Course;
 use App\Models\Attendance_3M_Student;
 use App\Student;
+use App\Lecturer;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -34,12 +35,13 @@ class M3courseController extends Controller
         $course = $request->input('m3_course');
         $attendances = Attendance_3M_Student::with('student')->where('course_code','=', $course)->paginate(25);
         $m3_courses = Course::where('course_level', '3M')->where('semester','=', $semester )->select('course_code')->get();
-        $m3_st=Student::where('st_level','3M')->get();
+        $m3_st=Student::where('st_level','3M')->orderBy('st_regno','asc')->get();
         $count3m = Student::where('st_level', '3M')->count();
-        $m3_cname = Course::where('course_level', '3M')->get();
+        $m3_cname = Course::where('course_level', '3M')->where('course_code', $course)->select('course_name','semester')->get();
         $m3_coursecount = Attendance_3M_Student::where('course_code',$course )->count('date');
         $m3_hourssum = Attendance_3M_Student::where('course_code',$course )->sum('hours');
-        return view('level_3.3mcourse.3m', compact('course', 'attendances', 'm3_courses','m3_st','count3m','m3_coursecount','m3_cname','m3_hourssum'));
+        $lecturer_name= Course::join('lecturers','courses.lect_id','=','lecturers.lect_id')->where('course_code','=', $course)->select('lect_name','lect_title')->get();
+        return view('level_3.3mcourse.3m', compact('course', 'attendances', 'm3_courses','m3_st','count3m','m3_coursecount','m3_cname','m3_hourssum','lecturer_name'));
         
     }
 }

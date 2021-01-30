@@ -10,10 +10,14 @@
                         <dt class="col-sm-6 text-right">Course Name: </dt>
                         <dd class="col-sm-6 text-left">
                             @foreach($g3_cname as $g3cname)
-                                @if($g3cname ->course_code ==  $course )
                                     {{ $g3cname->course_name }}
-                                @endif
                             @endforeach
+                        </dd>
+                        <dt class="col-sm-6 text-right">Lecturer Name: </dt>
+                        <dd class="col-sm-6 text-left">
+                            @foreach($lecturer_name as $lname)
+                           {{$lname->lect_title. $lname -> lect_name}}
+                           @endforeach
                         </dd>
                         <dt class="col-sm-6 text-right">Total Number of Students: </dt>
                         <dd class="col-sm-6 text-left">{{ $count3g }}</dd>
@@ -24,9 +28,7 @@
                         <dt class="col-sm-6 text-right">Semester: </dt>
                         <dd class="col-sm-6 text-left">
                             @foreach($g3_cname as $g3cname)
-                                @if($g3cname ->course_code ==  $course )
                                     {{ $g3cname->semester}}
-                                @endif
                             @endforeach
                         </dd>
                     </dl>
@@ -45,19 +47,35 @@
                         <table class="table table-striped table-hover table-bordered">
                             <thead class="thead-dark" style="background: #053469; color:#fff;">
                                 <tr>
-                                    <th>Registration No</th>
+                                    <th colspan ="3">Lecture Date</th>
                                     @foreach($attendances as $attendance)
                                         <th>{{ $attendance->date }}</th>
                                     @endforeach
-                                    <th>Total Number of Attended Lecture Days</th>
-                                    <th>Total Number of Attended Lecture Hours</th>
-                                    <th>Attendance Percentage(%)</th>
+                                    <th rowspan="3">Total Number of Attended Lecture Days</th>
+                                    <th rowspan="3">Total Number of Attended Lecture Hours</th>
+                                    <th rowspan="3">Attendance Percentage(%)</th>
+                                </tr>
+                                <tr>
+                                    <th colspan ="3">Number of Lecture Hours</th>
+                                    @foreach($attendances as $attendance)
+                                    <th>{{ $attendance->hours }}</th>
+                                @endforeach 
+                                </tr>
+                                <tr>
+                                    <th>NO</th>
+                                    <th>Registration No</th>
+                                    <th>Student Name</th>
+                                    <th colspan="{{ $g3_coursecount }}">Attendance Mark</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @php $i=1; @endphp
                                 @foreach($g3_st as $g3st)
                                 <tr>
+                                    <td>{{ $i }}</td>
+                                    @php $i=$i+1; @endphp
                                     <td>{{ $g3st->st_regno }}</td>
+                                    <td>{{ $g3st->st_name }}</td>
                                     @php  
                                         $st_count=0; 
                                         $st_hours=0;  
@@ -108,7 +126,7 @@
                                 </tr>
                                 @endforeach 
                                 <tr>
-                                    <th>total attendees</th>
+                                    <th colspan="3">total attendees</th>
                                         @foreach($attendances as $attendance)
                                             <th>
                                                 @if (is_array($attendance->attendance_mark) || is_object($attendance->attendance_mark))
@@ -120,7 +138,7 @@
                                         @endforeach   
                                 </tr> 
                                 <tr>
-                                    <th>total absentees</th>
+                                    <th colspan="3">total absentees</th>
                                     @foreach($attendances as $attendance)
                                         <th>
                                             @if (is_array($attendance->attendance_mark) || is_object($attendance->attendance_mark))
@@ -133,7 +151,7 @@
                                     @endforeach    
                                 </tr>
                                 <tr>
-                                    <th>edit</th>
+                                    <th colspan="3">edit</th>
                                     @foreach($attendances as $attendance)
                                         <th>
                                             <a href="{{ route('attendance_3_g__students.attendance_3_g__student.edit', $attendance->id ) }}" class="btn btn-primary" title="Edit Attendance 3 S  Student">
