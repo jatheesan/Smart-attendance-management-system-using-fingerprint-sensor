@@ -45,5 +45,42 @@ class S3courseController extends Controller
         return view('level_3.3scourse.3s', compact('course', 'attendances', 's3_courses','s3_st','count3s','s3_coursecount','s3_cname','s3_hourssum','lecturer_name'));
     }
 
+    public function weeklyreport(Request $request)
+    {
+        $course = $request->input('course');
+        $to = $request->input('todate');
+        $from = $request->input('fromdate');
+
+        $semester = DB::table('variables')->where('name', 'semester')->value('value');
+        $attendances = Attendance_3S_Student::with('student')->where('course_code','=', $course)->whereBetween('date', [$from, $to])->get();
+        $s3_courses = Course::where('course_level', '3S')->where('semester','=', $semester )->select('course_code')->get();
+        $s3_st=Student::where('st_level','3S')->orderBy('st_regno','asc')->paginate(10);
+        $count3s = Student::where('st_level', '3S')->count();
+        $s3_cname = Course::where('course_level', '3S')->where('course_code', $course)->select('course_name','semester')->get();
+        $s3_coursecount = Attendance_3S_Student::where('course_code',$course )->count('date');
+        $s3_hourssum = Attendance_3S_Student::where('course_code',$course )->sum('hours');
+        $lecturer_name= Course::join('lecturers','courses.lect_id','=','lecturers.lect_id')->where('course_code','=', $course)->select('lect_name','lect_title')->get();
+        return view('level_3.3scourse.3s_weeklyreport', compact('course', 'attendances', 's3_courses','s3_st','count3s','s3_coursecount','s3_cname','s3_hourssum','lecturer_name', 'to', 'from'));
+
+        //return view('level_3.3scourse.3s', compact('course', 'to', 'from'));
+        //dd($from);
+    }
+
+    public function finalreport(Request $request)
+    {
+        $course = $request->input('course');
+
+        $semester = DB::table('variables')->where('name', 'semester')->value('value');
+        $attendances = Attendance_3S_Student::with('student')->where('course_code','=', $course)->get();
+        $s3_courses = Course::where('course_level', '3S')->where('semester','=', $semester )->select('course_code')->get();
+        $s3_st=Student::where('st_level','3S')->orderBy('st_regno','asc')->paginate(10);
+        $count3s = Student::where('st_level', '3S')->count();
+        $s3_cname = Course::where('course_level', '3S')->where('course_code', $course)->select('course_name','semester')->get();
+        $s3_coursecount = Attendance_3S_Student::where('course_code',$course )->count('date');
+        $s3_hourssum = Attendance_3S_Student::where('course_code',$course )->sum('hours');
+        $lecturer_name= Course::join('lecturers','courses.lect_id','=','lecturers.lect_id')->where('course_code','=', $course)->select('lect_name','lect_title')->get();
+        return view('level_3.3scourse.3s_finalreport', compact('course', 'attendances', 's3_courses','s3_st','count3s','s3_coursecount','s3_cname','s3_hourssum','lecturer_name'));
+    }
+
 
 }
