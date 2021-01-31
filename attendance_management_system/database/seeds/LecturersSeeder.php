@@ -16,7 +16,7 @@ class LecturersSeeder extends Seeder
             'lect_title'  =>'Mr.',
             'lect_name' => 'srijathee',
             'lect_email' => 'srijathee@gmail.com',
-            'position' => 'HOD',
+            'position' => 'HOD,lecturer',
         ]);
 
         DB::table('lecturers') -> insert([
