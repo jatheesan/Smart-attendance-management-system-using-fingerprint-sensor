@@ -11,35 +11,6 @@
             <div class="col-lg-12">
                 <section class="landing">
                     <hr />
-                    {{--<dl class="row">
-                        <dt class="col-sm-6 text-right">Course Code : </dt>
-                        <dd class="col-sm-6 text-left">{{ $course }}</dd>
-                        <dt class="col-sm-6 text-right">Course Name: </dt>
-                        <dd class="col-sm-6 text-left">
-                            @foreach($s3_cname as $s3cname)
-                                    {{ $s3cname->course_name }}
-                            @endforeach
-                        </dd>
-                        <dt class="col-sm-6 text-right">Lecturer Name: </dt>
-                        <dd class="col-sm-6 text-left">
-                            @foreach($lecturer_name as $lname)
-                           {{$lname->lect_title. $lname -> lect_name}}
-                           @endforeach
-                        </dd>
-                        <dt class="col-sm-6 text-right">Total Number of Students: </dt>
-                        <dd class="col-sm-6 text-left">{{ $count3s }}</dd>
-                        <dt class="col-sm-6 text-right">Total Number of Lectures: </dt>
-                        <dd class="col-sm-6 text-left">{{ $s3_coursecount }}</dd>
-                        <dt class="col-sm-6 text-right">Total Number of Lecture hours: </dt>
-                        <dd class="col-sm-6 text-left">{{ $s3_hourssum .' hours'}}</dd>
-                        <dt class="col-sm-6 text-right">Semester: </dt>
-                        <dd class="col-sm-6 text-left">
-                            @foreach($s3_cname as $s3cname)
-                                    {{ $s3cname->semester}}
-                            @endforeach
-                        </dd>
-                    </dl>--}}
-
                     <div class="row">
                         <div class="col-6 d-flex justify-content-center">
                              <!-- Button trigger modal -->
@@ -121,6 +92,9 @@
                                 <div class="col-sm-6">
                                     <p class="t-left"><b>Lecturer Name: </b>@foreach($lecturer_name as $lname) {{$lname->lect_title. $lname -> lect_name}} @endforeach</p>
                                 </div>
+                                <div class="col-sm-6">
+                                    <p class="t-left"><b>Number of Lecture Hours: </b>{{ $s3_hourssum ." hours"}}  </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -131,7 +105,6 @@
                                     <th>NO</th>
                                     <th>Registration No</th>
                                     <th>Student Name</th>
-                                    <th>Total Number of Lecture Hours</th>
                                     <th>Total Number of Attended Lecture Hours</th>
                                     <th>Attendance Percentage(%)</th>
                                 </tr>
@@ -162,12 +135,6 @@
                                             @endif
                                         @endif  
                                     @endforeach
-
-                                    <th> 
-                                        @php 
-                                            echo $s3_hourssum  
-                                        @endphp 
-                                    </th>
                                     <th> 
                                         @php 
                                             echo $st_hours;  
