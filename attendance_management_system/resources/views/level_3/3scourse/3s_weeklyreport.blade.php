@@ -11,35 +11,6 @@
             <div class="col-lg-12">
                 <section class="landing">
                     <hr />
-                    {{--<dl class="row">
-                        <dt class="col-sm-6 text-right">Course Code : </dt>
-                        <dd class="col-sm-6 text-left">{{ $course }}</dd>
-                        <dt class="col-sm-6 text-right">Course Name: </dt>
-                        <dd class="col-sm-6 text-left">
-                            @foreach($s3_cname as $s3cname)
-                                    {{ $s3cname->course_name }}
-                            @endforeach
-                        </dd>
-                        <dt class="col-sm-6 text-right">Lecturer Name: </dt>
-                        <dd class="col-sm-6 text-left">
-                            @foreach($lecturer_name as $lname)
-                           {{$lname->lect_title. $lname -> lect_name}}
-                           @endforeach
-                        </dd>
-                        <dt class="col-sm-6 text-right">Total Number of Students: </dt>
-                        <dd class="col-sm-6 text-left">{{ $count3s }}</dd>
-                        <dt class="col-sm-6 text-right">Total Number of Lectures: </dt>
-                        <dd class="col-sm-6 text-left">{{ $s3_coursecount }}</dd>
-                        <dt class="col-sm-6 text-right">Total Number of Lecture hours: </dt>
-                        <dd class="col-sm-6 text-left">{{ $s3_hourssum .' hours'}}</dd>
-                        <dt class="col-sm-6 text-right">Semester: </dt>
-                        <dd class="col-sm-6 text-left">
-                            @foreach($s3_cname as $s3cname)
-                                    {{ $s3cname->semester}}
-                            @endforeach
-                        </dd>
-                    </dl>--}}
-
                     <div class="row">
                         <div class="col-6 d-flex justify-content-center">
                              <!-- Button trigger modal -->
@@ -123,6 +94,9 @@
                                 <div class="col-sm-6">
                                     <p class="t-left"><b>Period: </b>{{ $from }}<b><u> To </u></b>{{ $to }}</p>
                                 </div>
+                                <div class="col-sm-6">
+                                    <p class="t-left"><b>Number of Lecture Hours: </b>{{ $s3_hourssum ." hours"}}  </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -130,25 +104,11 @@
                         <table class="table table-striped table-hover table-bordered">
                             <thead class="thead-dark" style="background: #053469; color:#fff;">
                                 <tr>
-                                    <th colspan ="3">Lecture Date</th>
-                                    @foreach($attendances as $attendance)
-                                        <th>{{ $attendance->date }}</th>
-                                    @endforeach
-                                    <th rowspan="3">Total Number of Attended Lecture Days</th>
-                                    <th rowspan="3">Total Number of Attended Lecture Hours</th>
-                                    <th rowspan="3">Attendance Percentage(%)</th>
-                                </tr>
-                                <tr>
-                                    <th colspan ="3">Number of Lecture Hours</th>
-                                    @foreach($attendances as $attendance)
-                                    <th>{{ $attendance->hours }}</th>
-                                @endforeach 
-                                </tr>
-                                <tr>
                                     <th>NO</th>
                                     <th>Registration No</th>
                                     <th>Student Name</th>
-                                    <th colspan="{{ $s3_coursecount }}">Attendance Mark</th>
+                                    <th>Total Number of Attended Lecture Hours</th>
+                                    <th>Attendance Percentage(%)</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -166,29 +126,18 @@
                                     @endphp
 
                                     @foreach($attendances as $attendance)
-                                        <td>
+                                       
                                             @if (is_array($attendance->attendance_mark) || is_object($attendance->attendance_mark))
                                     
                                                 @if(in_array( $s3st->st_regno,$attendance->attendance_mark))
-                                                    <p>1</p>  
+                                                     
                                                     @php 
                                                         $st_count=$st_count+1; 
                                                         $st_hours=$st_hours+ $attendance->hours;
                                                     @endphp
-                                                @else
-                                                    <p>0</p>
                                                 @endif
-                                        
-                                            @else
-                                                <p>0</p>
                                             @endif  
-                                        </td>
                                     @endforeach  
-                                    <th> 
-                                        @php 
-                                            echo $st_count;  
-                                        @endphp 
-                                    </th>
                                     <th> 
                                         @php 
                                             echo $st_hours;  
@@ -208,59 +157,7 @@
                                     </th> 
                             
                                 </tr>
-                                @endforeach 
-                                <tr class="thead-dark">
-                                    <th colspan="3">total attendees</th>
-                                        @foreach($attendances as $attendance)
-                                            <th>
-                                                @if (is_array($attendance->attendance_mark) || is_object($attendance->attendance_mark))
-                                                    {{count($attendance->attendance_mark)}}     
-                                                @else
-                                                    <p>0</p>
-                                                @endif  
-                                            </th>
-                                        @endforeach   
-                                </tr> 
-                                <tr class="thead-dark">
-                                    <th colspan="3">total absentees</th>
-                                    @foreach($attendances as $attendance)
-                                        <th>
-                                            @if (is_array($attendance->attendance_mark) || is_object($attendance->attendance_mark))
-                                                {{$count3s - count($attendance->attendance_mark)}}     
-                        
-                                            @else
-                                                <p>{{$count3s}}</p>
-                                            @endif  
-                                        </th>
-                                    @endforeach    
-                                </tr>
-                                <tr class="thead-dark">
-                                    <th colspan="3">Student's Attendence Percentage(%)</th>
-                                    @foreach($attendances as $attendance)
-                                        <th>
-                                            @php 
-                                            if (is_array($attendance->attendance_mark) || is_object($attendance->attendance_mark))
-                                            {
-                                                $percentage1= count($attendance->attendance_mark) /$count3s ;
-                                                echo round( $percentage1*100,2);
-                                            }
-                                            else{
-                                                echo 0; 
-                                            }
-                                          @endphp  
-                                        </th>
-                                    @endforeach    
-                                </tr>
-                                <tr class="thead-dark" >
-                                    <th colspan="3">edit</th>
-                                    @foreach($attendances as $attendance)
-                                        <th>
-                                            <a href="{{ route('attendance_3_s__students.attendance_3_s__student.edit', $attendance->id ) }}" class="btn btn-primary" title="Edit Attendance 3 S  Student">
-                                                <i class="fa fa-pencil" aria-hidden="true"></i>
-                                            </a>
-                                        </th>
-                                    @endforeach
-                                </tr>
+                                @endforeach    
                             </tbody>
                         </table>
                     </div>
