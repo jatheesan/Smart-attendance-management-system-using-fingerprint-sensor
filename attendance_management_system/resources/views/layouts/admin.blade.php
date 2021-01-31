@@ -179,7 +179,7 @@
               <div class="row">
                 <div class="col-sm-6">
 
-                  <p>&copy;2020 DEPARTMENT OF COMPUTER SCIENCE ALL RIGHTS RESERVED - JAFFNA</p>
+                  <p>&copy;2020 <a href="http://www.csc.jfn.ac.lk/" class="external"> DEPARTMENT OF COMPUTER SCIENCE </a> ALL RIGHTS RESERVED - JAFFNA</p>
 
                 </div>
                 <div class="col-sm-6 text-right">

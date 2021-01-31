@@ -35,6 +35,19 @@ class CourseController extends Controller
         return View('courses.courseindex', compact('courses', 'lecturers'));
 
     }
+    /**
+     * Show the form for registering courses.
+     *
+     * @return Illuminate\View\View
+     * @return \Illuminate\Http\Response
+     */
+
+    public function create()
+    {
+        $lecturers = Lecturer::where('position', 'lecturer')->orWhere('position', 'HOD,lecturer')->orWhere('position', 'HOD')->get();
+        $alecturers = Lecturer::where('position', 'assistentlecturer')->get();
+        return view('courses.courseregister', compact('lecturers', 'alecturers'));
+    }
 
     /**
      * Store a newly created resource in storage.
