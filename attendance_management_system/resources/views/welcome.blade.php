@@ -175,10 +175,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <p class="text-left" style="font-size:0.8em !important;">&copy;2020 DEPARTMENT OF COMPUTER SCIENCE ALL RIGHTS RESERVED - JAFFNA</p>
+                    {{-- <p class="text-left" style="font-size:0.8em !important;">&copy;2020  <a href="http://www.csc.jfn.ac.lk/" target="blank" > DEPARTMENT OF COMPUTER SCIENCE </a> ALL RIGHTS RESERVED - JAFFNA</p> --}}
+                    <p class="text-left" style="font-size:1.02em !important;">&copy;2020  <a href="http://www.csc.jfn.ac.lk/" target="blank" > DEPARTMENT OF COMPUTER SCIENCE </a> ALL RIGHTS RESERVED - JAFFNA</p>
                 </div>
                 <div class="col-md-6">
-                    <p class="text"><a href="http://www.jfn.ac.lk/" class="external">UNIVERSITY OF JAFFNA</a></p>
+                    <p class="text"><a href="http://www.jfn.ac.lk/" class="external" target="blank">UNIVERSITY OF JAFFNA</a></p>
                 </div>
             </div>
         </div>

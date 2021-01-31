@@ -39,9 +39,10 @@ Route::group(['middleware' => ['auth', 'role']], function() {
     return view('students.studentregister');
   });
   
-  Route::get('/course', function () {
-    return view('courses.courseregister');
-  });
+//   Route::get('/course', function () {
+//     return view('courses.courseregister');
+//   });
+  Route::get('/course',[CourseController::class ,'create']);
   
   Route::get('/lecturer', function () {
     return view('lecturers.lecturerregister');
@@ -71,9 +72,9 @@ Route::group(['middleware' => ['auth', 'role']], function() {
   Route::patch('/lecturer/update/{id}', [LecturerController::class, 'update']) ->name('lecturer_update');
   Route::delete('/lecturer/delete/{id}', [LecturerController::class, 'destroy']) ->name('lecturer_delete');
 
-  Route::group(['middleware' => 'islecturers'], function () {
-  Route::get('/course', 'Course_LecturerController@lecturer_show')->name('lecturer_show');
-  });
+//   Route::group(['middleware' => 'islecturers'], function () {
+//   Route::get('/course', 'Course_LecturerController@lecturer_show')->name('lecturer_show');
+//   });
 
   Route::any('/tables/courses',[CourseController::class,'index']);
   Route::post('/course/store',[CourseController::class,'store']);
