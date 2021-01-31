@@ -176,7 +176,7 @@
                                     @endforeach    
                                 </tr>
                                 <tr class="thead-dark" >
-                                    <th colspan="3">edit</th>
+                                    <th colspan="3">Edit</th>
                                     @foreach($attendances as $attendance)
                                         <th>
                                             <a href="{{ route('attendance_3_s__students.attendance_3_s__student.edit', $attendance->id ) }}" class="btn btn-primary" title="Edit Attendance 3 S  Student">
@@ -185,6 +185,32 @@
                                         </th>
                                     @endforeach
                                 </tr>
+                                <tr class="thead-dark" >
+                                    <th colspan="3">Delete</th>
+                                    @foreach($attendances as $attendance)
+                                        <th>
+                                            <form method="POST" action="{!! route('attendance_3_s__students.attendance_3_s__student.destroy', $attendance->id ) !!}" accept-charset="UTF-8">
+                                            <input name="_method" value="DELETE" type="hidden">
+                                            {{ csrf_field() }}
+                                            <button type="submit" class="btn btn-danger" title="Delete Attendance 3 S  Student"
+                                             onclick="return confirm(&quot;Click Ok to delete Attendance 3 S  Student.?&quot;)">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                         </button>
+                                        </form>
+                                        </th>
+                                    @endforeach
+                                </tr>
+                                <tr class="thead-dark" >
+                                    <th colspan="3">Show</th>
+                                    @foreach($attendances as $attendance)
+                                        <th>
+                                            <a href="{{ route('attendance_3_s__students.attendance_3_s__student.show', $attendance->id ) }}" class="btn btn-info" title="Show Attendance 3 S  Student">
+                                                <i class="fa fa-caret-square-o-up" aria-hidden="true"></i>
+                                            </a>
+                                        </th>
+                                    @endforeach
+                                </tr>
+
                             </tbody>
                         </table>
                     </div>
