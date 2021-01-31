@@ -11,7 +11,7 @@
             <div class="col-lg-12">
                 <section class="landing">
                     <hr />
-                    <dl class="row">
+                    {{--<dl class="row">
                         <dt class="col-sm-6 text-right">Course Code : </dt>
                         <dd class="col-sm-6 text-left">{{ $course }}</dd>
                         <dt class="col-sm-6 text-right">Course Name: </dt>
@@ -38,7 +38,7 @@
                                     {{ $s3cname->semester}}
                             @endforeach
                         </dd>
-                    </dl>
+                    </dl>--}}
 
                     <div class="row">
                         <div class="col-6 d-flex justify-content-center">
@@ -97,14 +97,35 @@
                     <hr />
                 </section>
             </div>
-            <div class="panel-heading clearfix">
-                <div class="btn-group btn-group-sm pull-right" role="group">
-                    <a href="{{ route('attendance_3_s__students.attendance_3_s__student.create') }}" class="btn btn-success" title="Create New Attendance 3 S  Student">
-                        <span class="fa fa-plus" aria-hidden="true"></span>
-                    </a>
-                </div>
-            </div>
             <div class="col-lg-12" style="border: 5px solid; border-radius: 8px; padding:0px !important; margin-bottom:10px;">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-3 col-12 p-3 justify-content-center">
+                            <div class="brand-text d-none d-lg-inline-block"><img src="{{ asset('image/SAMS.png') }}" width="200px" alt="..." class="img-fluid d-inline-block align-top"></div>
+                            <div class="brand-text d-none d-sm-inline-block d-lg-none"><img src="{{ asset('image/SAMS.png') }}" width="200px" alt="..." class="img-fluid d-inline-block align-top"></div>
+                        </div>
+                        <div class="col-sm-9 col-12">
+                            <div class="row">
+                                <div class="col-sm-12 text-center p-2">
+                                    <h1 class="h1font">Percentage Report of the Attendance</h1>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="t-left"><b>Course Code: </b>{{ $course }}</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="t-left"><b>Course Name: </b>@foreach($s3_cname as $s3cname) {{ $s3cname->course_name }} @endforeach</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="t-left"><b>Level: </b>3S</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="t-left"><b>Lecturer Name: </b>@foreach($lecturer_name as $lname) {{$lname->lect_title. $lname -> lect_name}} @endforeach</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="t-left"><b>Period: </b>{{ $from }}<b><u> To </u></b>{{ $to }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="table-responsive" style="display:flex !important;">
                         <table class="table table-striped table-hover table-bordered">
                             <thead class="thead-dark" style="background: #053469; color:#fff;">

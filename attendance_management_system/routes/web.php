@@ -88,7 +88,9 @@ Route::group(['middleware' => ['auth', 'role']], function() {
   Route::delete('/student/delete/{id}', [StudentController::class, 'destroy']) ->name('student_delete');
 
   Route::get('/level3s', 'S3courseController@index');
-  Route::any('/attendance', 'S3courseController@attendance');
+  Route::any('/attendance', 'S3courseController@attendance')->name('attendance');
+  Route::any('/weeklyreport', 'S3courseController@weeklyreport')->name('weeklyreport');
+  Route::any('/finalreport', 'S3courseController@finalreport')->name('finalreport');
 
   Route::get('/level3g', 'G3courseController@index');
   Route::any('/attendance3g', 'G3courseController@attendance');
