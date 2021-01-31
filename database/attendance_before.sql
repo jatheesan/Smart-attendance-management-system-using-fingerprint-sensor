@@ -217,7 +217,7 @@ CREATE TABLE `password_resets` (
 CREATE TABLE `students` (
   `st_id` bigint(20) UNSIGNED NOT NULL,
   `st_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `st_regno` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `st_regno` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
   `st_level` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `st_acyear` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `st_fid` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
