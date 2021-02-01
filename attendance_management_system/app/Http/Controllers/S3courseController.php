@@ -58,7 +58,7 @@ class S3courseController extends Controller
         $count3s = Student::where('st_level', '3S')->count();
         $s3_cname = Course::where('course_level', '3S')->where('course_code', $course)->select('course_name','semester')->get();
         $s3_coursecount = Attendance_3S_Student::where('course_code',$course )->count('date');
-        $s3_hourssum = Attendance_3S_Student::where('course_code',$course )->sum('hours');
+        $s3_hourssum = Attendance_3S_Student::where('course_code',$course )->whereBetween('date', [$from, $to])->sum('hours');
         $lecturer_name= Course::join('lecturers','courses.lect_id','=','lecturers.lect_id')->where('course_code','=', $course)->select('lect_name','lect_title')->get();
         return view('level_3.3scourse.3s_weeklyreport', compact('course', 'attendances', 's3_courses','s3_st','count3s','s3_coursecount','s3_cname','s3_hourssum','lecturer_name', 'to', 'from'));
 

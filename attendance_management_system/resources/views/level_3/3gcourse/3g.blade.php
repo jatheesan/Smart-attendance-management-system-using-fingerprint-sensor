@@ -38,6 +38,60 @@
                             @endforeach
                         </dd>
                     </dl>
+                    <div class="row">
+                        <div class="col-6 d-flex justify-content-center">
+                             <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#weeklyModal">
+                                Weekly Report
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="weeklyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title" id="exampleModalLabel">Weekly Report</h3>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                            <div class="modal-body">
+                                                <form action="{{ url('/weeklyreport3g') }}" method="POST">
+                                                @csrf
+                                                    <div class="form-row">
+                                                        <input type="hidden" class="form-control" name="course" id="course" value="{{ $course }}">
+                                                        <div class="col">
+                                                            <label for="fromdate">From:</label>
+                                                            <input type="date" class="form-control" name="fromdate" id="fromdate" placeholder="From">
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="todate">To:</label>
+                                                            <input type="date" class="form-control" name="todate" id="todate" placeholder="To">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row justify-content-end p-3">
+                                                        <button class="btn btn-info" type="submit">Get Report</button>
+                                                    </div>
+                                                    
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>   
+                        </div>
+                        <div class="col-6 d-flex justify-content-center">
+                            <form action="{{ url('/finalreport3g') }}" method="POST">
+                            @csrf
+                                <div class="form-row">
+                                    <input type="hidden" class="form-control" name="course" id="course" value="{{ $course }}">
+                                </div>
+                                    <button class="btn btn-info" type="submit">Final Report</button>
+                            </form>
+                        </div>
+                    </div>
                     <hr />
                 </section>
             </div>
@@ -196,16 +250,6 @@
                                             <i class="fa fa-trash" aria-hidden="true"></i>
                                          </button>
                                         </form>
-                                        </th>
-                                    @endforeach
-                                </tr>
-                                <tr class="thead-dark" >
-                                    <th colspan="3">Show</th>
-                                    @foreach($attendances as $attendance)
-                                        <th>
-                                            <a href="{{ route('attendance_3_g__students.attendance_3_g__student.show', $attendance->id ) }}" class="btn btn-info" title="Show Attendance 3G  Student">
-                                                <i class="fa fa-caret-square-o-up" aria-hidden="true"></i>
-                                            </a>
                                         </th>
                                     @endforeach
                                 </tr>

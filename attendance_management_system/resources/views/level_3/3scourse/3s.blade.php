@@ -255,17 +255,6 @@
                                         </th>
                                     @endforeach
                                 </tr>
-                                <tr class="thead-dark" >
-                                    <th colspan="3">Show</th>
-                                    @foreach($attendances as $attendance)
-                                        <th>
-                                            <a href="{{ route('attendance_3_s__students.attendance_3_s__student.show', $attendance->id ) }}" class="btn btn-info" title="Show Attendance 3 S  Student">
-                                                <i class="fa fa-caret-square-o-up" aria-hidden="true"></i>
-                                            </a>
-                                        </th>
-                                    @endforeach
-                                </tr>
-
                             </tbody>
                         </table>
                     </div>

@@ -1,8 +1,8 @@
-@extends('level_3.3scourse.3scourses')
-@section('pagetitle', 'Attandance/level3/3S/'.$course)
+@extends('level_3.3gcourse.3gcourses')
+@section('pagetitle', 'Attandance/level3/3G/'.$course)
 @section('levelcontent')
      
-        @if($s3_coursecount == 0)
+        @if($g3_coursecount == 0)
         <div class="panel-body text-center">
             <hr />
             <h4>{{$course}} Attendance is not available.</h4>
@@ -29,7 +29,7 @@
                                             </button>
                                         </div>
                                             <div class="modal-body">
-                                                <form action="{{ url('/weeklyreport') }}" method="POST">
+                                                <form action="{{ url('/weeklyreport3g') }}" method="POST">
                                                 @csrf
                                                     <div class="form-row">
                                                         <input type="hidden" class="form-control" name="course" id="course" value="{{ $course }}">
@@ -56,7 +56,7 @@
                             </div>   
                         </div>
                         <div class="col-6 d-flex justify-content-center">
-                            <form action="{{ url('/finalreport') }}" method="POST">
+                            <form action="{{ url('/finalreport3g') }}" method="POST">
                             @csrf
                                 <div class="form-row">
                                     <input type="hidden" class="form-control" name="course" id="course" value="{{ $course }}">
@@ -68,8 +68,7 @@
                     <hr />
                 </section>
             </div>
-
-            <div class="col-sm-12" style="border: 5px solid; border-radius: 8px; padding:0px !important; margin-bottom:10px;">
+            <div class="col-lg-12" style="border: 5px solid; border-radius: 8px; padding:0px !important; margin-bottom:10px;">
                     <div class="row justify-content-center">
                         <div class="col-sm-3 col-12 p-3 justify-content-center">
                             <div class="brand-text d-none d-lg-inline-block"><img src="{{ asset('image/SAMS.png') }}" width="200px" alt="..." class="img-fluid d-inline-block align-top"></div>
@@ -84,7 +83,7 @@
                                     <p class="t-left"><b>Course Code: </b>{{ $course }}</p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p class="t-left"><b>Course Name: </b>@foreach($s3_cname as $s3cname) {{ $s3cname->course_name }} @endforeach</p>
+                                    <p class="t-left"><b>Course Name: </b>@foreach($g3_cname as $g3cname) {{ $g3cname->course_name }} @endforeach</p>
                                 </div>
                                 <div class="col-sm-6">
                                     <p class="t-left"><b>Level: </b>3S</p>
@@ -93,7 +92,10 @@
                                     <p class="t-left"><b>Lecturer Name: </b>@foreach($lecturer_name as $lname) {{$lname->lect_title. $lname -> lect_name}} @endforeach</p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p class="t-left"><b>Number of Lecture Hours: </b>{{ $s3_hourssum ." hours"}}  </p>
+                                    <p class="t-left"><b>Period: </b>{{ $from }}<b><u> To </u></b>{{ $to }}</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="t-left"><b>Number of Lecture Hours: </b>{{ $g3_hourssum ." hours"}}  </p>
                                 </div>
                             </div>
                         </div>
@@ -111,30 +113,31 @@
                             </thead>
                             <tbody>
                                 {{-- @php $i=1; @endphp --}}
-                                @foreach($s3_st as $key => $s3st)
+                                @foreach($g3_st as $key => $g3st)
                                 <tr>
                                     {{-- <td>{{ $i }}</td> --}}
                                     {{-- @php $i=$i+1; @endphp --}}
-                                    <td>{{$s3_st ->firstitem()+$key}}</td>
-                                    <td>{{ $s3st->st_regno }}</td>
-                                    <td>{{ $s3st->st_name }}</td>
-
+                                    <td>{{$g3_st ->firstitem()+$key}}</td>
+                                    <td>{{ $g3st->st_regno }}</td>
+                                    <td>{{ $g3st->st_name }}</td>
                                     @php  
                                         $st_count=0; 
                                         $st_hours=0; 
                                     @endphp
 
                                     @foreach($attendances as $attendance)
-                                        @if (is_array($attendance->attendance_mark) || is_object($attendance->attendance_mark))
+                                       
+                                            @if (is_array($attendance->attendance_mark) || is_object($attendance->attendance_mark))
                                     
-                                            @if(in_array( $s3st->st_regno,$attendance->attendance_mark))  
-                                                @php 
-                                                    $st_count=$st_count+1; 
-                                                    $st_hours=$st_hours+ $attendance->hours;
-                                                @endphp
-                                            @endif
-                                        @endif  
-                                    @endforeach
+                                                @if(in_array( $g3st->st_regno,$attendance->attendance_mark))
+                                                     
+                                                    @php 
+                                                        $st_count=$st_count+1; 
+                                                        $st_hours=$st_hours+ $attendance->hours;
+                                                    @endphp
+                                                @endif
+                                            @endif  
+                                    @endforeach  
                                     <th> 
                                         @php 
                                             echo $st_hours;  
@@ -142,9 +145,9 @@
                                     </th>
                                     <th>
                                         @php 
-                                            if($s3_hourssum !=0)
+                                            if($g3_hourssum !=0)
                                             {
-                                                $percentage= $st_hours /$s3_hourssum  ;
+                                                $percentage= $st_hours /$g3_hourssum  ;
                                                 echo round( $percentage*100,2);
                                             }
                                             else{
@@ -154,11 +157,11 @@
                                     </th> 
                             
                                 </tr>
-                                @endforeach 
+                                @endforeach    
                             </tbody>
                         </table>
                     </div>
             </div>
-            {{ $s3_st->appends(request()->input())->links() }}  
+            {{ $g3_st->appends(request()->input())->links() }}   
         @endif      
 @endsection
