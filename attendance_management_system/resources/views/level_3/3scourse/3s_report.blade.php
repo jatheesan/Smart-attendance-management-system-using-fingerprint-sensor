@@ -18,6 +18,9 @@
                     <h1 class="h1font">Percentage Report of the Attendance</h1>
                 </div>
                 <div class="col-sm-6 text-center">
+                    <p class="text-center"><b>Department: </b>Department of Computer Science</p>
+                </div>
+                <div class="col-sm-6 text-center">
                     <p class="text-center"><b>Level: </b>3S</p>
                 </div>
                 <div class="col-sm-6 text-center">
@@ -88,7 +91,6 @@
 
                     @endforeach   
                 </tr>
-                
 
             </thead>
             <tbody>
@@ -148,8 +150,7 @@
         </table>  
     </div>
 </div>
-
-    {{ $s3_st->appends(request()->input())->links() }} 
+    {{ $s3_st->appends(request()->input())->links() }}
 @endsection
 
     
