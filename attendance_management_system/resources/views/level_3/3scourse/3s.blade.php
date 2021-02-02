@@ -259,7 +259,6 @@
                         </table>
                     </div>
             </div>
-            
-        @endif   
-        {{ $s3_st->appends(request()->input())->links() }}  
+            {{ $s3_st->appends(request()->input())->links() }}    
+        @endif    
 @endsection

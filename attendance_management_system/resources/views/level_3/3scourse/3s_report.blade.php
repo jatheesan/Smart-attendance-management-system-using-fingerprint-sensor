@@ -1,6 +1,6 @@
 
- 
-    <div class="table-responsive" style="display:flex !important;">
+
+<div class="table-responsive" style="display:flex !important;">
         <table class="table table-striped table-hover table-bordered">
             <thead class="thead-dark" style="background: #053469; color:#fff;">
                 <tr>
@@ -116,7 +116,6 @@
             </tbody>
         </table>  
     </div>
-
     {{ $s3_st->appends(request()->input())->links() }} 
 
     
