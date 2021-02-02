@@ -103,6 +103,8 @@ Route::group(['middleware' => ['auth', 'role']], function() {
   Route::any('/weeklyreport3g', 'G3courseController@weeklyreport')->name('weeklyreport3g');
   Route::any('/finalreport3g', 'G3courseController@finalreport')->name('finalreport3g');
 
+  Route::any('/3g/finalreport', 'G3courseController@finalreport3g');
+  Route::any('/3g/weeklyreport', 'G3courseController@weeklyreport3g');
 
   Route::get('/level3m', 'M3courseController@index');
   Route::any('/attendance3m', 'M3courseController@attendance')->name('attendance');

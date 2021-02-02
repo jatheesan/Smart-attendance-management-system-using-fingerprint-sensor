@@ -83,6 +83,30 @@ class G3courseController extends Controller
        
     }
 
+    public function finalreport3g(){
+        $semester = DB::table('variables')->where('name', 'semester')->value('value');
+        $course = Course::where('course_level', '3G')->where('semester','=', $semester )->select('course_code')->get();
+        $g3_st=Student::whereIn('st_level', ['3G','3M'])->orderBy('st_regno','asc')->paginate(10);
+        $attendances = Attendance_3G_Student::with('student')->get();
+        $g3_hourssum = Attendance_3G_Student::groupBy('course_code')->select('course_code',DB::raw('sum(hours) as sum'))->get();
+       
+       return view('level_3.3gcourse.3g_report', compact('course','semester','g3_st','attendances','g3_hourssum')); 
+    }
+
+    public function weeklyreport3g(Request $request){
+        $to = $request->input('todate');
+        $from = $request->input('fromdate');
+
+        $semester = DB::table('variables')->where('name', 'semester')->value('value');
+        $course = Course::where('course_level', '3G')->where('semester','=', $semester )->select('course_code')->get();
+        $g3_st=Student::whereIn('st_level', ['3G','3M'])->orderBy('st_regno','asc')->paginate(10);
+        $attendances = Attendance_3G_Student::with('student')->whereBetween('date', [$from, $to])->get();
+        $g3_hourssum = Attendance_3G_Student::whereBetween('date', [$from, $to])->groupBy('course_code')->select('course_code',DB::raw('sum(hours) as sum'))->get();
+        
+        return view('level_3.3gcourse.3g_report', compact('course','semester','g3_st','attendances','g3_hourssum','to','from')); 
+
+    }
+
 
 
 
