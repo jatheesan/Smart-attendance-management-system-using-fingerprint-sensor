@@ -1,49 +1,11 @@
-@extends('layouts.admin')
-@section('main')
-<div class="row">
-<div class="col-sm-12">
-<h1 class="display-3">Users</h1>
-<div>
-<a style="margin: 19px;" href="{{ url('create') }}" class="btn btn-primary">New contact</a>
-</div>
-{{--<div class="col-sm-12">
-@if(session()->get('success'))
-<div class="alert alert-success">
-{{ session()->get('success') }}
-</div>
-@endif
-</div> --}}
-<table class="table table-striped">
-<thead>
-<tr>
-<td>ID</td>
-<td>Name</td>
-<td>Email</td>
-<td>Role</td>
-<td colspan = 2>Actions</td>
-</tr>
-</thead>
-<tbody>
-@foreach($users as $user)
-<tr>
-<td>{{$user->id}}</td>
-<td>{{$user->name}}</td>
-<td>{{$user->email}}</td>
-<td>{{$user->role}}</td>
-<td>
-<a href="{{ route('edit', ['id' => $user->id]) }}" class="btn btn-primary">Edit</a>
-</td>
-<td>
-<form action="{{ route('delete', ['id' => $user->id]) }}" method="post">
-@csrf
-@method('DELETE')
-<button class="btn btn-danger" type="submit">Delete</button>
-</form>
-</td>
-</tr>
-@endforeach
-</tbody>
-</table>
-<div>
-</div>
-@endsection
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>AMMA & APPA</h1>
+</body>
+</html>

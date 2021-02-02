@@ -92,6 +92,8 @@ Route::group(['middleware' => ['auth', 'role']], function() {
   Route::any('/attendance', 'S3courseController@attendance')->name('attendance');
   Route::any('/weeklyreport', 'S3courseController@weeklyreport')->name('weeklyreport');
   Route::any('/finalreport', 'S3courseController@finalreport')->name('finalreport');
+  Route::get('/finalreport/downloadpdf', 'S3courseController@finalreport_download')->name('finalreport-downloadpdf');
+  Route::get('/downloadpdf', 'S3courseController@downloadPDF');
 
   Route::get('/level3g', 'G3courseController@index');
   Route::any('/attendance3g', 'G3courseController@attendance')->name('attendance');
