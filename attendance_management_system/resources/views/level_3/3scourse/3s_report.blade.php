@@ -1,5 +1,36 @@
+@extends('level_3.3scourse.3scourses')
+@section('pagetitle', 'Attandance/level3/3S/final-report')
+@section('levelcontent')
 
- 
+<div class="col-sm-12" style="border: 5px solid; border-radius: 8px; padding:0px !important; margin-bottom:10px;">
+    <div class="row justify-content-center">
+        <div class="col-sm-3 col-12 p-3 justify-content-center">
+            <div class="brand-text d-none d-lg-inline-block"><img
+                    src="{{ asset('image/SAMS.png') }}" width="200px" alt="..."
+                    class="img-fluid d-inline-block align-top"></div>
+            <div class="brand-text d-none d-sm-inline-block d-lg-none"><img
+                    src="{{ asset('image/SAMS.png') }}" width="200px" alt="..."
+                    class="img-fluid d-inline-block align-top"></div>
+        </div>
+        <div class="col-sm-9 col-12">
+            <div class="row">
+                <div class="col-sm-12 text-center p-2">
+                    <h1 class="h1font">Percentage Report of the Attendance</h1>
+                </div>
+                <div class="col-sm-6 text-center">
+                    <p class="text-center"><b>Level: </b>3S</p>
+                </div>
+                <div class="col-sm-6 text-center">
+                    <p class="text-center"><b>Semester: </b>{{ $semester }}</p>
+                </div>
+                @if(isset($to))
+                <div class="col-sm-6">
+                    <p class="text-center"><b>Period: </b>{{ $from }}<b><u> To </u></b>{{ $to }}</p>
+                </div>
+                @endif
+            </div>
+        </div>
+    </div>
     <div class="table-responsive" style="display:flex !important;">
         <table class="table table-striped table-hover table-bordered">
             <thead class="thead-dark" style="background: #053469; color:#fff;">
@@ -116,8 +147,10 @@
             </tbody>
         </table>  
     </div>
+</div>
 
     {{ $s3_st->appends(request()->input())->links() }} 
+@endsection
 
     
 
