@@ -24,7 +24,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="{{ url('/weeklyreport3s') }}" method="POST">
+                                        <form action="{{ url('/3s/weeklyreport') }}" method="POST">
                                             @csrf
                                             <div class="form-row">
                                                 <div class="col">
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="col-6 d-flex justify-content-center">
-                        <a class="btn" href="{{url('/finalreport3s')}}" role="button" style="background:#8601af !important; color:#fff;">3S final report</a>
+                        <a class="btn" href="{{url('/3s/finalreport')}}" role="button" style="background:#8601af !important; color:#fff;">3S final report</a>
                     </div>
                 </div>
                 {{--<hr /> --}}
