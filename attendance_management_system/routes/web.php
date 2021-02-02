@@ -107,9 +107,9 @@ Route::group(['middleware' => ['auth', 'role']], function() {
   Route::any('/report3s', 'S3courseController@report');
 
   
-  // Route::get('/level3s', function () {
-  //   return view('level_3.3scourse.3scourses');
-  // });
+//   Route::get('/level3s', function () {
+//      return view('level_3.3scourse.3scourses');
+//   });
 });
 
 
