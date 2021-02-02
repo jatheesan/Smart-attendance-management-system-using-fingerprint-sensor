@@ -111,8 +111,8 @@ Route::group(['middleware' => ['auth', 'role']], function() {
   Route::any('/weeklyreport3m', 'M3courseController@weeklyreport')->name('weeklyreport3m');
   Route::any('/finalreport3m', 'M3courseController@finalreport')->name('finalreport3m');
 
-  Route::any('/finalreport3m', 'M3courseController@finalreport3m');
-  Route::any('/weeklyreport3m', 'M3courseController@weeklyreport3m');
+  Route::any('/3m/finalreport', 'M3courseController@finalreport3m');
+  Route::any('/3m/weeklyreport', 'M3courseController@weeklyreport3m');
 
   Route::any('/report3s', 'S3courseController@finalreport3s');
 
