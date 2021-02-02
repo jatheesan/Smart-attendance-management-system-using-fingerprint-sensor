@@ -143,7 +143,7 @@
                                         $st_count=0; 
                                         $st_hours=0; 
                                     @endphp
-
+                           
                                     @foreach($attendances as $attendance)
                                         <td>
                                             @if (is_array($attendance->attendance_mark) || is_object($attendance->attendance_mark))
@@ -259,6 +259,7 @@
                         </table>
                     </div>
             </div>
-            {{ $s3_st->appends(request()->input())->links() }}   
-        @endif      
+            
+        @endif   
+        {{ $s3_st->appends(request()->input())->links() }}  
 @endsection

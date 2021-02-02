@@ -87,7 +87,7 @@
                                     <p class="t-left"><b>Course Name: </b>@foreach($g3_cname as $g3cname) {{ $g3cname->course_name }} @endforeach</p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p class="t-left"><b>Level: </b>3S</p>
+                                    <p class="t-left"><b>Level: </b>3G</p>
                                 </div>
                                 <div class="col-sm-6">
                                     <p class="t-left"><b>Lecturer Name: </b>@foreach($lecturer_name as $lname) {{$lname->lect_title. $lname -> lect_name}} @endforeach</p>
