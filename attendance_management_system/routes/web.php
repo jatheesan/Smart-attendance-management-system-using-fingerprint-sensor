@@ -104,7 +104,9 @@ Route::group(['middleware' => ['auth', 'role']], function() {
   Route::any('/weeklyreport3m', 'M3courseController@weeklyreport')->name('weeklyreport3m');
   Route::any('/finalreport3m', 'M3courseController@finalreport')->name('finalreport3m');
 
+  Route::any('/report3s', 'S3courseController@report');
 
+  
   // Route::get('/level3s', function () {
   //   return view('level_3.3scourse.3scourses');
   // });

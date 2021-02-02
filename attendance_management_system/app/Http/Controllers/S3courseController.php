@@ -81,6 +81,37 @@ class S3courseController extends Controller
         $lecturer_name= Course::join('lecturers','courses.lect_id','=','lecturers.lect_id')->where('course_code','=', $course)->select('lect_name','lect_title')->get();
         return view('level_3.3scourse.3s_finalreport', compact('course', 'attendances', 's3_courses','s3_st','count3s','s3_coursecount','s3_cname','s3_hourssum','lecturer_name'));
     }
+    
+      /* 3s final semester report */
+ 
+
+    public function report(){
+        $semester = DB::table('variables')->where('name', 'semester')->value('value');
+        $course = Course::where('course_level', '3S')->where('semester','=', $semester )->select('course_code')->get();
+        $s3_st=Student::where('st_level','3S')->orderBy('st_regno','asc')->paginate(10);
+        $attendances = Attendance_3S_Student::with('student')->get();
+        $s3_hourssum = Attendance_3S_Student::groupBy('course_code')->select('course_code',DB::raw('sum(hours) as sum'))->get();
+       // $s3_coursecount = Attendance_3S_Student::groupBy('course_code')->select('course_code',DB::raw('count(course_code) as count'))->get();
+       
+       return view('level_3.3scourse.3s_report', compact('course','semester','s3_st','attendances','s3_hourssum')); 
+    }
+
+
+  /* 3s final weekly report */
+
+    // public function weeklyreport3s(Request $request){
+    //     $to = $request->input('todate');
+    //     $from = $request->input('fromdate');
+
+    //     $semester = DB::table('variables')->where('name', 'semester')->value('value');
+    //     $course = Course::where('course_level', '3S')->where('semester','=', $semester )->select('course_code')->get();
+    //     $s3_st=Student::where('st_level','3S')->orderBy('st_regno','asc')->paginate(10);
+    //     $attendances = Attendance_3S_Student::with('student')->whereBetween('date', [$from, $to])->get();
+    //     $s3_hourssum = Attendance_3S_Student::whereBetween('date', [$from, $to])->groupBy('course_code')->select('course_code',DB::raw('sum(hours) as sum'))->get();
+        
+    //     return view('level_3.3scourse.3s_report', compact('course','semester','s3_st','attendances','s3_hourssum','to','from')); 
+
+    // }
 
 
 }
