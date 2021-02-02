@@ -92,24 +92,34 @@ Route::group(['middleware' => ['auth', 'role']], function() {
   Route::any('/attendance', 'S3courseController@attendance')->name('attendance');
   Route::any('/weeklyreport', 'S3courseController@weeklyreport')->name('weeklyreport');
   Route::any('/finalreport', 'S3courseController@finalreport')->name('finalreport');
+  Route::get('/finalreport/downloadpdf', 'S3courseController@finalreport_download')->name('finalreport-downloadpdf');
+  Route::get('/downloadpdf', 'S3courseController@downloadPDF');
+
+  Route::any('/3s/finalreport', 'S3courseController@finalreport3s');
+  Route::any('/3s/weeklyreport', 'S3courseController@weeklyreport3s');
 
   Route::get('/level3g', 'G3courseController@index');
   Route::any('/attendance3g', 'G3courseController@attendance')->name('attendance');
   Route::any('/weeklyreport3g', 'G3courseController@weeklyreport')->name('weeklyreport3g');
   Route::any('/finalreport3g', 'G3courseController@finalreport')->name('finalreport3g');
 
+  Route::any('/3g/finalreport', 'G3courseController@finalreport3g');
+  Route::any('/3g/weeklyreport', 'G3courseController@weeklyreport3g');
 
   Route::get('/level3m', 'M3courseController@index');
   Route::any('/attendance3m', 'M3courseController@attendance')->name('attendance');
   Route::any('/weeklyreport3m', 'M3courseController@weeklyreport')->name('weeklyreport3m');
   Route::any('/finalreport3m', 'M3courseController@finalreport')->name('finalreport3m');
 
-  Route::any('/report3s', 'S3courseController@report');
+  Route::any('/3m/finalreport', 'M3courseController@finalreport3m');
+  Route::any('/3m/weeklyreport', 'M3courseController@weeklyreport3m');
+
+  //Route::any('/report3s', 'S3courseController@finalreport3s');
 
   
-  // Route::get('/level3s', function () {
-  //   return view('level_3.3scourse.3scourses');
-  // });
+//   Route::get('/level3s', function () {
+//      return view('level_3.3scourse.3scourses');
+//   });
 });
 
 

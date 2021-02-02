@@ -84,4 +84,30 @@ class M3courseController extends Controller
      
     }
 
+    public function finalreport3m(){
+        $semester = DB::table('variables')->where('name', 'semester')->value('value');
+        $course = Course::where('course_level', '3M')->where('semester','=', $semester )->select('course_code')->get();
+        $m3_st=Student::where('st_level','3M')->orderBy('st_regno','asc')->paginate(10);
+        $attendances = Attendance_3M_Student::with('student')->get();
+        $m3_hourssum = Attendance_3M_Student::groupBy('course_code')->select('course_code',DB::raw('sum(hours) as sum'))->get();
+       
+       return view('level_3.3mcourse.3m_report', compact('course','semester','m3_st','attendances','m3_hourssum')); 
+    }
+
+    public function weeklyreport3m(Request $request){
+        $to = $request->input('todate');
+        $from = $request->input('fromdate');
+
+        $semester = DB::table('variables')->where('name', 'semester')->value('value');
+        $course = Course::where('course_level', '3M')->where('semester','=', $semester )->select('course_code')->get();
+        $m3_st=Student::where('st_level','3M')->orderBy('st_regno','asc')->paginate(10);
+        $attendances = Attendance_3M_Student::with('student')->whereBetween('date', [$from, $to])->get();
+        $m3_hourssum = Attendance_3M_Student::whereBetween('date', [$from, $to])->groupBy('course_code')->select('course_code',DB::raw('sum(hours) as sum'))->get();
+        
+        return view('level_3.3mcourse.3m_report', compact('course','semester','m3_st','attendances','m3_hourssum','to','from')); 
+
+    }
+
+
+
 }

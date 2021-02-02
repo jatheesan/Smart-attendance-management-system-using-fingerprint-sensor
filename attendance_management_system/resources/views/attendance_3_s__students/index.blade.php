@@ -2,6 +2,64 @@
 @section('pagetitle', 'Attandance/level3/3S')
 @section('levelcontent')
 
+        <div class="col-lg-12">
+            <section class="landing">
+                <hr />
+                <div class="row">
+                    <div class="col-6 d-flex justify-content-center">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn" data-toggle="modal" data-target="#weeklyModal" style="background:#8601af !important; color:#fff;">
+                            3S Weekly Report
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="weeklyModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title" id="exampleModalLabel">Weekly Report</h3>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="{{ url('/3s/weeklyreport') }}" method="POST">
+                                            @csrf
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <label for="fromdate">From:</label>
+                                                    <input type="date" class="form-control" name="fromdate"
+                                                        id="fromdate" placeholder="From">
+                                                </div>
+                                                <div class="col">
+                                                    <label for="todate">To:</label>
+                                                    <input type="date" class="form-control" name="todate" id="todate"
+                                                        placeholder="To">
+                                                </div>
+                                            </div>
+                                            <div class="form-row justify-content-end p-3">
+                                                <button class="btn btn-info" type="submit">Get Report</button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 d-flex justify-content-center">
+                        <a class="btn" href="{{url('/3s/finalreport')}}" role="button" style="background:#8601af !important; color:#fff;">3S final report</a>
+                    </div>
+                </div>
+                {{--<hr /> --}}
+            </section>
+        </div>
+
     @if(Session::has('success_message'))
         <div class="alert alert-success">
             <span class="glyphicon glyphicon-ok"></span>

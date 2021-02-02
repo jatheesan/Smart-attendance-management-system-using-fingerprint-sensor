@@ -1,5 +1,5 @@
-@extends('level_3.3scourse.3scourses')
-@section('pagetitle', 'Attandance/level3/3S/final-report')
+@extends('level_3.3gcourse.3gcourses')
+@section('pagetitle', 'Attandance/level3/3G/final-report')
 @section('levelcontent')
 
 <div class="col-sm-12" style="border: 5px solid; border-radius: 8px; padding:0px !important; margin-bottom:10px;">
@@ -21,7 +21,7 @@
                     <p class="text-center"><b>Department: </b>Department of Computer Science</p>
                 </div>
                 <div class="col-sm-6 text-center">
-                    <p class="text-center"><b>Level: </b>3S</p>
+                    <p class="text-center"><b>Level: </b>3G</p>
                 </div>
                 <div class="col-sm-6 text-center">
                     <p class="text-center"><b>Semester: </b>{{ $semester }}</p>
@@ -41,7 +41,7 @@
                     <th colspan="3">Course Code</th>
                    
                     @foreach($course as $c)
-                     @foreach($s3_hourssum as $hourssum)  
+                     @foreach($g3_hourssum as $hourssum)  
                        @if($hourssum->course_code ==$c->course_code )
                          <th colspan="2">
                            @php 
@@ -61,7 +61,7 @@
                     <th colspan="3">No.of Lecture Hours</th>
                    
                     @foreach($course as $c)
-                     @foreach($s3_hourssum as $hourssum)  
+                     @foreach($g3_hourssum as $hourssum)  
                        @if($hourssum->course_code ==$c->course_code )
                          <th colspan="2">
                            @php 
@@ -82,7 +82,7 @@
                     <th>Registration No</th>
                     <th>Full Name</th>
                     @foreach($course as $c)
-                     @foreach($s3_hourssum as $hourssum)  
+                     @foreach($g3_hourssum as $hourssum)  
                        @if($hourssum->course_code ==$c->course_code )
                          <th>Attn</th>
                          <th>%</th>
@@ -94,11 +94,11 @@
 
             </thead>
             <tbody>
-            @foreach($s3_st as $key => $s3st)
+            @foreach($g3_st as $key => $g3st)
                 <tr>
-                    <td>{{$s3_st ->firstitem()+$key}}</td> 
-                    <td>{{ $s3st->st_regno }}</td>
-                    <td>{{ $s3st->st_name }}</td>
+                    <td>{{$g3_st ->firstitem()+$key}}</td> 
+                    <td>{{ $g3st->st_regno }}</td>
+                    <td>{{ $g3st->st_name }}</td>
 
                         @foreach($course as $c)     
                             @php  
@@ -108,7 +108,7 @@
                             @foreach($attendances as $attendance)
                                 @if($c->course_code == $attendance->course_code)
                                      @if (is_array($attendance->attendance_mark) || is_object($attendance->attendance_mark))
-                                        @if(in_array( $s3st->st_regno,$attendance->attendance_mark))  
+                                        @if(in_array( $g3st->st_regno,$attendance->attendance_mark))  
                                                 @php 
                                                     $st_hours=$st_hours+ $attendance->hours;
                                                 @endphp
@@ -117,7 +117,7 @@
                                 @endif  
                             @endforeach
 
-                            @foreach($s3_hourssum as $hourssum)  
+                            @foreach($g3_hourssum as $hourssum)  
                                 @if($hourssum->course_code ==$c->course_code )
                                     <td>
                                         @php 
@@ -127,7 +127,7 @@
                                 @endif  
                             @endforeach 
 
-                            @foreach($s3_hourssum as $hourssum)  
+                            @foreach($g3_hourssum as $hourssum)  
                                 @if($hourssum->course_code ==$c->course_code )
                                     <td>
                                         @php 
@@ -150,10 +150,5 @@
         </table>  
     </div>
 </div>
-    {{ $s3_st->appends(request()->input())->links() }}
+    {{ $g3_st->appends(request()->input())->links() }}
 @endsection
-
-    
-
-  
-  
