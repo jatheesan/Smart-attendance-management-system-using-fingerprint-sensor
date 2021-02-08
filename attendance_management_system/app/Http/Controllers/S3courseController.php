@@ -106,6 +106,7 @@ class S3courseController extends Controller
 
     public function downloadPDF()
     {
+       // $pdf = PDF::loadView('level_3.3scourse.3s_finalreport_pdfdownload');
         $pdf = PDF::loadView('dommy');
         
         return $pdf->setPaper('a4', 'landscape')->download('report-list.pdf');
