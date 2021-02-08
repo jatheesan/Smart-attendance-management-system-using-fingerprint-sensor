@@ -26,10 +26,10 @@ class DashboardController extends Controller
         $threescourses = Course::where('course_level', 'like', '%'.'3S'.'%')->get();
         $threemcourses = Course::where('course_level', 'like', '%'.'3M'.'%')->get();
         $threegcourses = Course::where('course_level', 'like', '%'.'3G'.'%')->get();
-        //$fourscourses = Course::where('course_level', 'like', '%'.'4S'.'%')->get();
-        //$fourmcourses = Course::where('course_level', 'like', '%'.'4M'.'%')->get();
+        $fourscourses = Course::where('course_level', 'like', '%'.'4S'.'%')->get();
+        $fourmcourses = Course::where('course_level', 'like', '%'.'4M'.'%')->get();
 
-        return view('dashboard', compact('courses_count', 'students_count' ,'lecturers_count', 'onescourses', 'onegcourses', 'twoscourses', 'twogcourses', 'threescourses', 'threemcourses', 'threegcourses'));
+        return view('dashboard', compact('courses_count', 'students_count' ,'lecturers_count', 'onescourses', 'onegcourses', 'twoscourses', 'twogcourses', 'threescourses', 'threemcourses', 'threegcourses','fourscourses','fourmcourses'));
 
     }
 }

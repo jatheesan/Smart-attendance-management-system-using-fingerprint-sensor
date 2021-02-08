@@ -394,6 +394,92 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-close">
+                                <div class="dropdown">
+                                    <button type="button" id="closeCard3" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false" class="dropdown-toggle"><i
+                                            class="fa fa-ellipsis-v"></i></button>
+                                    <div aria-labelledby="closeCard3"
+                                        class="dropdown-menu dropdown-menu-right has-shadow"><a href="#"
+                                            class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a
+                                            href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-header d-flex align-items-center">
+                                <h3 class="h4">4S</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-sm">
+                                        <thead>
+                                            <tr>
+                                                {{-- <th>Course ID</th> --}}
+                                                <th>Course Code</th>
+                                                <th>Course Name</th>
+                                                <th>Semester</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($fourscourses  as $fourscourse)
+                                                <tr>
+                                                    {{-- <td>{{ $threegcourse->course_id }}</td>--}}
+                                                    <td>{{ $fourscourse ->course_code }}</td>
+                                                    <td>{{ $fourscourse ->course_name }}</td>
+                                                    <td>{{ $fourscourse ->semester }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-close">
+                                <div class="dropdown">
+                                    <button type="button" id="closeCard3" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false" class="dropdown-toggle"><i
+                                            class="fa fa-ellipsis-v"></i></button>
+                                    <div aria-labelledby="closeCard3"
+                                        class="dropdown-menu dropdown-menu-right has-shadow"><a href="#"
+                                            class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a
+                                            href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-header d-flex align-items-center">
+                                <h3 class="h4">4M</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-sm">
+                                        <thead>
+                                            <tr>
+                                                {{-- <th>Course ID</th> --}}
+                                                <th>Course Code</th>
+                                                <th>Course Name</th>
+                                                <th>Semester</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($fourmcourses  as $fourmcourse )
+                                                <tr>
+                                                    {{-- <td>{{ $threegcourse->course_id }}</td>--}}
+                                                    <td>{{ $fourmcourse ->course_code }}</td>
+                                                    <td>{{ $fourmcourse ->course_name }}</td>
+                                                    <td>{{ $fourmcourse ->semester }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
